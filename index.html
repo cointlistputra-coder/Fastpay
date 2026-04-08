@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Done Cogel x PaySolusi - Master Hub v25.29 ULTIMATE</title>
+    
+    <!-- SDK & FONTS -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root { --primary: #3b82f6; --accent: #00f2ff; --dark: #020617; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: #f8fafc; overflow-x: hidden; }
+        
+        .ai-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border-radius: 25px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
+        .glass-card:hover { border: 1px solid var(--accent); transform: translateY(-3px); }
+        
+        .page-section { display: none; opacity: 0; }
+        .page-active { display: block !important; animation: fadeInUp 0.5s forwards; }
+
+        /* Floating Testi */
+        .notif-float { position: fixed; bottom: 20px; left: 20px; z-index: 2000; background: white; color: #020617; padding: 12px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 12px; border-left: 5px solid #22c55e; pointer-events: none; }
+
+        input, select, textarea { background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: white !important; border-radius: 12px !important; }
+        .rainbow-text { animation: rainbow 3s linear infinite; background: linear-gradient(to right, #ff0000, #00f2ff, #8b5cf6, #ff0000); background-size: 200%; -webkit-background-clip: text; color: transparent; font-weight: 900; }
+        @keyframes rainbow { to { background-position: 200% center; } }
+        
+        #infoModal { display: none; position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 20px; }
+        .cart-badge { background: #ef4444; color: white; font-size: 9px; padding: 1px 5px; border-radius: 50%; font-weight: 800; margin-left: 4px; }
+
+        /* --- WA FLOATING CANGGIH --- */
+        .wa-floating-btn {
+            position: fixed; bottom: 30px; right: 30px; z-index: 5000;
+            width: 70px; height: 70px; border-radius: 50%;
+            background: linear-gradient(45deg, #25d366, #00f2ff, #a855f7, #25d366);
+            background-size: 300% 300%;
+            animation: rainbow 4s ease infinite, pulseWA 2s infinite;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6);
+            cursor: pointer; transition: 0.4s;
+        }
+        .wa-floating-btn:hover { transform: scale(1.1) rotate(15deg); }
+        .wa-floating-btn i { font-size: 38px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        @keyframes pulseWA {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- PAYMENT & OPERATIONAL STYLES --- */
+        .status-tag { background: rgba(0, 242, 255, 0.1); border: 1px solid var(--accent); padding: 2px 10px; border-radius: 50px; font-size: 8px; color: var(--accent); font-weight: 900; text-transform: uppercase; }
+        .pay-method-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 15px; transition: 0.3s; text-align: center; }
+        .pay-method-card:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); transform: translateY(-3px); }
+        .pay-method-card i { font-size: 20px; margin-bottom: 8px; display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="ai-bg"></div>
+    <div id="notifContainer"></div>
+
+    <!-- LOGO WA MENGAMBANG -->
+    <div class="wa-floating-btn" onclick="orderViaWA('Halo Admin, Saya butuh bantuan segera!')">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- TOP BAR (SEARCH & CART & AUTH) -->
+    <div class="bg-blue-600 py-3 px-6 flex flex-wrap justify-between items-center gap-4 sticky top-0 z-[100] shadow-2xl">
+        <div class="flex items-center gap-4 flex-1 max-w-lg">
+            <div class="relative w-full">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-white/50"></i>
+                <input type="text" id="globalSearch" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/40 focus:ring-2 focus:ring-white/30">
+            </div>
+            <button onclick="showPage('cart')" class="bg-white/10 px-4 py-2 rounded-full text-white text-xs font-black flex items-center shrink-0">
+                <i class="fas fa-shopping-basket mr-2"></i> CART <span id="cartCountTop" class="cart-badge">0</span>
+            </button>
+        </div>
+        <div id="navAuth" class="flex gap-3 text-[10px] font-black uppercase italic">
+            <button onclick="showPage('login')" class="text-white underline">Login</button>
+            <button onclick="showPage('login'); toggleAuth('register')" class="bg-white text-blue-600 px-4 py-2 rounded-full">Daftar Member</button>
+        </div>
+        <div id="navUser" class="hidden flex gap-4 items-center text-[10px] font-black uppercase italic text-white">
+            <span id="userNameTop" class="text-accent underline">GUEST</span>
+            <button id="adminBtn" onclick="showPage('admin')" class="hidden bg-purple-500 px-3 py-1 rounded">ADMIN</button>
+            <button onclick="logout()" class="text-red-400">Logout</button>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav class="bg-black/40 backdrop-blur-md border-b border-white/10 h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+            <a onclick="showPage('home')" class="flex items-center gap-2 cursor-pointer">
+                <div class="bg-blue-600 p-2 rounded-lg text-white"><i class="fab fa-paypal text-xl"></i></div>
+                <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
+                <a onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
+                <a onclick="showPage('jbayar')" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
+                <a onclick="showPage('bengkel')" class="hover:text-red-400 cursor-pointer">Bengkel</a>
+                <a onclick="showPage('blog')" class="hover:text-blue-400 cursor-pointer">Blog</a>
+                <a onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
+                <a onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
+                <a onclick="showPage('lapor')" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
+            </div>
+            <button onclick="toggleMobile()" class="lg:hidden text-white text-2xl"><i class="fas fa-bars-staggered"></i></button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 p-6 space-y-4 border-b border-blue-500 text-[10px] font-black uppercase italic">
+        <a onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
+        <a onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
+        <a onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
+        <a onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
+        <a onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
+        <a onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
+        <a onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
+    </div>
+
+    <!-- MODAL POPUP -->
+    <div id="infoModal" onclick="closeModal()">
+        <div class="glass-card max-w-3xl w-full p-8 animate__animated animate__zoomIn overflow-y-auto max-h-[90vh]" onclick="event.stopPropagation()">
+            <div id="modalIcon" class="text-5xl text-blue-500 mb-4"></div>
+            <h2 id="modalTitle" class="text-3xl font-black uppercase italic text-blue-400 mb-6 border-b border-white/10 pb-4"></h2>
+            <img src="" id="modalImg" class="w-full rounded-2xl mb-6 hidden border border-white/10">
+            <div id="modalBody" class="text-slate-300 leading-relaxed italic text-lg space-y-4"></div>
+            <div class="mt-10 flex gap-4">
+                <button onclick="closeModal()" class="bg-white/10 px-8 py-3 rounded-full font-bold uppercase text-xs">Tutup</button>
+                <button onclick="orderViaWA()" class="bg-blue-600 px-8 py-3 rounded-full font-bold uppercase text-xs">Chat Admin</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: HOME -->
+    <main id="homePage" class="page-section page-active py-16 px-4">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8 animate__animated animate__fadeInLeft">
+                <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter leading-none text-white">Supreme <br><span class="text-blue-500">PayPal</span> Hub.</h1>
+                <p class="text-lg text-slate-400 italic">Solusi Jasa Bayar, Convert, dan Perbaikan Akun Tercepat di Indonesia.</p>
+                <div class="bg-blue-600/10 p-4 rounded-2xl border border-blue-500/20 inline-block">
+                    <span class="rainbow-text text-sm">WD LIMIT 180 HARI & RESTORE AKUN READY!</span>
+                </div>
+            </div>
+            <!-- CALC -->
+            <div class="glass-card p-10 border-2 border-white/5 shadow-2xl">
+                <div class="flex bg-black/40 p-1 rounded-xl mb-8 relative h-12">
+                    <div id="toggleSelector" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-blue-600 rounded-lg transition-all duration-300"></div>
+                    <button onclick="setMode('jual')" class="flex-1 relative z-10 font-black uppercase italic text-[10px] text-white">Jual Saldo</button>
+                    <button onclick="setMode('beli')" class="flex-1 relative z-10 font-black uppercase italic text-[10px] text-white">Beli Saldo</button>
+                </div>
+                <div class="space-y-6">
+                    <div class="relative"><label class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none"></div>
+                    <div class="bg-blue-500/10 p-6 rounded-xl border-l-4 border-blue-500">
+                        <p id="displayIDR" class="text-4xl font-black text-blue-400">Rp 0</p>
+                        <p class="text-[10px] mt-2 text-slate-500 uppercase font-bold italic">Rate: Rp <span id="rateLabel">0</span></p>
+                    </div>
+                    <button onclick="orderViaWA()" class="w-full bg-green-500 py-4 rounded-xl font-black uppercase italic text-sm text-white shadow-xl hover:bg-green-700 transition flex items-center justify-center gap-3"><i class="fab fa-whatsapp text-xl"></i> ORDER SEKARANG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: MENU SISTEM JAM KERJA & PEMBAYARAN CANGGIH -->
+        <section class="mt-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+            <!-- JAM KERJA -->
+            <div class="glass-card p-10 bg-gradient-to-br from-blue-900/20 to-transparent border-l-4 border-blue-500">
+                <div class="flex justify-between items-start mb-8">
+                    <div>
+                        <h3 class="text-2xl font-black uppercase italic text-white leading-none">Operational <br><span class="text-blue-500">Status</span></h3>
+                        <p class="text-[9px] text-slate-500 mt-2 uppercase font-bold tracking-widest">Active Server Hours</p>
+                    </div>
+                    <span class="status-tag">Live Now</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <span class="text-[10px] font-black uppercase italic text-slate-400">Senin - Sabtu</span>
+                        <span class="text-sm font-black text-white italic">08:00 - 22:00 <span class="text-blue-500">WIB</span></span>
+                    </div>
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <span class="text-[10px] font-black uppercase italic text-slate-400">Minggu / Libur</span>
+                        <span class="text-sm font-black text-white italic">10:00 - 20:00 <span class="text-blue-500">WIB</span></span>
+                    </div>
+                    <p class="text-[9px] text-slate-600 italic">* Transaksi diluar jam kerja akan diproses secara otomatis saat jam operasional dimulai kembali.</p>
+                </div>
+            </div>
+            <!-- PEMBAYARAN -->
+            <div class="glass-card p-10 bg-gradient-to-br from-cyan-900/20 to-transparent border-l-4 border-accent">
+                <h3 class="text-2xl font-black uppercase italic text-white mb-2 leading-none">Payment <br><span class="text-accent">Ecosystem</span></h3>
+                <p class="text-[9px] text-slate-500 mb-8 uppercase font-bold tracking-widest">All Indonesian Bank & E-Wallet</p>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="pay-method-card"><i class="fas fa-university text-blue-400"></i><span class="text-[8px] font-black italic">BCA</span></div>
+                    <div class="pay-method-card"><i class="fas fa-university text-yellow-500"></i><span class="text-[8px] font-black italic">MANDIRI</span></div>
+                    <div class="pay-method-card"><i class="fas fa-university text-orange-500"></i><span class="text-[8px] font-black italic">BNI</span></div>
+                    <div class="pay-method-card"><i class="fas fa-university text-blue-600"></i><span class="text-[8px] font-black italic">BRI</span></div>
+                    <div class="pay-method-card"><i class="fas fa-wallet text-cyan-400"></i><span class="text-[8px] font-black italic text-cyan-400">DANA</span></div>
+                    <div class="pay-method-card"><i class="fas fa-wallet text-purple-500"></i><span class="text-[8px] font-black italic text-purple-500">OVO</span></div>
+                    <div class="pay-method-card"><i class="fas fa-wallet text-green-500"></i><span class="text-[8px] font-black italic text-green-500">GOPAY</span></div>
+                    <div class="pay-method-card"><i class="fas fa-wallet text-orange-600"></i><span class="text-[8px] font-black italic text-orange-600">SHOPEE</span></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PUSAT BANTUAN (17 ITEMS) -->
+        <section class="mt-24 max-w-7xl mx-auto">
+            <h2 class="text-3xl font-black uppercase italic text-center mb-12 text-white">Supreme <span class="text-blue-600">Help Center</span></h2>
+            <div id="helpGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
+        </section>
+    </main>
+
+    <!-- PAGE: JASA BAYAR -->
+    <main id="jbayarPage" class="page-section py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white italic">Global <span class="text-green-500">Payment</span></h2><p class="text-slate-400 mt-4 italic">Belanja dari situs manapun di dunia tanpa kartu kredit pribadi.</p></div>
+        <div id="jbayarGrid" class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto"></div>
+    </main>
+
+    <!-- PAGE: BENGKEL SPECIALIST -->
+    <main id="bengkelPage" class="page-section py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white italic">Bengkel <span class="text-red-500">Specialist</span></h2><p class="text-slate-400 mt-4 italic">Layanan pemulihan dana dan perbaikan akun tingkat expert.</p></div>
+        <div id="bengkelGrid" class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto"></div>
+    </main>
+
+    <!-- PAGE: BLOG (20 POSTS) -->
+    <main id="blogPage" class="page-section py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white italic">Educational <span class="text-blue-500">Blog Hub</span></h2></div>
+        <div id="blogGrid" class="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto"></div>
+        <div id="blogPagination" class="flex justify-center mt-16 gap-3"></div>
+    </main>
+
+    <!-- PAGE: TUTORIAL AI VISUAL -->
+    <main id="tutorialPage" class="page-section py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white">Visual <span class="text-blue-500">AI Guide</span></h2><p class="text-slate-400 mt-4 italic">Panduan Visual berbasis AI untuk kemudahan PayPal Anda.</p></div>
+        <div id="tutorialGrid" class="grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"></div>
+    </main>
+
+    <!-- PAGE: FAQ & TOS -->
+    <main id="faqPage" class="page-section py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-black uppercase italic text-center mb-16 text-white italic">FAQ & <span class="text-blue-500">TOS</span></h2>
+            <div id="faqGrid" class="space-y-4 mb-20"></div>
+            <div class="glass-card p-10 bg-white/5">
+                <h3 class="text-2xl font-black uppercase italic text-blue-500 mb-8 border-b border-white/10 pb-4 italic underline">Syarat & Ketentuan Layanan</h3>
+                <div id="tosContent" class="space-y-6 text-sm text-slate-300 italic leading-relaxed"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PAGE: LAPORAN (TELEGRAM CONNECT) -->
+    <main id="laporPage" class="page-section py-20 px-4">
+        <div class="max-w-xl mx-auto glass-card p-10 border-orange-500/20 bg-orange-500/5">
+            <h2 class="text-2xl font-black uppercase italic text-orange-400 mb-8 flex items-center gap-4 italic"><i class="fas fa-bullhorn"></i> Keluhan Member</h2>
+            <form id="reportForm" class="space-y-4">
+                <div><label class="text-[9px] font-black uppercase italic text-slate-500">Kategori Laporan</label><select id="repCat" class="w-full p-3 mt-1 outline-none"><option>Masalah Transaksi</option><option>Dana Belum Cair</option><option>Saran & Masukan</option></select></div>
+                <div><label class="text-[9px] font-black uppercase italic text-slate-500">Isi Keluhan</label><textarea id="repMsg" rows="5" class="w-full p-3 mt-1 outline-none" placeholder="Tuliskan keluhan Anda..."></textarea></div>
+                <div><label class="text-[9px] font-black uppercase italic text-slate-500">Upload Bukti Foto (Galeri)</label><input type="file" id="repFile" accept="image/*" class="w-full p-2 mt-1 text-[10px]"></div>
+                <button type="submit" class="w-full bg-orange-600 py-4 rounded-xl font-black uppercase italic text-xs text-white shadow-xl hover:bg-orange-700 transition">Kirim ke Telegram Admin</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- PAGE: CART -->
+    <main id="cartPage" class="page-section py-20 px-4">
+        <div class="max-w-xl mx-auto glass-card p-10">
+            <h2 class="text-2xl font-black uppercase italic mb-8 flex items-center gap-4 text-white italic"><i class="fas fa-shopping-basket text-blue-500"></i> My Cart</h2>
+            <div id="cartItems" class="space-y-3 mb-8"></div>
+            <div class="flex justify-between items-center border-t border-white/10 pt-4"><span class="text-sm font-black uppercase italic text-white">Total:</span><span id="cartTotal" class="text-2xl font-black text-blue-400">Rp 0</span></div>
+            <button onclick="checkoutWA()" class="w-full bg-green-600 py-4 rounded-xl font-black uppercase italic text-xs text-white mt-8 hover:bg-green-700 transition shadow-xl">Checkout WhatsApp</button>
+        </div>
+    </main>
+
+    <!-- PAGE: LOGIN / REGISTER / FORGOT -->
+    <main id="loginPage" class="page-section py-20 px-4">
+        <div id="loginBox" class="max-w-md mx-auto glass-card p-10 border-blue-500/20">
+            <h2 class="text-3xl font-black uppercase italic text-center mb-8 text-white italic underline underline-offset-8 decoration-blue-500">Sign In</h2>
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+                <input type="text" id="logUser" placeholder="Username" required class="w-full p-4 outline-none">
+                <input type="password" id="logPass" placeholder="Password" required class="w-full p-4 outline-none">
+                <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl font-black uppercase italic text-white text-xs tracking-widest hover:bg-blue-700 transition shadow-lg shadow-blue-900/40">Masuk Akun</button>
+                <div class="flex justify-between text-[9px] font-black uppercase mt-4 italic text-slate-400">
+                    <button type="button" onclick="toggleAuth('register')" class="hover:text-blue-400">Daftar Akun</button>
+                    <button type="button" onclick="toggleAuth('forgot')" class="hover:text-red-400">Lupa Sandi?</button>
+                </div>
+            </form>
+        </div>
+        <div id="registerBox" class="hidden max-w-md mx-auto glass-card p-10 border-green-500/20">
+            <h2 class="text-3xl font-black uppercase italic text-center mb-8 text-white italic">Register VIP</h2>
+            <form onsubmit="handleRegister(event)" class="space-y-4">
+                <input type="text" id="regName" placeholder="Nama Lengkap" required class="w-full p-4">
+                <input type="text" id="regUser" placeholder="Username" required class="w-full p-4">
+                <input type="email" id="regEmail" placeholder="Email" required class="w-full p-4">
+                <input type="password" id="regPass" placeholder="Password" required class="w-full p-4">
+                <input type="text" id="regSecurity" placeholder="Nama Hewan Peliharaan? (Security)" required class="w-full p-4">
+                <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl font-black uppercase italic text-white text-xs hover:bg-blue-700 transition shadow-xl">Join Member</button>
+                <button type="button" onclick="toggleAuth('login')" class="w-full text-center text-[9px] mt-4 font-black uppercase italic text-slate-500 hover:text-white transition">Sudah punya akun? Login</button>
+            </form>
+        </div>
+        <div id="forgotBox" class="hidden max-w-md mx-auto glass-card p-10 border-red-500/20">
+            <h2 class="text-3xl font-black uppercase italic text-center mb-8 text-red-500 italic">Reset Master</h2>
+            <div id="forgotStep1" class="space-y-4"><input type="text" id="forUser" placeholder="Username" class="w-full p-4"><input type="email" id="forEmail" placeholder="Email" class="w-full p-4"><button onclick="forgotStep1()" class="w-full bg-blue-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Kirim OTP</button></div>
+            <div id="forgotStep2" class="hidden space-y-4"><input type="number" id="forOTP" placeholder="Masukkan 6 Digit OTP" class="w-full p-6 text-center text-3xl font-black border-2 border-blue-500"><button onclick="forgotStep2()" class="w-full bg-green-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Verifikasi</button></div>
+            <div id="forgotStep3" class="hidden space-y-4"><input type="text" id="forSecurity" placeholder="Jawaban Keamanan" class="w-full p-4"><input type="password" id="forNewPass" placeholder="Password Baru" class="w-full p-4"><button onclick="forgotStep3()" class="w-full bg-blue-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Update Sandi</button></div>
+        </div>
+    </main>
+
+    <!-- PAGE: ADMIN MASTER (30 FITUR) -->
+    <main id="adminPage" class="page-section py-10 px-4 bg-slate-950 min-h-screen">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-10 pb-6 border-b border-white/10"><h2 class="text-3xl font-black uppercase italic text-blue-500">Master Console <span class="text-white">v25.29</span></h2><button onclick="logout()" class="bg-red-600 px-6 py-2 rounded-full font-black text-xs text-white uppercase italic shadow-lg shadow-red-900/30">Offline</button></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-y-auto max-h-[75vh] pr-2">
+                <!-- FINANCE (10) -->
+                <div class="glass-card p-6 space-y-3">
+                    <h3 class="text-blue-500 font-black text-[10px] uppercase underline italic">1-10 Financial Control</h3>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Rate Jual</label><input type="number" id="admRateJual" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Rate Beli</label><input type="number" id="admRateBeli" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Min Convert ($)</label><input type="number" id="admMin" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Jasa Market (IDR)</label><input type="number" id="admFee1" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Jasa Sub (IDR)</label><input type="number" id="admFee2" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Jasa Invoice (IDR)</label><input type="number" id="admFee3" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">PPN (%)</label><input type="number" id="admPpn" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Fee Bank (IDR)</label><input type="number" id="admBankFee" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Max Beli ($)</label><input type="number" id="admLimit" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Bonus Ref (%)</label><input type="number" id="admRef" class="w-full p-2"></div>
+                </div>
+                <!-- UI (10) -->
+                <div class="glass-card p-6 space-y-3">
+                    <h3 class="text-purple-500 font-black text-[10px] uppercase underline italic">11-20 Web UI Control</h3>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Marquee Text</label><input type="text" id="admMarquee" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">WhatsApp Admin</label><input type="text" id="admWA" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Tele Bot Token</label><input type="password" id="admTeleToken" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Tele Chat ID</label><input type="text" id="admTeleId" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Maintenance</label><select id="admMaint" class="w-full p-2"><option value="off">OFF</option><option value="on">ON</option></select></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Accent Color</label><input type="text" id="admColor" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Hero Title</label><input type="text" id="admHero" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">PopUp Info</label><input type="text" id="admPopup" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">SEO Tags</label><input type="text" id="admSeo" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Admin Password</label><input type="password" id="admPassNew" class="w-full p-2"></div>
+                </div>
+                <!-- DATA (10) -->
+                <div class="glass-card p-6 space-y-3">
+                    <h3 class="text-green-500 font-black text-[10px] uppercase underline italic">21-30 System & Database</h3>
+                    <div class="h-40 overflow-y-auto bg-black/40 p-2 text-[8px] rounded-lg border border-white/5" id="admUserList">21. User List: </div>
+                    <div class="h-32 overflow-y-auto bg-black/40 p-2 text-[8px] rounded-lg border border-white/5" id="admReportList">22. Live Reports: </div>
+                    <button onclick="saveAdminSync()" class="w-full bg-blue-600 py-4 rounded-xl font-black uppercase text-xs text-white shadow-xl hover:bg-blue-500 transition italic">Sync Master Cloud (30 Fitur)</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // --- DATABASE INIT ---
+        const firebaseConfig = { apiKey: "AIzaSyBrSkaeiGN53JB4l1sug1MKXwZ6Un0zjE", authDomain: "done-cogel.firebaseapp.com", projectId: "done-cogel", databaseURL: "https://done-cogel-default-rtdb.asia-southeast1.firebasedatabase.app" };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        emailjs.init("al2VnMl1XBRAd_SwM");
+
+        let config = { rateJual: 13500, rateBeli: 16800, wa: "6288274325328", marquee: "DONE COGEL SUPREME HUB v25.29", adminPass: "Paypalfastdone21", teleToken: "7774026601:AAGB-Z2w7qI-XG-0N86H0_eQ3n6zG9XG9XG", teleId: "7311149952" };
+        let members = []; let session = null; let mode = 'jual'; let cart = []; let blogPage = 1; let tempOTP = null; let userToReset = null;
+
+        // --- AUTH LOGIC (FIXED ADMIN) ---
+        window.handleLogin = (e) => {
+            e.preventDefault(); const u = document.getElementById('logUser').value, p = document.getElementById('logPass').value;
+            if(u === "donecogelchanger" && p === "Paypalfastdone21") { session = {user: "OWNER DONE COGEL", isAdmin: true}; alert("Welcome Boss!"); renderSession(); return; }
+            const found = members.find(m => (m.user === u || m.email === u) && m.pass === p);
+            if(found) { session = found; renderSession(); } else alert("Login Gagal!");
+        }
+
+        window.renderSession = () => {
+            document.getElementById('navAuth').classList.add('hidden');
+            document.getElementById('navUser').classList.remove('hidden');
+            document.getElementById('userNameTop').innerText = (session.user || session.name).toUpperCase();
+            if(session.isAdmin) document.getElementById('adminBtn').classList.remove('hidden');
+            showPage('home');
+        }
+
+        window.handleRegister = (e) => {
+            e.preventDefault();
+            const data = { name: document.getElementById('regName').value, user: document.getElementById('regUser').value, email: document.getElementById('regEmail').value, pass: document.getElementById('regPass').value, security: document.getElementById('regSecurity').value };
+            db.ref('master_v25_supreme/members').push(data).then(() => { alert("Sukses Daftar!"); toggleAuth('login'); });
+        }
+
+        // --- FLOATING TESTIMONI (20 ITEMS) ---
+        const recentTrx = [
+            {u: "Andi", n: "$150", b: "BCA"}, {u: "Budi", n: "$50", b: "DANA"}, {u: "Siska", n: "$210", b: "Mandiri"}, {u: "Rizky", n: "$35", b: "OVO"}, {u: "Dewi", n: "$500", b: "BRI"}, {u: "Husnul", n: "$125", b: "GoPay"}, {u: "Maya", n: "$80", b: "BNI"}, {u: "Eko", n: "$140", b: "BCA"}, {u: "Lina", n: "$65", b: "SeaBank"}, {u: "Dedi", n: "$300", b: "Mandiri"}, {u: "Yuni", n: "$20", b: "BCA"}, {u: "Bagas", n: "$110", b: "BRI"}, {u: "Santi", n: "$45", b: "GoPay"}, {u: "Rudi", n: "$250", b: "BCA"}, {u: "Nina", n: "$95", b: "DANA"}, {u: "Agus", n: "$75", b: "OVO"}, {u: "Citra", n: "$180", b: "Mandiri"}, {u: "Doni", n: "$400", b: "BNI"}, {u: "Fajar", n: "$12", b: "DANA"}, {u: "Gita", n: "$220", b: "BRI"}
+        ];
+        function showTesti() {
+            const t = recentTrx[Math.floor(Math.random() * recentTrx.length)];
+            const div = document.createElement('div'); div.className = "notif-float animate__animated animate__fadeInUp";
+            div.innerHTML = `<i class="fas fa-check-circle text-green-500 text-xl"></i><div class="leading-tight"><p class="text-[10px] font-black uppercase">${t.u} BERHASIL</p><p class="text-[9px] italic">Tukar ${t.n} ke ${t.b} ✅</p></div>`;
+            document.getElementById('notifContainer').appendChild(div);
+            setTimeout(() => { div.classList.replace('animate__fadeInUp','animate__fadeOutDown'); setTimeout(() => div.remove(), 1000); }, 6000);
+        }
+
+        // --- DATA MOCKS (HELP CENTER) ---
+        const helpItems = [
+            { t: "Cara Convert", i: "fa-exchange-alt", b: "Proses penukaran saldo PayPal ke Rupiah di Done Cogel dilakukan secara sistematis: Pertama, hubungi admin via WhatsApp untuk menyepakati rate real-time. Kedua, kirim saldo PayPal Anda ke alamat email resmi yang diberikan admin (pastikan menggunakan metode yang disepakati). Ketiga, kirimkan bukti transfer. Terakhir, admin akan memvalidasi saldo dan mengirimkan Rupiah ke rekening bank atau e-wallet Anda dalam waktu 5-15 menit saja." },
+            { t: "Hold 21 Hari", i: "fa-clock", b: "Dana tertahan selama 21 hari adalah fitur keamanan 'Payment Hold' dari PayPal untuk melindungi pembeli, terutama pada akun baru atau transaksi yang dianggap berisiko tinggi. Untuk mempercepat pencairan, Anda dapat memasukkan nomor resi pengiriman atau informasi pelacakan. Cara paling efektif adalah meminta pengirim dana untuk masuk ke detail transaksi di akun mereka setelah 48 jam dan menekan tombol 'Confirm Receipt' agar dana cair seketika ke saldo tersedia Anda." },
+            { t: "WD 180 Hari", i: "fa-lock-open", b: "Jika akun PayPal Anda terkena pembatasan permanen (Permanent Limitation), dana di dalamnya akan ditahan selama 180 hari sebagai masa sanggah risiko sengketa. Kami menyediakan jasa khusus untuk membantu proses pencairan dana tersebut setelah masa 180 hari berakhir, termasuk membantu penautan rekening bank lokal baru jika rekening lama sudah terikat atau tidak dapat digunakan kembali untuk penarikan." },
+            { t: "Limit Akun", i: "fa-exclamation-triangle", b: "Pembatasan akun (Limit) terjadi karena aktivitas mencurigakan, login dari lokasi berbeda, atau verifikasi data yang belum lengkap. PayPal akan meminta Anda mengunggah dokumen tertentu. Kami memberikan layanan konsultasi untuk memahami alasan spesifik limit akun Anda dan memberikan solusi taktis agar akun kembali pulih atau setidaknya dana di dalamnya aman untuk diproses di kemudian hari sesuai regulasi PayPal 2025." },
+            { t: "Restore ID", i: "fa-id-card", b: "Layanan penyiapan dokumen identitas untuk verifikasi PayPal. Kami membantu memberikan panduan cara memotret KTP/Paspor yang benar agar terbaca oleh sistem robotik PayPal tanpa pantulan cahaya. Kami juga membantu memberikan solusi jika Anda diminta dokumen pendukung seperti Utility Bill (tagihan listrik/air) atau Proof of Address yang valid guna memenuhi standar Know Your Customer (KYC) internasional." },
+            { t: "Ganti Nama", i: "fa-user-edit", b: "Mengubah nama di akun PayPal tidak bisa dilakukan sembarangan. Jika terjadi kesalahan penulisan atau Anda ingin mengganti ke nama resmi sesuai KTP untuk kelancaran penarikan (WD), Anda harus mengunggah bukti legal. Kami memberikan panduan langkah demi langkah cara mengajukan permohonan ganti nama ke tim kepatuhan PayPal agar disetujui tanpa menyebabkan akun terkena pembatasan (limit)." },
+            { t: "Link Bank", i: "fa-university", b: "Menghubungkan rekening bank lokal sangat krusial untuk proses penarikan dana. Anda wajib memasukkan Kode SWIFT yang tepat (Contoh: BCA adalah CENAIDJA). Nama pada akun PayPal dan nama pada rekening bank harus sama persis. Jika berbeda satu huruf pun, proses penarikan akan ditolak oleh bank lokal dan saldo akan dikembalikan ke PayPal dengan potongan biaya administrasi (fee) yang cukup besar." },
+            { t: "Fee Transaksi", i: "fa-percent", b: "Setiap transaksi PayPal melibatkan biaya administrasi. Untuk pengiriman kategori 'Goods and Services', PayPal memotong sekitar 4.4% + $0.30 USD dari total dana yang diterima. Selain itu, ada biaya konversi mata uang dari USD ke IDR yang diterapkan oleh sistem perbankan. Di Done Cogel, kami memberikan rate transparan yang sudah memperhitungkan biaya-biaya tersebut agar Anda menerima bersih dalam Rupiah." },
+            { t: "Top Up Saldo", i: "fa-plus-circle", b: "Jika Anda membutuhkan saldo PayPal untuk belanja online atau membayar invoice luar negeri tetapi tidak memiliki kartu kredit, kami menyediakan layanan Top Up. Saldo yang kami kirimkan berasal dari sumber yang 100% legal dan aman (hasil kerja nyata), sehingga meminimalisir risiko akun Anda terkena limit atau saldo ditarik kembali (chargeback) oleh sistem keamanan PayPal." },
+            { t: "Jasa Bayar", i: "fa-shopping-cart", b: "Layanan Jasa Bayar kami memungkinkan Anda berbelanja di seluruh dunia seperti di eBay, Amazon, Etsy, atau berlangganan tools digital seperti Zoom dan Canva. Anda cukup memberikan link barang atau invoice tagihan, lalu membayar dalam Rupiah ke kami. Kami akan menyelesaikan pembayaran menggunakan saldo PayPal resmi kami secara instan dan memberikan bukti bayar yang sah kepada Anda." },
+            { t: "Dispute Dana", i: "fa-balance-scale", b: "Sengketa transaksi (Dispute) terjadi jika pembeli merasa tidak menerima barang atau jasa sesuai deskripsi. Kami membantu memberikan edukasi cara menghadapi dispute di Resolution Center, termasuk cara mengunggah bukti pengiriman (Tracking Number) dan bukti serah terima jasa digital agar Anda memiliki peluang besar memenangkan kasus tersebut dan saldo tidak ditarik paksa oleh PayPal." },
+            { t: "Security 2FA", i: "fa-shield-alt", b: "Keamanan akun adalah prioritas utama. Kami sangat menyarankan setiap member untuk mengaktifkan Two-Factor Authentication (2FA) menggunakan aplikasi autentikator atau SMS. Fitur ini memastikan bahwa meskipun seseorang mengetahui password Anda, mereka tetap tidak bisa masuk ke akun Anda tanpa kode unik yang dikirimkan ke perangkat pribadi Anda, menjaga saldo tetap aman dari peretasan." },
+            { t: "VCC PayPal", i: "fa-credit-card", b: "Virtual Credit Card (VCC) sering digunakan untuk proses verifikasi awal akun PayPal agar bisa mengirim saldo. Namun, penggunaan VCC memiliki risiko jika tidak disertai dengan data bank yang valid. Kami memberikan konsultasi mengenai penggunaan VCC yang aman dan cara beralih ke verifikasi menggunakan kartu debit bank lokal (seperti Bank Jago atau Jenius) untuk keamanan akun jangka panjang yang lebih stabil." },
+            { t: "Invoice Global", i: "fa-file-invoice", b: "Mengirim tagihan profesional melalui fitur PayPal Invoice adalah cara terbaik untuk bertransaksi bisnis lintas negara. Invoice memberikan rincian barang/jasa yang jelas dan perlindungan hukum bagi kedua belah pihak. Kami memberikan panduan cara membuat invoice yang detail agar saat ada pemeriksaan dari tim kepatuhan PayPal, transaksi Anda dianggap sah (legit) dan dana lebih cepat dilepaskan." },
+            { t: "Refund Policy", i: "fa-undo", b: "Pengembalian dana (Refund) dilakukan jika terjadi pembatalan transaksi. Dana refund biasanya akan masuk kembali ke saldo PayPal atau kartu debit/kredit asal dalam waktu 3-5 hari kerja perbankan. Di Done Cogel, jika Anda salah kirim atau ingin membatalkan jasa bayar sebelum diproses, kami akan mengembalikan dana Anda sesuai kebijakan refund yang berlaku dengan potongan biaya administrasi jika ada." },
+            { t: "WD Ke Dana", i: "fa-wallet", b: "Penarikan saldo PayPal ke E-Wallet seperti DANA, OVO, atau GoPay tidak bisa dilakukan secara langsung dari dashboard PayPal. Anda membutuhkan pihak ketiga atau jasa convert seperti Done Cogel. Kami menerima saldo PayPal Anda dan mengirimkan Rupiah ke akun E-Wallet Anda secara instan (real-time) sehingga Anda tidak perlu menunggu berhari-hari seperti proses penarikan ke bank konvensional." },
+            { t: "Tutup Akun", i: "fa-trash", b: "Menutup akun PayPal hanya bisa dilakukan jika saldo Anda tepat $0.00 dan tidak ada sengketa atau pembatasan yang sedang berjalan. Kami memberikan panduan cara membersihkan histori transaksi dan memastikan semua kewajiban selesai sebelum menutup akun secara permanen guna mencegah data Anda di-blacklist oleh PayPal jika suatu saat Anda ingin membuat akun baru di masa mendatang." }
+        ];
+
+        // --- FAQ DATA ---
+        const faqItems = [
+            { q: "Apa itu Done Cogel dan PAYSOLUSI?", a: "Done Cogel x PAYSOLUSI adalah platform penyedia jasa keuangan digital yang berfokus pada ekosistem PayPal. Kami telah beroperasi sejak tahun 2018 dan telah melayani ribuan transaksi mulai dari penukaran saldo (convert), pengisian saldo (top up), jasa pembayaran situs global, hingga penanganan masalah akun PayPal yang bermasalah (bengkel akun) secara profesional dan aman." },
+            { q: "Berapa lama waktu proses transaksi?", a: "Kami menjunjung tinggi efisiensi waktu. Standar proses transaksi di platform kami adalah 5 hingga 15 menit setelah saldo PayPal kami terima dan divalidasi oleh sistem. Namun, durasi ini juga bergantung pada jam operasional bank lokal dan stabilitas jaringan internet. Jika ada kendala teknis, admin akan segera menginformasikan status transaksi Anda secara transparan via WhatsApp." },
+            { q: "Apakah transaksi di sini dijamin aman?", a: "Sangat aman. Kami menggunakan akun PayPal yang sudah terverifikasi penuh dan berumur tua (aged account) untuk mengirim atau menerima saldo. Saldo yang kami miliki berasal dari sumber legal hasil kerjasama dengan freelancer dan agensi digital internasional. Kami menjamin tidak ada saldo hasil carding atau aktivitas ilegal yang dapat membahayakan akun Anda di kemudian hari." },
+            { q: "Apakah bisa mencairkan saldo ke DANA atau OVO?", a: "Tentu bisa. Selain mendukung seluruh bank nasional di Indonesia (BCA, Mandiri, BNI, BRI, dll), kami juga melayani penukaran saldo PayPal langsung ke dompet digital (E-Wallet) populer seperti DANA, OVO, GoPay, LinkAja, dan ShopeePay. Proses pengiriman ke e-wallet dilakukan secara real-time tepat setelah transaksi PayPal Anda divalidasi oleh admin kami." },
+            { q: "Apa maksud dari Limit 180 Hari?", a: "Limit 180 hari adalah keputusan final PayPal untuk menutup sebuah akun secara permanen karena dianggap melanggar kebijakan serius. Dana di dalam akun tersebut akan ditahan (hold) selama 6 bulan (180 hari) untuk memastikan tidak ada lagi klaim refund dari pengirim. Setelah masa tersebut berakhir, dana baru bisa ditarik. Kami menyediakan jasa khusus untuk membantu proses penarikan dana ini hingga sukses masuk ke rekening Anda." }
+        ];
+
+        // --- BLOG DATA (20 UPDATED POSTS) ---
+        const blogsData = [
+            {
+                id: 0, t: "Panduan Menghindari Limit PayPal 2025",
+                d: "Pelajari cara menjaga kesehatan akun Anda dari deteksi robotik sistem keamanan PayPal.",
+                full: "Di tahun 2025, PayPal semakin memperketat sistem deteksi AI mereka. Untuk menghindari limit, pastikan Anda selalu menggunakan satu perangkat utama untuk login. Jangan sering berganti IP (menggunakan VPN atau Proxy). Jika Anda menerima dana besar secara tiba-tiba, pastikan dokumen identitas Anda sudah terverifikasi lengkap di dashboard.",
+                img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800"
+            },
+            {
+                id: 1, t: "Cara WD PayPal ke Bank Lokal Tanpa Gagal",
+                d: "Langkah-langkah teknis menghubungkan rekening bank nasional Indonesia ke akun PayPal.",
+                full: "Pastikan nama di akun PayPal Anda sama persis dengan nama di buku tabungan. Gunakan kode SWIFT yang tepat (Contoh: BCA - CENAIDJA). Hindari melakukan penarikan dana di akhir pekan atau hari libur nasional karena proses kliring bank akan tertunda, yang terkadang memicu pembatalan otomatis oleh sistem.",
+                img: "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=800"
+            },
+            {
+                id: 2, t: "Mengenal Perbedaan Saldo G&S dan F&F",
+                d: "Mana yang lebih aman untuk transaksi bisnis Anda? Ketahui risikonya sekarang.",
+                full: "Goods and Services (G&S) memberikan proteksi pembeli namun dikenakan potongan biaya. Friends and Family (F&F) bebas biaya namun tidak memiliki proteksi jika barang tidak sampai. Untuk transaksi profesional atau convert, sangat disarankan menggunakan kategori G&S agar kedua belah pihak terlindungi oleh sistem resolusi.",
+                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"
+            },
+            {
+                id: 3, t: "Tips Menang Dispute Sengketa Dana",
+                d: "Cara memberikan bukti yang valid saat menghadapi klien atau pembeli yang curang.",
+                full: "Jika ada klaim sengketa, segera unggah bukti pengiriman (Tracking Number) atau bukti serah terima jasa digital (Screenshot chat/email). PayPal akan memediasi kasus tersebut selama 20 hari. Kejujuran dan keakuratan bukti dokumen adalah kunci utama memenangkan sengketa di Resolution Center.",
+                img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800"
+            },
+            {
+                id: 4, t: "Verifikasi PayPal Tanpa Kartu Kredit Fisik",
+                d: "Gunakan kartu debit bank digital seperti Bank Jago atau Jenius untuk verifikasi.",
+                full: "Kini Anda tidak perlu lagi kartu kredit bank konvensional. Cukup gunakan fitur kartu debit virtual (VCC) dari bank digital modern Indonesia. Pastikan fitur transaksi internasional sudah aktif dan saldo di kartu mencukupi (sekitar $2) untuk proses penarikan saldo uji coba oleh PayPal.",
+                img: "https://images.unsplash.com/photo-1512358958014-b651a7ee1773?q=80&w=800"
+            },
+            {
+                id: 5, t: "Mengapa Saldo Anda Tertahan (Hold) 21 Hari?",
+                d: "Penjelasan lengkap mengenai kebijakan keamanan bagi akun baru atau seller baru.",
+                full: "Dana yang masuk sebagai G&S sering ditahan selama 21 hari oleh PayPal untuk menjamin pembeli menerima barangnya. Untuk mempercepat pencairan menjadi 'Available', Anda bisa memasukkan informasi pelacakan atau meminta pengirim menekan tombol 'Confirm Receipt' setelah 48 jam saldo diterima.",
+                img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800"
+            },
+            {
+                id: 6, t: "Update Rate Convert Done Cogel Terbaru",
+                d: "Analisis pergerakan nilai tukar Dollar ke Rupiah dan waktu terbaik untuk tukar.",
+                full: "Nilai tukar PayPal selalu berubah mengikuti pasar valuta asing global. Kami di Done Cogel selalu memberikan rate tertinggi setiap harinya. Pantau terus dashboard kami untuk mendapatkan rate premium saat nilai dollar sedang menguat terhadap rupiah guna memaksimalkan keuntungan Anda.",
+                img: "https://images.unsplash.com/photo-1611948479833-289801830456?q=80&w=800"
+            },
+            {
+                id: 7, t: "Bahaya Menggunakan VPN Saat Akses PayPal",
+                d: "Mengapa sistem keamanan PayPal sangat benci dengan perubahan alamat IP.",
+                full: "VPN seringkali memberikan alamat IP yang sudah masuk daftar hitam (blacklist). Jika Anda login dengan VPN, sistem akan mencurigai adanya akses ilegal oleh hacker dan langsung melakukan pembatasan akun (limit). Selalu gunakan koneksi data seluler atau WiFi rumah yang stabil dan terlacak.",
+                img: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=800"
+            },
+            {
+                id: 8, t: "Layanan WD Limit 180 Hari: Harapan Terakhir",
+                d: "Bagaimana cara menarik dana dari akun yang sudah dibanned permanen?",
+                full: "Jika akun Anda terkena Permanent Limitation, dana akan tertahan selama 180 hari. Setelah masa tersebut berakhir, PayPal akan mengirimkan email notifikasi penarikan dana. Done Cogel menyediakan jasa pendampingan untuk membantu proses penarikan dana tersebut hingga sukses masuk ke bank Anda.",
+                img: "https://images.unsplash.com/photo-1508161773455-3ada8ed2bbec?q=80&w=800"
+            },
+            {
+                id: 9, t: "Manfaat Memakai Akun PayPal Business",
+                d: "Fitur eksklusif untuk freelancer dan pemilik agensi digital dalam menagih klien.",
+                full: "Akun Business memungkinkan Anda mengirim Invoice profesional dengan nama brand Anda sendiri. Selain itu, Anda bisa menambahkan akses staf tanpa memberikan password utama akun. Akun jenis ini juga memiliki tingkat kepercayaan yang lebih tinggi saat berurusan dengan tim kepatuhan PayPal.",
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800"
+            },
+            {
+                id: 10, t: "Aktivasi 2FA: Benteng Saldo Anda",
+                d: "Cara mengaktifkan autentikasi dua faktor untuk mencegah pembajakan akun.",
+                full: "Jangan hanya mengandalkan password. Aktifkan Two-Factor Authentication (2FA) menggunakan aplikasi seperti Google Authenticator. Dengan fitur ini, siapapun yang mengetahui password Anda tetap tidak bisa masuk tanpa kode unik yang berubah setiap 30 detik di ponsel Anda.",
+                img: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=800"
+            },
+            {
+                id: 11, t: "Tutorial Bayar Langganan Canva Pro & Netflix",
+                d: "Gunakan jasa bayar Done Cogel untuk transaksi situs hiburan internasional.",
+                full: "Banyak situs luar negeri yang tidak menerima pembayaran bank lokal Indonesia. Dengan saldo PayPal resmi kami, Anda bisa berlangganan tools desain, streaming film, hingga beli game di Steam dengan mudah. Cukup kirim tagihan invoice Anda kepada admin kami untuk diproses.",
+                img: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=800"
+            },
+            {
+                id: 12, t: "Cara Ganti Nama Akun PayPal yang Typo",
+                d: "Langkah-langkah administrasi memperbaiki kesalahan penulisan nama di profil.",
+                full: "Jika ada kesalahan satu atau dua huruf, Anda bisa mengajukan perubahan nama kecil di menu pengaturan. Namun jika perubahan besar, Anda wajib mengunggah foto KTP dan dokumen pendukung. Pastikan data profil sinkron dengan data rekening bank untuk kelancaran penarikan (WD).",
+                img: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=800"
+            },
+            {
+                id: 13, t: "Strategi PayPal untuk Jualan Produk Digital",
+                d: "Hindari sengketa saat jualan aset digital, kursus online, atau jasa desain.",
+                full: "Penjualan produk digital memiliki risiko dispute tinggi karena tidak adanya resi fisik. Selalu sertakan link download di detail transaksi dan kirimkan konfirmasi via email kepada pembeli. Simpan semua log aktivitas sebagai bukti jika suatu saat pembeli melakukan klaim tidak sah.",
+                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800"
+            },
+            {
+                id: 14, t: "Refund Policy: Hak Anda Sebagai Pengguna",
+                d: "Ketahui kapan dana Anda bisa dikembalikan jika terjadi kesalahan pengiriman.",
+                full: "Proses pengembalian dana (refund) bisa dilakukan maksimal dalam waktu 180 hari sejak transaksi. Dana refund akan kembali ke saldo asal (jika pakai saldo) atau ke limit kartu (jika pakai kartu). Di Done Cogel, kami menjamin refund 100% jika kesalahan murni dari pihak kami.",
+                img: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=800"
+            },
+            {
+                id: 15, t: "Mengenal Kode SWIFT Bank Nasional",
+                d: "Daftar lengkap kode bank Indonesia untuk keperluan transfer luar negeri.",
+                full: "Kesalahan memasukkan Kode SWIFT dapat mengakibatkan dana Anda 'nyangkut' di bank perantara global. Contoh kode populer: BCA (CENAIDJA), Mandiri (BMRIIDJA), BNI (BNIINJA). Selalu cek ulang data bank sebelum menekan tombol konfirmasi penarikan di dashboard PayPal Anda.",
+                img: "https://images.unsplash.com/photo-1526303323884-f7486dd7ba81?q=80&w=800"
+            },
+            {
+                id: 16, t: "Optimalisasi Penarikan Saldo Ke E-Wallet",
+                d: "Tukar saldo PayPal ke DANA, OVO, atau GoPay dalam hitungan menit.",
+                full: "Menunggu 2-4 hari kerja bank konvensional tentu sangat lama. Layanan convert Done Cogel mendukung pengiriman instan ke seluruh dompet digital populer di Indonesia. Proses ini jauh lebih praktis dan fleksibel bagi Anda yang membutuhkan dana mendesak.",
+                img: "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=800"
+            },
+            {
+                id: 17, t: "Aturan Baru PayPal Mengenai Pajak 2025",
+                d: "Bagaimana kebijakan kepatuhan pajak internasional memengaruhi Anda.",
+                full: "Sebagai pengguna di Indonesia, penting untuk memantau kebijakan pajak atas transaksi digital internasional. PayPal sering meminta konfirmasi data NPWP atau data identitas tambahan untuk memastikan akun Anda mematuhi regulasi keuangan global yang berlaku tahun ini.",
+                img: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=800"
+            },
+            {
+                id: 18, t: "Inovasi Pembayaran PayPal Dengan Crypto",
+                d: "Mengenal fitur baru beli dan simpan aset kripto langsung dari PayPal.",
+                full: "Kini di beberapa wilayah, PayPal sudah mengintegrasikan fitur jual beli Bitcoin dan Ethereum. Meskipun fitur ini belum sepenuhnya merata di semua akun Indonesia, ini menunjukkan visi PayPal dalam mengadopsi teknologi blockchain untuk masa depan pembayaran digital.",
+                img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=800"
+            },
+            {
+                id: 19, t: "Done Cogel: Partner PayPal Terbaik Sejak 2018",
+                d: "Sejarah dan visi kami dalam membangun ekosistem jasa bayar yang aman.",
+                full: "Dimulai dari komunitas kecil, kini Done Cogel telah melayani ribuan member aktif setiap bulannya. Kami berkomitmen memberikan edukasi gratis dan layanan terbaik demi menjaga keamanan finansial digital masyarakat Indonesia di tengah maraknya penipuan online.",
+                img: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=800"
+            }
+        ];
+
+        const jbayarItems = [
+            {t: "eBay & Amazon", d: "Bantu checkout barang di marketplace raksasa global US/UK/JP.", i: "fa-shopping-bag"},
+            {t: "Subscription", d: "Langganan Zoom, Canva, Netflix, Spotify, hingga Hosting.", i: "fa-tv"},
+            {t: "Freelance Invoice", d: "Bayar tagihan invoice Upwork, Fiverr, atau vendor luar negeri.", i: "fa-file-invoice-dollar"},
+            {t: "Etsy Checkout", d: "Beli kerajinan tangan unik dari seluruh dunia dengan saldo kami.", i: "fa-paint-brush"},
+            {t: "Digital Course", d: "Bayar kursus di Udemy, Coursera, atau Skillshare secara instan.", i: "fa-graduation-cap"},
+            {t: "Game Topup", d: "Beli saldo Steam, Razer, atau in-game purchase global.", i: "fa-gamepad"}
+        ];
+
+        const bengkelItems = [
+            {t: "WD Limit 180 Hari", d: "Cairkan saldo di akun ban permanen ke bank lokal tanpa ribet.", i: "fa-lock-open", c: "red"},
+            {t: "Restore Akun Temp", d: "Pulihkan akun dari pembatasan dokumen identitas & alamat.", i: "fa-user-shield", c: "orange"},
+            {t: "Hapus Carding Clean", d: "Bersihkan histori transaksi mencurigakan agar akun kembali sehat.", i: "fa-broom", c: "blue"},
+            {t: "Panduan Appeal", d: "Strategi banding (appeal) ke tim support PayPal Singapura/US.", i: "fa-gavel", c: "purple"}
+        ];
+
+        const tutorials = [
+            {t: "Upload ID AI", d: "Teknik memotret KTP agar disetujui robot PayPal secara instan.", img: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=600"},
+            {t: "Checkout eBay", d: "Panduan visual cara memberikan link keranjang ke admin Jasa Bayar.", img: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=600"},
+            {t: "Release Hold", d: "Langkah visual melepas dana tertahan (hold) dalam 48 jam.", img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800"},
+            {t: "Input SWIFT", d: "Instruksi visual menghubungkan bank lokal BCA/Mandiri/DANA.", img: "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=600"},
+            {t: "Bayar Invoice", d: "Panduan membayar tagihan Upwork & Fiverr dari user dashboard.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800"},
+            {t: "Zoom Pro", d: "Langkah visual berlangganan tools pro tanpa kartu kredit.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"}
+        ];
+
+        // --- UI CORE FUNCTIONS ---
+        window.showPage = (id) => {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('page-active'));
+            document.getElementById(id + 'Page').classList.add('page-active'); window.scrollTo(0,0);
+        }
+        window.toggleAuth = (t) => { ['loginBox','registerBox','forgotBox'].forEach(i => document.getElementById(i).classList.add('hidden')); document.getElementById(t+'Box').classList.remove('hidden'); }
+        window.setMode = (m) => { mode = m; document.getElementById('toggleSelector').style.left = m==='jual'?'4px':'calc(50% + 0px)'; renderUI(); }
+        window.hitung = () => { const v = document.getElementById('usdInput').value; document.getElementById('displayIDR').innerText = "Rp " + (v * (mode==='jual'?config.rateJual:config.rateBeli)).toLocaleString('id-ID'); }
+        window.closeModal = () => { document.getElementById('infoModal').style.display = 'none'; }
+        window.toggleMobile = () => document.getElementById('mobileMenu').classList.toggle('hidden');
+        window.orderViaWA = (s="Order") => window.open(`https://wa.me/${config.wa}?text=Halo Admin Done Cogel, saya ingin ${s}.`,'_blank');
+
+        // --- CART ---
+        window.addToCart = (n, p) => { cart.push({n, p}); updateCartUI(); alert(n + " masuk keranjang!"); }
+        function updateCartUI() {
+            document.getElementById('cartCountTop').innerText = cart.length;
+            let total = 0;
+            document.getElementById('cartItems').innerHTML = cart.map((it, i) => {
+                total += it.p;
+                return `<div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/10 italic font-bold"><div><p class="text-white text-[10px] uppercase">${it.n}</p><p class="text-blue-400 text-xs">Rp ${it.p.toLocaleString()}</p></div><button onclick="cart.splice(${i},1);updateCartUI();" class="text-red-500"><i class="fas fa-trash"></i></button></div>`;
+            }).join("");
+            document.getElementById('cartTotal').innerText = "Rp " + total.toLocaleString();
+        }
+        window.checkoutWA = () => { if(cart.length===0) return; let msg = "Order Baru:\n" + cart.map(c => "- " + c.n).join("\n"); orderViaWA(msg); }
+
+        // --- SEARCH ENGINE ---
+        window.searchEngine = () => {
+            const q = document.getElementById('globalSearch').value.toLowerCase();
+            if(!q) return;
+            const blog = blogsData.find(b => b.t.toLowerCase().includes(q));
+            const help = helpItems.find(h => h.t.toLowerCase().includes(q));
+            if(blog) openBlog(blog.id); else if(help) explainHelp(helpItems.indexOf(help));
+        }
+
+        // --- REPORT SYSTEM (TELEGRAM) ---
+        document.getElementById('reportForm').onsubmit = function(e) {
+            e.preventDefault();
+            if(!session) return alert("Login untuk melapor!");
+            const cat = document.getElementById('repCat').value, msg = document.getElementById('repMsg').value;
+            const reportText = `🚨 LAPORAN BARU DONE COGEL\nUser: ${session.user || session.name}\nKategori: ${cat}\nPesan: ${msg}\nTanggal: ${new Date().toLocaleString()}`;
+            fetch(`https://api.telegram.org/bot${config.teleToken}/sendMessage?chat_id=${config.teleId}&text=${encodeURIComponent(reportText)}`);
+            db.ref('master_v25_supreme/reports').push({ user: session.user || session.name, cat, msg, date: new Date().toLocaleString() }).then(() => alert("Laporan terkirim ke Telegram Admin!"));
+        }
+
+        // --- RENDERERS ---
+        function renderUI() {
+            document.getElementById('rateLabel').innerText = (mode==='jual'?config.rateJual:config.rateBeli).toLocaleString();
+            hitung();
+        }
+
+        function renderBlogs() {
+            const start = (blogPage - 1) * 4;
+            document.getElementById('blogGrid').innerHTML = blogsData.slice(start, start + 4).map(b => `
+                <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
+                    <img src="${b.img}" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <div class="flex-1">
+                        <h4 class="text-lg font-black uppercase italic text-white mb-2 leading-tight">${b.t}</h4>
+                        <p class="text-[10px] text-slate-500 mb-4 italic leading-relaxed line-clamp-2">${b.d}</p>
+                        <button onclick="openBlog(${b.id})" class="text-blue-400 font-black text-[9px] uppercase italic border-b border-blue-400">Read More</button>
+                    </div>
+                </div>
+            `).join("");
+            let phtml = ""; for(let i=1; i<=5; i++) phtml += `<button onclick="blogPage=${i};renderBlogs()" class="w-8 h-8 rounded-full font-black text-[10px] ${blogPage===i?'bg-blue-600 text-white':'bg-white/5 text-slate-500'}">${i}</button>`;
+            document.getElementById('blogPagination').innerHTML = phtml;
+        }
+
+        window.openBlog = (id) => {
+            const b = blogsData[id]; document.getElementById('modalTitle').innerText = b.t; document.getElementById('modalBody').innerText = b.full;
+            document.getElementById('modalIcon').innerHTML = '<i class="fas fa-book-open"></i>';
+            document.getElementById('modalImg').src = b.img; document.getElementById('modalImg').classList.remove('hidden');
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        window.explainHelp = (idx) => {
+            const h = helpItems[idx]; document.getElementById('modalTitle').innerText = h.t; document.getElementById('modalBody').innerText = h.b;
+            document.getElementById('modalIcon').innerHTML = `<i class="fas ${h.i}"></i>`;
+            document.getElementById('modalImg').classList.add('hidden'); document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        window.saveAdminSync = () => {
+            const up = { rateJual: parseInt(document.getElementById('admRateJual').value), rateBeli: parseInt(document.getElementById('admRateBeli').value), wa: document.getElementById('admWA').value, marquee: document.getElementById('admMarquee').value, teleToken: document.getElementById('admTeleToken').value, teleId: document.getElementById('admTeleId').value };
+            db.ref('master_v25_supreme/settings').update(up).then(() => alert("Console Updated!"));
+        }
+
+        // --- INITIALIZE ---
+        window.onload = () => {
+            db.ref('master_v25_supreme').on('value', (s) => {
+                const d = s.val(); if(!d) return;
+                config = {...config, ...d.settings};
+                members = d.members ? Object.entries(d.members).map(([id,v])=>({id,...v})) : [];
+                document.getElementById('admRateJual').value = config.rateJual;
+                document.getElementById('admRateBeli').value = config.rateBeli;
+                document.getElementById('admWA').value = config.wa;
+                renderUI();
+            });
+
+            document.getElementById('helpGrid').innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
+            document.getElementById('jbayarGrid').innerHTML = jbayarItems.map(j => `<div class="glass-card p-10 group text-justify italic"><i class="fas ${j.i} text-5xl text-blue-500 mb-6 group-hover:scale-110 transition"></i><h3 class="text-2xl font-black uppercase italic mb-4 text-white">${j.t}</h3><p class="text-xs text-slate-400 mb-8 leading-relaxed">${j.d}</p><button onclick="addToCart('${j.t}', 35000)" class="bg-blue-600 w-full py-4 rounded-xl font-black uppercase text-[10px] text-white">Tambah Keranjang</button></div>`).join("");
+            document.getElementById('bengkelGrid').innerHTML = bengkelItems.map(b => `<div class="glass-card p-12 border-${b.c}-500/20 bg-${b.c}-500/5 italic"><i class="fas ${b.i} text-5xl text-${b.c}-500 mb-6"></i><h3 class="text-3xl font-black uppercase italic mb-4 text-white">${b.t}</h3><p class="text-slate-400 mb-8 leading-relaxed text-sm">${b.d}</p><button onclick="orderViaWA('${b.t}')" class="bg-${b.c}-600 w-full py-5 rounded-2xl font-black uppercase italic text-xs text-white">Konsultasi Specialist</button></div>`).join("");
+            document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
+            document.getElementById('faqGrid').innerHTML = faqItems.map(f => `<details class="bg-white/5 p-5 rounded-2xl border border-white/10 text-white italic"><summary class="font-black uppercase text-xs cursor-pointer flex justify-between">${f.q} <i class="fas fa-plus"></i></summary><p class="mt-4 text-xs text-slate-400 pt-4 leading-relaxed border-t border-white/5">${f.a}</p></details>`).join("");
+            document.getElementById('tosContent').innerHTML = ["Jasa tukar saldo PayPal ke bank lokal/e-wallet. Data wajib benar.","Kirim saldo sesuai kesepakatan. Kesalahan kirim tanggung jawab user.","Mengikuti harga real-time saat transaksi. Bisa berubah sewaktu-waktu.","Kerahasiaan data dijaga. User wajib jaga keamanan akun masing-masing.","Transaksi diproses tidak bisa batal. Refund hanya jika salah dari admin.","Dilarang untuk aktivitas ilegal, penipuan, atau pencucian uang.","Kami tidak bertanggung jawab atas delay sistem PayPal/Bank/E-Wallet.","TOS dapat diperbarui sewaktu-waktu tanpa pemberitahuan.","Kendala? Hubungi WhatsApp Admin di 088274325328."].map((t, i) => `<p>POIN ${i+1}: ${t}</p>`).join("");
+            
+            renderBlogs();
+            setInterval(showTesti, 8000);
+        };
+
+        window.logout = () => location.reload();
+    </script>
+</body>
+</html>
