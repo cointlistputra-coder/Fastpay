@@ -652,7 +652,7 @@
                     </div>
                 </div>
             `).join("");
-            let phtml = ""; for(let i=1; i<=5; i++) phtml += `<button onclick="blogPage=${i};renderBlogs()" class="w-8 h-8 rounded-full font-black text-[10px] ${blogPage===i?'bg-blue-600 text-white':'bg-white/5 text-slate-500'}">${i}</button>`;
+            let phtml = ""; for(let i=1; i<=6; i++) phtml += `<button onclick="blogPage=${i};renderBlogs()" class="w-8 h-8 rounded-full font-black text-[10px] ${blogPage===i?'bg-blue-600 text-white':'bg-white/5 text-slate-500'}">${i}</button>`;
             document.getElementById('blogPagination').innerHTML = phtml;
         }
 
