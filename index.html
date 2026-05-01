@@ -1,3 +1,5 @@
+--- START OF FILE ai_studio_code (3).html ---
+
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -109,6 +111,7 @@
                 <a onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
                 <a onclick="showPage('jbayar')" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
                 <a onclick="showPage('bengkel')" class="hover:text-red-400 cursor-pointer">Bengkel</a>
+                <a onclick="showPage('edukasi')" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
                 <a onclick="showPage('blog')" class="hover:text-blue-400 cursor-pointer">Blog</a>
                 <a onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
                 <a onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
@@ -123,6 +126,7 @@
         <a onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
         <a onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
         <a onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
+        <a onclick="showPage('edukasi'); toggleMobile()" class="block text-cyan-400">Master Guide (SEO)</a>
         <a onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
         <a onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
         <a onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
@@ -222,756 +226,113 @@
             <h2 class="text-3xl font-black uppercase italic text-center mb-12 text-white">Supreme <span class="text-blue-600">Help Center</span></h2>
             <div id="helpGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
         </section>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: JASA BAYAR -->
     <main id="jbayarPage" class="page-section py-20 px-4">
         <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white italic">Global <span class="text-green-500">Payment</span></h2><p class="text-slate-400 mt-4 italic">Belanja dari situs manapun di dunia tanpa kartu kredit pribadi.</p></div>
         <div id="jbayarGrid" class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto"></div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Done Cogel Menyediakan Kebutuhan Untuk "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Akun Terkena Limit Permanen Atau Terkena Masalah Lainnya Bisa Kita Atasi Dengan Syarat Dan Ketentuan Berlaku.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: BENGKEL SPECIALIST -->
     <main id="bengkelPage" class="page-section py-20 px-4">
         <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white italic">Bengkel <span class="text-red-500">Specialist</span></h2><p class="text-slate-400 mt-4 italic">Layanan pemulihan dana dan perbaikan akun tingkat expert.</p></div>
         <div id="bengkelGrid" class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto"></div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
     
     <!-- PUSAT KATA KUNCI SEO -->
         <section class="mt-20 p-8 glass-card border-white/5 bg-white/5 text-[10px] text-slate-500 italic leading-relaxed">
             <p><strong>Transfer Cepat</strong> adalah platform profesional yang menyediakan <strong>Jasa Convert PayPal Rate Tinggi</strong> ke berbagai metode penarikan seperti BCA, Mandiri, BNI, BRI, serta E-Wallet DANA, OVO, dan GoPay. Kami juga spesialis dalam membantu <strong>Jasa WD PayPal Limit 180 Hari</strong> (Permanent Limitation) dan pemulihan akun yang terkena pembatasan sementara. Dengan layanan <strong>Jasa Bayar PayPal</strong> kami, Anda bisa melakukan checkout di situs internasional seperti eBay, Amazon, Etsy, atau membayar invoice luar negeri dengan aman dan instan.</p>
         </section>
+
+    <!-- PAGE: MASTER GUIDE (SEO DEEP-DIVE 2500+ WORDS) -->
+    <main id="edukasiPage" class="page-section py-20 px-4 bg-slate-900/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black uppercase italic text-white leading-none">Pusat Literasi <br><span class="text-cyan-400">PayPal Indonesia</span></h2>
+                <p class="text-slate-400 mt-6 italic">Panduan terlengkap dan mendalam mengenai ekosistem PayPal, solusi limit, dan jasa convert profesional kelas dunia.</p>
+            </div>
+
+            <!-- Navigasi Internal Tab -->
+            <div class="flex flex-wrap gap-2 mb-12 justify-center">
+                <button onclick="filterEdukasi('all')" class="bg-blue-600 px-6 py-2 rounded-full text-[10px] font-black uppercase italic shadow-lg shadow-blue-500/20">Semua Panduan</button>
+                <button onclick="filterEdukasi('convert')" class="bg-white/10 px-6 py-2 rounded-full text-[10px] font-black uppercase italic hover:bg-blue-500 transition">Jasa Convert</button>
+                <button onclick="filterEdukasi('limit')" class="bg-white/10 px-6 py-2 rounded-full text-[10px] font-black uppercase italic hover:bg-red-500 transition">Solusi Limit</button>
+                <button onclick="filterEdukasi('bayar')" class="bg-white/10 px-6 py-2 rounded-full text-[10px] font-black uppercase italic hover:bg-green-500 transition">Jasa Bayar</button>
+            </div>
+
+            <div id="edukasiContent" class="space-y-24">
+                <!-- ARTIKEL 1: JASA CONVERT PAYPAL (DEEP DIVE) -->
+                <article class="edu-item" data-cat="convert">
+                    <h3 class="text-4xl font-black text-blue-500 uppercase italic mb-8 border-l-8 border-blue-500 pl-6">Panduan Komprehensif Jasa Convert PayPal ke Rupiah: Transformasi Pendapatan Global Menjadi Aset Lokal</h3>
+                    <div class="prose prose-invert max-w-none text-slate-300 italic leading-loose space-y-8 text-lg">
+                        <p>Di era digital 2025, lanskap ekonomi Indonesia telah bergeser secara dramatis menuju model kerja remote dan freelancer internasional. Platform seperti Upwork, Fiverr, dan Freelancer.com telah menjadi ladang pencaharian utama bagi jutaan talenta Indonesia. Namun, satu hambatan teknis yang tetap relevan adalah bagaimana mengelola saldo PayPal sebagai gerbang utama pembayaran internasional. Di sinilah pentingnya memahami <strong>Jasa Convert PayPal</strong> secara mendalam, bukan sekadar sebagai tempat tukar uang, melainkan sebagai partner strategis pengelolaan finansial digital Anda.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Evolusi Transaksi: Mengapa Penarikan Langsung Kurang Efisien?</h4>
+                        <p>Secara historis, penarikan dana dari akun PayPal ke bank lokal Indonesia memerlukan waktu yang cukup lama, rata-rata 2 hingga 4 hari kerja. Dalam dunia bisnis yang serba cepat, waktu tunggu ini seringkali menjadi penghambat modal kerja (working capital). Selain itu, sistem konversi internal PayPal seringkali menerapkan spread (selisih nilai tukar) yang cukup lebar, terkadang 3% hingga 5% di bawah nilai kurs tengah pasar. Dengan menggunakan jasa convert profesional seperti Done Cogel, Anda mendapatkan efisiensi waktu yang luar biasa—dana cair dalam waktu kurang dari 15 menit—dan rate yang jauh lebih kompetitif karena kami menggunakan volume transaksi besar untuk mengoptimalkan nilai tukar bagi setiap pengguna.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Keamanan Siber dan Protokol Anti-Fraud dalam Convert PayPal</h4>
+                        <p>Salah satu kekhawatiran terbesar pengguna adalah risiko terkena saldo hasil kejahatan (carding) yang dapat menyebabkan akun PayPal terblokir secara permanen. Done Cogel menerapkan standar KYC (Know Your Customer) yang ketat. Kami memastikan bahwa setiap saldo yang kami kelola berasal dari sumber legal—hasil jasa desain, pemrograman, atau penjualan produk digital yang valid. Keamanan ini bukan hanya untuk kami, tetapi juga untuk melindungi ekosistem akun PayPal milik nasabah kami. Dengan menjaga aliran dana tetap bersih (clean funds), kami membantu nasabah mempertahankan skor reputasi akun mereka di mata sistem robotik PayPal.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Fleksibilitas Pencairan: Dari Bank Konvensional Hingga Digital E-Wallet</h4>
+                        <p>Indonesia merupakan salah satu negara dengan adopsi e-wallet tertinggi di dunia. Memahami kebutuhan ini, layanan convert kami tidak lagi terbatas pada bank-bank besar seperti BCA, Mandiri, atau BNI. Kami telah mengintegrasikan jalur distribusi dana ke seluruh aplikasi dompet digital utama seperti DANA, OVO, GoPay, dan ShopeePay. Hal ini memberikan kemudahan bagi pengguna yang ingin langsung menggunakan pendapatan mereka untuk kebutuhan sehari-hari, membayar tagihan listrik, hingga belanja di marketplace lokal tanpa perlu memindahkan dana berkali-kali.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Menganalisis Pergerakan Rate: Kapan Waktu Terbaik untuk Convert?</h4>
+                        <p>Sebagai pengguna cerdas, Anda perlu memahami dinamika pasar valuta asing. Kurs Dollar terhadap Rupiah dipengaruhi oleh faktor makroekonomi global, kebijakan suku bunga bank sentral (The Fed), dan stabilitas ekonomi nasional. Kami menyarankan pengguna untuk melakukan convert saat nilai USD sedang menguat atau saat rate di platform kami sedang dalam periode promo premium. Kami berkomitmen untuk selalu transparan mengenai rate yang berlaku, tanpa ada potongan biaya administrasi tersembunyi yang seringkali membingungkan nasabah di tempat lain.</p>
+                    </div>
+                </article>
+
+                <!-- ARTIKEL 2: PAYPAL LIMIT 180 HARI (DEEP DIVE) -->
+                <article class="edu-item" data-cat="limit">
+                    <h3 class="text-4xl font-black text-red-500 uppercase italic mb-8 border-l-8 border-red-500 pl-6">Strategi Pemulihan Dana dan Psikologi Menghadapi Permanent Limitation (Limit 180 Hari)</h3>
+                    <div class="prose prose-invert max-w-none text-slate-300 italic leading-loose space-y-8 text-lg">
+                        <p>Menerima notifikasi bahwa akun Anda telah dibatasi secara permanen adalah salah satu momen paling menekan bagi pengusaha digital. Kalimat "You can't use PayPal anymore" seolah menutup pintu rezeki global Anda. Namun, pemahaman mendalam mengenai struktur kepatuhan (compliance) PayPal dapat memberikan Anda jalan keluar yang rasional. Pembatasan 180 hari bukanlah sebuah hukuman mati terhadap dana Anda; itu adalah prosedur manajemen risiko yang sah di bawah hukum perbankan internasional yang diadopsi oleh PayPal.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Filosofi di Balik Masa Tunggu 6 Bulan (180 Hari)</h4>
+                        <p>Mengapa harus 180 hari? Angka ini tidak dipilih secara acak. Dalam industri kartu kredit dan pembayaran digital, 180 hari (sekitar 6 bulan) adalah batas waktu maksimal di mana seorang pembeli atau pemegang kartu dapat mengajukan klaim pengembalian dana (chargeback) melalui bank mereka. PayPal menahan dana Anda selama periode ini untuk memastikan bahwa jika ada sengketa dari transaksi masa lalu, dana tersedia untuk menutupi kerugian tersebut. Setelah masa 180 hari berlalu tanpa ada sengketa yang tertunda, dana tersebut secara hukum menjadi hak milik Anda sepenuhnya dan harus dilepaskan oleh PayPal.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Panduan Teknis: Apa yang Harus Dilakukan Jika Terkena Limit Permanen?</h4>
+                        <p>Langkah pertama: **Berhenti melakukan aktivitas masuk (login) yang berlebihan**. Sistem keamanan PayPal dapat mendeteksi kegugupan pengguna. Langkah kedua: **Amankan bukti transaksi**. Simpan semua invoice, bukti pengiriman barang, atau log pekerjaan yang telah Anda lakukan. Langkah ketiga: **Jangan membuat akun baru segera**. Membuat akun baru (stealth account) dengan IP atau perangkat yang sama hanya akan menyebabkan akun baru tersebut ikut terlimit dalam hitungan jam. Di Done Cogel, kami menyediakan jasa pendampingan (Bengkel PayPal) untuk membantu Anda menyiapkan dokumen banding atau membantu proses penarikan dana (WD) setelah masa 180 hari berakhir melalui jalur komunikasi resmi dengan tim support PayPal Singapura.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Mengatasi Masalah Penarikan Dana yang 'Nyangkut'</h4>
+                        <p>Seringkali, setelah masa 180 hari berakhir, pengguna tetap tidak bisa menarik dana karena menu penarikan yang error atau bank lokal yang tidak dapat dihubungkan. Hal ini terjadi karena profil akun Anda sudah ditandai sebagai 'High Risk'. Tim spesialis kami memiliki prosedur teknis untuk "membersihkan" jalur penarikan ini, memastikan komunikasi API antara PayPal dan bank lokal Indonesia kembali sinkron. Kami telah membantu ratusan nasabah menyelamatkan dana mulai dari puluhan dollar hingga puluhan ribu dollar yang sebelumnya dianggap hilang atau hangus.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Pencegahan di Masa Depan: Membangun Akun PayPal yang Resilien</h4>
+                        <p>Agar tidak terulang kembali, Anda harus membangun infrastruktur digital yang lebih kuat. Gunakan data identitas yang asli, aktifkan verifikasi dua langkah (2FA), dan pastikan Anda memiliki dokumentasi yang lengkap untuk setiap transaksi G&S (Goods & Services). Memilih partner convert yang terpercaya seperti Done Cogel juga membantu menjaga aliran transaksi Anda tetap stabil dan terhindar dari deteksi aktivitas mencurigakan oleh AI PayPal.</p>
+                    </div>
+                </article>
+
+                <!-- ARTIKEL 3: JASA BAYAR PAYPAL (DEEP DIVE) -->
+                <article class="edu-item" data-cat="bayar">
+                    <h3 class="text-4xl font-black text-green-500 uppercase italic mb-8 border-l-8 border-green-500 pl-6">Mastering Global Shopping: Solusi Jasa Bayar PayPal Sebagai Jembatan Belanja Tanpa Batas</h3>
+                    <div class="prose prose-invert max-w-none text-slate-300 italic leading-loose space-y-8 text-lg">
+                        <p>Belanja produk fisik dari luar negeri atau berlangganan layanan software (SaaS) kelas dunia seringkali terkendala oleh keterbatasan kartu kredit lokal Indonesia. Meskipun saat ini banyak bank digital menawarkan kartu debit virtual (VCC), banyak merchant global seperti eBay, Amazon, Etsy, atau provider hosting seperti Bluehost dan SiteGround yang tetap mewajibkan pembayaran melalui PayPal yang terverifikasi kuat. **Jasa Bayar PayPal** hadir sebagai solusi inklusi finansial, memungkinkan siapapun di Indonesia untuk bertransaksi di pasar global dengan mudah dan aman.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Efisiensi Biaya dan Proteksi Pembeli</h4>
+                        <p>Salah satu keuntungan menggunakan jasa bayar kami adalah perlindungan terhadap nilai tukar yang tidak menentu. Saat Anda menggunakan kartu kredit pribadi, seringkali terdapat biaya tambahan transaksi luar negeri (foreign transaction fee) yang tidak terlihat dan rate kurs bank yang sangat mahal. Dengan jasa bayar Done Cogel, Anda mendapatkan kepastian harga di depan dalam Rupiah. Selain itu, kami melakukan transaksi melalui akun PayPal Business kami yang memiliki proteksi pembeli (Buyer Protection) yang lebih kuat, memberikan rasa aman ekstra jika barang yang Anda pesan tidak sampai atau tidak sesuai deskripsi.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Mendukung Ekonomi Kreatif: Membayar Tools dan Lisensi Digital</h4>
+                        <p>Bagi desainer grafis, video editor, dan pengembang web, tools seperti Adobe Creative Cloud, lisensi Envato Elements, atau plugin WordPress premium adalah "senjata" utama. Banyak dari layanan ini memerlukan pembayaran bulanan (recurring payment) via PayPal. Kami membantu para kreator muda Indonesia untuk tetap bisa berkarya dengan software original tanpa harus memiliki kartu kredit. Prosesnya instan: Anda kirim invoice atau detail akun, kami bayar, dan layanan Anda langsung aktif seketika. Ini adalah bentuk komitmen kami dalam mendukung pertumbuhan ekonomi kreatif digital di tanah air.</p>
+                        
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Menghindari Penipuan Jasa Bayar Abal-Abal</h4>
+                        <p>Di dunia maya, banyak bertebaran jasa bayar dengan rate yang tidak masuk akal murahnya. Waspadalah, karena seringkali mereka menggunakan kartu hasil curian (carding). Jika merchant mendeteksi pembayaran ilegal, akun belanja Anda bisa di-banned secara permanen dan barang yang Anda pesan tidak akan pernah dikirim. Done Cogel menjamin 100% legalitas saldo yang digunakan. Kepercayaan nasabah adalah aset terbesar kami, itulah sebabnya kami tetap bertahan sebagai penyedia jasa bayar nomor satu sejak tahun 2018 dengan ribuan ulasan positif dari pelanggan setia.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
      
     <!-- PAGE: BLOG (20 POSTS) -->
     <main id="blogPage" class="page-section py-20 px-4">
         <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white italic">Educational <span class="text-blue-500">Blog Hub</span></h2></div>
         <div id="blogGrid" class="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto"></div>
         <div id="blogPagination" class="flex justify-center mt-16 gap-3"></div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: TUTORIAL AI VISUAL -->
     <main id="tutorialPage" class="page-section py-20 px-4">
         <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white">Visual <span class="text-blue-500">AI Guide</span></h2><p class="text-slate-400 mt-4 italic">Panduan Visual berbasis AI untuk kemudahan PayPal Anda.</p></div>
         <div id="tutorialGrid" class="grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"></div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: FAQ & TOS -->
@@ -984,150 +345,6 @@
                 <div id="tosContent" class="space-y-6 text-sm text-slate-300 italic leading-relaxed"></div>
             </div>
         </div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: LAPORAN (TELEGRAM CONNECT) -->
@@ -1141,150 +358,6 @@
                 <button type="submit" class="w-full bg-orange-600 py-4 rounded-xl font-black uppercase italic text-xs text-white shadow-xl hover:bg-orange-700 transition">Kirim ke Telegram Admin</button>
             </form>
         </div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: CART -->
@@ -1295,150 +368,6 @@
             <div class="flex justify-between items-center border-t border-white/10 pt-4"><span class="text-sm font-black uppercase italic text-white">Total:</span><span id="cartTotal" class="text-2xl font-black text-blue-400">Rp 0</span></div>
             <button onclick="checkoutWA()" class="w-full bg-green-600 py-4 rounded-xl font-black uppercase italic text-xs text-white mt-8 hover:bg-green-700 transition shadow-xl">Checkout WhatsApp</button>
         </div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: LOGIN / REGISTER / FORGOT -->
@@ -1473,150 +402,6 @@
             <div id="forgotStep2" class="hidden space-y-4"><input type="number" id="forOTP" placeholder="Masukkan 6 Digit OTP" class="w-full p-6 text-center text-3xl font-black border-2 border-blue-500"><button onclick="forgotStep2()" class="w-full bg-green-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Verifikasi</button></div>
             <div id="forgotStep3" class="hidden space-y-4"><input type="text" id="forSecurity" placeholder="Jawaban Keamanan" class="w-full p-4"><input type="password" id="forNewPass" placeholder="Password Baru" class="w-full p-4"><button onclick="forgotStep3()" class="w-full bg-blue-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Update Sandi</button></div>
         </div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <!-- PAGE: ADMIN MASTER (30 FITUR) -->
@@ -1661,150 +446,6 @@
                 </div>
             </div>
         </div>
-    
-    <!-- ================================================================= -->
-    <!-- SECTION PANDUAN LENGKAP & SEO BOOST (ANIMASI & LATAR) -->
-    <!-- ================================================================= -->
-    <section id="panduan-lengkap" class="relative py-24 overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
-        <!-- Background Decorations -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[150px] animate-pulse" style="animation-delay: 3s;"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-emerald-400">
-                        Panduan Lengkap: Penukaran PayPal ke Rupiah, Limitasi Akun, dan Solusinya
-                    </h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Informasi mendalam mengenai cara kerja PayPal di Indonesia, solusi akun bermasalah, dan tips transaksi aman.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-12">
-                    
-                    <!-- Bagian 1: Intro -->
-                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
-                        <p class="text-xl">
-                            Dalam era digital yang serba terhubung ini, transaksi internasional menjadi semakin mudah. Salah satu platform pembayaran digital yang paling populer di dunia adalah <strong>PayPal</strong>. Bagi banyak individu dan bisnis di Indonesia, PayPal menjadi jembatan penting untuk menerima pembayaran dari klien atau pelanggan di luar negeri. Namun, pertanyaan seputar <strong>penukaran PayPal ke Rupiah (convert PayPal)</strong>, serta potensi <strong>limitasi akun</strong>, seringkali muncul dan menimbulkan kebingungan.
-                        </p>
-                    </div>
-
-                    <!-- Bagian 2: Penukaran -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-blue-500 pl-4">Memahami Penukaran PayPal ke Rupiah dan Layanan Konversi</h3>
-                        <p>PayPal beroperasi secara global, namun mata uang utama yang digunakan dalam transaksi internasional seringkali adalah Dolar Amerika Serikat (USD). Bagi pengguna di Indonesia, saldo yang diterima perlu di-convert agar dapat ditarik ke rekening bank lokal atau e-wallet seperti DANA.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Konversi Otomatis</h4>
-                                <p class="text-sm">Dilakukan langsung di dashboard PayPal saat penarikan ke bank, namun kurs biasanya jauh di bawah kurs pasar.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Jasa Convert (Exchanger)</h4>
-                                <p class="text-sm">Layanan pihak ketiga yang menawarkan rate lebih tinggi dan proses pencairan kilat ke dompet digital.</p>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <h4 class="font-bold text-blue-400 mb-2">Penarikan Bank Lokal</h4>
-                                <p class="text-sm">Memerlukan waktu 2-4 hari kerja dengan biaya admin tambahan untuk nominal tertentu.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 3: Limitasi -->
-                    <div>
-                        <h3 class="text-3xl font-black italic text-white uppercase mb-6 border-l-4 border-red-500 pl-4">Masalah Limitasi: Permanen vs Sementara</h3>
-                        <p>Salah satu isu yang paling sering dihadapi oleh pengguna adalah pembatasan akun. Hal ini dilakukan PayPal untuk melindungi sistem dari aktivitas mencurigakan.</p>
-                        
-                        <div class="space-y-6 mt-6">
-                            <div class="bg-red-500/10 border border-red-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-red-400 mb-2">Akun PayPal Limit Permanen</h4>
-                                <p class="text-sm">Terjadi saat pelanggaran berat terdeteksi. Akun tidak bisa digunakan selamanya, namun dana akan ditahan selama <strong>180 hari</strong> sebelum diizinkan untuk ditarik ke bank yang terhubung.</p>
-                            </div>
-                            <div class="bg-yellow-500/10 border border-yellow-500/20 p-6 rounded-2xl">
-                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Akun PayPal Limit Sementara</h4>
-                                <p class="text-sm">Biasanya karena masalah verifikasi data atau aktivitas login baru. Bisa diatasi dengan mengunggah foto KTP, bukti alamat, atau bukti pengiriman barang di Resolution Center.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bagian 4: Help Center SEO FAQ -->
-                    <div class="pt-12">
-                        <h3 class="text-3xl font-black italic text-center text-white uppercase mb-12">Help Center: 15 Pertanyaan Terpopuler di Google</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">1. Bagaimana cara menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Anda bisa menggunakan fitur withdraw ke bank di aplikasi PayPal atau menggunakan jasa convert saldo kami untuk pencairan ke DANA/OVO secara instan.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">2. Apakah ada biaya saat menukar PayPal ke Rupiah?</p>
-                                <p class="text-sm">Ya, PayPal mengenakan biaya konversi sekitar 3-4% di bawah rate tengah pasar. Jasa pihak ketiga biasanya mengambil margin fee yang lebih bersahabat.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">3. Mengapa akun PayPal saya dibatasi (limit)?</p>
-                                <p class="text-sm">Penyebab umum meliputi login menggunakan VPN, transaksi yang tiba-tiba melonjak, atau data identitas yang belum diverifikasi.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">4. Apa perbedaan limitasi sementara dan permanen?</p>
-                                <p class="text-sm">Limit sementara bisa dibuka kembali dengan dokumen, sementara limit permanen menutup akses transaksi selamanya (dana ditahan 180 hari).</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">5. Bagaimana cara mengatasi akun PayPal limit sementara?</p>
-                                <p class="text-sm">Masuk ke Resolution Center, lihat daftar permintaan dokumen, dan unggah file yang diminta (KTP/Faktur/Rekening Koran) dengan jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">6. Bisakah akun PayPal limit permanen dipulihkan?</p>
-                                <p class="text-sm">Sangat sulit, kecuali Anda bisa membuktikan tidak ada pelanggaran AUP melalui proses banding resmi via email ke tim sengketa PayPal.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">7. Cara menarik saldo akun limit permanen (180 hari)?</p>
-                                <p class="text-sm">Tunggu email notifikasi setelah 180 hari, lalu hubungkan rekening bank lokal yang valid untuk mencairkan saldo yang tersisa.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">8. Apakah kurs konversi PayPal ke Rupiah menguntungkan?</p>
-                                <p class="text-sm">Secara umum kurs internal PayPal lebih rendah. Disarankan membandingkan dengan rate exchanger untuk mendapatkan nilai IDR lebih banyak.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">9. Bagaimana cara agar akun PayPal tidak mudah limit?</p>
-                                <p class="text-sm">Lakukan verifikasi lengkap, hindari penggunaan VPN gratis, dan pastikan setiap transaksi memiliki catatan atau invoice yang jelas.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">10. Saya menerima pembayaran luar negeri, cara mencairkannya?</p>
-                                <p class="text-sm">Anda bisa mengirimkan saldo tersebut ke akun exchanger terpercaya untuk diproses menjadi Rupiah ke bank atau e-wallet pilihan Anda.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">11. Apakah aman menggunakan jasa money changer PayPal?</p>
-                                <p class="text-sm">Aman jika Anda memilih jasa yang transparan dan memiliki nomor admin yang bisa dihubungi sewaktu-waktu seperti layanan kami.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">12. Berapa lama proses penarikan dana PayPal ke bank?</p>
-                                <p class="text-sm">Biasanya 2-4 hari kerja (tidak termasuk Sabtu/Minggu). Pastikan nama bank dan nama PayPal identik.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">13. Apa yang harus dilakukan jika saldo PayPal hilang/dicuri?</p>
-                                <p class="text-sm">Segera laporkan di Resolution Center pada menu 'Report a Problem' dan ubah password serta aktifkan 2FA segera.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">14. Apakah PayPal bisa digunakan di semua bank di Indonesia?</p>
-                                <p class="text-sm">Ya, hampir semua bank yang memiliki kode SWIFT bisa menerima penarikan saldo dari PayPal Indonesia.</p>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500 transition-all duration-300">
-                                <p class="font-bold text-blue-400 mb-2">15. Bagaimana cara melaporkan penipuan di PayPal?</p>
-                                <p class="text-sm">Anda bisa membuka sengketa (dispute) di Resolution Center maksimal 180 hari sejak tanggal transaksi dilakukan.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO Footer Content -->
-                    <div class="text-center text-slate-500 text-sm mt-12 italic">
-                        <p>Strategi SEO: Konten ini dioptimasi untuk pencarian "jasa convert paypal", "paypal ke rupiah", "solusi limit paypal permanen", dan "tarik saldo paypal limit".</p>
-                        <p>Dengan total materi mendalam ini, website Anda akan memiliki otoritas lebih tinggi di mata Google Search.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
     <script>
@@ -1925,7 +566,7 @@
         const faqItems = [
             { q: "Apa itu Done Cogel dan PAYSOLUSI?", a: "Done Cogel x PAYSOLUSI adalah platform penyedia jasa keuangan digital yang berfokus pada ekosistem PayPal. Kami telah beroperasi sejak tahun 2018 dan telah melayani ribuan transaksi mulai dari penukaran saldo (convert), pengisian saldo (top up), jasa pembayaran situs global, hingga penanganan masalah akun PayPal yang bermasalah (bengkel akun) secara profesional dan aman." },
             { q: "Berapa lama waktu proses transaksi?", a: "Kami menjunjung tinggi efisiensi waktu. Standar proses transaksi di platform kami adalah 5 hingga 15 menit setelah saldo PayPal kami terima dan divalidasi oleh sistem. Namun, durasi ini juga bergantung pada jam operasional bank lokal dan stabilitas jaringan internet. Jika ada kendala teknis, admin akan segera menginformasikan status transaksi Anda secara transparan via WhatsApp." },
-            { q: "Apakah transaksi di sini dijamin aman?", a: "Sangat aman. Kami menggunakan akun PayPal yang sudah terverifikasi penuh dan berumur tua (aged account) untuk mengirim atau menerima saldo. Saldo yang kami miliki berasal dari sumber legal hasil kerjasama dengan freelancer dan agensi digital internasional. Kami menjamin tidak ada saldo hasil carding atau aktivitas ilegal yang dapat membahayakan akun Anda di kemudian hari." },
+            { q: "Apakah transaksi di sini dijamin aman?", a: "Sangat aman. Kami menggunakan akun PayPal yang sudah terverifikasi penuh and berumur tua (aged account) untuk mengirim atau menerima saldo. Saldo yang kami miliki berasal dari sumber legal hasil kerjasama dengan freelancer dan agensi digital internasional. Kami menjamin tidak ada saldo hasil carding atau aktivitas ilegal yang dapat membahayakan akun Anda di kemudian hari." },
             { q: "Apakah bisa mencairkan saldo ke DANA atau OVO?", a: "Tentu bisa. Selain mendukung seluruh bank nasional di Indonesia (BCA, Mandiri, BNI, BRI, dll), kami juga melayani penukaran saldo PayPal langsung ke dompet digital (E-Wallet) populer seperti DANA, OVO, GoPay, LinkAja, dan ShopeePay. Proses pengiriman ke e-wallet dilakukan secara real-time tepat setelah transaksi PayPal Anda divalidasi oleh admin kami." },
             { q: "Apa maksud dari Limit 180 Hari?", a: "Limit 180 hari adalah keputusan final PayPal untuk menutup sebuah akun secara permanen karena dianggap melanggar kebijakan serius. Dana di dalam akun tersebut akan ditahan (hold) selama 6 bulan (180 hari) untuk memastikan tidak ada lagi klaim refund dari pengirim. Setelah masa tersebut berakhir, dana baru bisa ditarik. Kami menyediakan jasa khusus untuk membantu proses penarikan dana ini hingga sukses masuk ke rekening Anda." }
         ];
@@ -2122,6 +763,24 @@
             db.ref('master_v25_supreme/reports').push({ user: session.user || session.name, cat, msg, date: new Date().toLocaleString() }).then(() => alert("Laporan terkirim ke Telegram Admin!"));
         }
 
+        // --- EDUKASI SEO SYSTEM ---
+        window.filterEdukasi = (cat) => {
+            const items = document.querySelectorAll('.edu-item');
+            items.forEach(item => {
+                if(cat === 'all') {
+                    item.style.display = 'block';
+                    item.classList.add('animate__fadeInUp');
+                } else {
+                    if(item.getAttribute('data-cat') === cat) {
+                        item.style.display = 'block';
+                        item.classList.add('animate__fadeInUp');
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+
         // --- RENDERERS ---
         function renderUI() {
             document.getElementById('rateLabel').innerText = (mode==='jual'?config.rateJual:config.rateBeli).toLocaleString();
@@ -2189,3 +848,5 @@
     </script>
 </body>
 </html>
+
+--- END OF FILE ---
