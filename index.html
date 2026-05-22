@@ -60,6 +60,47 @@
         .pay-method-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 15px; transition: 0.3s; text-align: center; }
         .pay-method-card:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); transform: translateY(-3px); }
         .pay-method-card i { font-size: 20px; margin-bottom: 8px; display: block; }
+
+        /* --- ANIMASI CYBER CALCULATOR --- */
+        @keyframes neonGlowJual { 0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4), inset 0 0 10px rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.6); } 50% { box-shadow: 0 0 25px rgba(239, 68, 68, 0.7), inset 0 0 15px rgba(239, 68, 68, 0.4); border-color: rgba(239, 68, 68, 0.9); } }
+        @keyframes neonGlowBeli { 0%, 100% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.4), inset 0 0 10px rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.6); } 50% { box-shadow: 0 0 25px rgba(59, 130, 246, 0.7), inset 0 0 15px rgba(59, 130, 246, 0.4); border-color: rgba(59, 130, 246, 0.9); } }
+        .calc-glow-jual { animation: neonGlowJual 2.5s infinite ease-in-out; background: linear-gradient(135deg, rgba(20, 10, 15, 0.9) 0%, rgba(10, 5, 5, 0.95) 100%) !important; }
+        .calc-glow-beli { animation: neonGlowBeli 2.5s infinite ease-in-out; background: linear-gradient(135deg, rgba(10, 15, 30, 0.9) 0%, rgba(5, 5, 15, 0.95) 100%) !important; }
+        .cyber-pulse { position: relative; overflow: hidden; }
+        .cyber-pulse::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent); transform: rotate(45deg); transition: 0.5s; animation: cyberSweep 4s infinite linear; pointer-events: none; }
+        @keyframes cyberSweep { 0% { transform: translate(-30%, -30%) rotate(45deg); } 100% { transform: translate(30%, 30%) rotate(45deg); } }
+
+        /* --- STYLES MODAL INVOICE RESI TRANSPARANSI --- */
+        #invoiceModal { display: none; position: fixed; inset: 0; z-index: 6000; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); align-items: center; justify-content: center; padding: 20px; }
+        .invoice-modal-active { display: flex !important; animation: fadeIn 0.3s forwards; }
+        .phone-container { width: 100%; max-width: 412px; background-color: #060913; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.8); border: 1px solid #1e293b; padding: 24px; display: flex; flex-direction: column; align-items: center; }
+        .success-icon-wrapper { margin-top: 15px; margin-bottom: 12px; width: 65px; height: 65px; background-color: rgba(16, 185, 129, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid #10b981; }
+        .success-icon { color: #10b981; font-size: 30px; font-weight: bold; }
+        .status-badge { background-color: rgba(16, 185, 129, 0.15); color: #10b981; font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(16, 185, 129, 0.25); }
+        .invoice-title { font-size: 21px; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 22px; text-align: center; color: #ffffff; }
+        .invoice-card { width: 100%; background-color: #111827; border: 1px solid #1f2937; border-radius: 20px; padding: 20px; margin-bottom: 24px; }
+        .invoice-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px dashed #374151; padding-bottom: 14px; }
+        .id-label { font-size: 11px; color: #9ca3af; font-weight: 600; text-transform: uppercase; }
+        .id-value { font-size: 14px; color: #3b82f6; font-weight: 700; letter-spacing: 0.5px; }
+        .invoice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; margin-bottom: 24px; }
+        .grid-item { display: flex; flex-direction: column; }
+        .item-label { font-size: 10px; color: #9ca3af; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .item-value { font-size: 14px; font-weight: 700; color: #ffffff; }
+        .item-value.highlight-red { color: #ef4444; font-size: 18px; }
+        .item-value.highlight-green { color: #10b981; font-size: 18px; }
+        .status-dot-wrapper { display: flex; align-items: center; gap: 6px; color: #10b981; font-size: 13px; font-weight: 700; }
+        .status-dot { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; }
+        .barcode-container { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 10px; }
+        .barcode-lines { width: 100%; max-width: 185px; height: 40px; background: repeating-linear-gradient(90deg, #4b5563, #4b5563 2px, transparent 2px, transparent 4px, #374151 4px, #374151 8px, transparent 8px, transparent 10px); opacity: 0.6; margin-bottom: 6px; }
+        .barcode-text { font-size: 10px; color: #9ca3af; letter-spacing: 2px; }
+        .target-section { width: 100%; margin-bottom: 22px; }
+        .target-label { font-size: 11px; color: #9ca3af; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: block; }
+        .target-input { width: 100%; background-color: #0b111e; border: 1px solid #1f2937; border-radius: 12px; padding: 14px 16px; color: #ffffff; font-size: 13px; outline: none; }
+        .btn-primary-wa { width: 100%; background-color: #10b981; color: #ffffff; border: none; border-radius: 14px; padding: 16px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; transition: background 0.2s; }
+        .btn-primary-wa:hover { background-color: #059669; transform: scale(1.02); }
+        .btn-secondary-close { width: 100%; background: transparent; color: #9ca3af; border: none; padding: 12px; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+        .btn-secondary-close:hover { color: #ffffff; }
+        .phone-icon { width: 16px; height: 16px; fill: currentColor; }
     </style>
 </head>
 <body>
@@ -110,6 +151,7 @@
                 <a onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
                 <a onclick="showPage('about')" class="hover:text-purple-400 cursor-pointer">Tentang</a>
                 <a onclick="showPage('reviews')" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
+    <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
                 <a onclick="showPage('maps')" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
                 <a onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
                 <a onclick="showPage('lapor')" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
@@ -127,6 +169,7 @@
         <a onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
         <a onclick="showPage('about'); toggleMobile()" class="block text-purple-400">Tentang Kami</a>
         <a onclick="showPage('reviews'); toggleMobile()" class="block text-pink-400">Ulasan Pelanggan</a>
+    <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
         <a onclick="showPage('maps'); toggleMobile()" class="block text-emerald-400">Lokasi Kantor</a>
         <a onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
         <a onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
@@ -145,6 +188,72 @@
         </div>
     </div>
 
+    <div id="invoiceModal">
+        <div class="phone-container animate__animated animate__zoomIn" onclick="event.stopPropagation()">
+            <div class="success-icon-wrapper">
+                <span class="success-icon">✓</span>
+            </div>
+            <div class="status-badge">Transaksi Tercatat Sukses</div>
+
+            <h2 class="invoice-title">Invoice Resi Transparansi</h2>
+
+            <div class="invoice-card">
+                <div class="invoice-header-row">
+                    <span class="id-label">ID Transaksi</span>
+                    <span class="id-value" id="invTxId">DC-TRX-000000</span>
+                </div>
+
+                <div class="invoice-grid">
+                    <div class="grid-item">
+                        <span class="item-label">Pelanggan</span>
+                        <span class="item-value" id="invCustomer">GUEST-000</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Metode/Layanan</span>
+                        <span class="item-value" id="invService">WD PAYPAL TO RP</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Nominal USD</span>
+                        <span class="item-value highlight-red" id="invUsd">$0</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Penerimaan IDR</span>
+                        <span class="item-value highlight-green" id="invIdr">Rp 0</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Kurs Rate Kontrak</span>
+                        <span class="item-value" id="invRate">Rp 0</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Status</span>
+                        <div class="status-dot-wrapper">
+                            <span class="status-dot"></span> SUKSES
+                        </div>
+                    </div>
+                </div>
+
+                <div class="barcode-container">
+                    <div class="barcode-lines"></div>
+                    <div class="barcode-text" id="invBarcode">000000-DONECO</div>
+                </div>
+            </div>
+
+            <div class="target-section">
+                <label class="target-label">Target Rekening / E-Wallet Anda</label>
+                <input type="text" id="invTargetInput" class="target-input" readonly>
+            </div>
+
+            <button class="btn-primary-wa" onclick="sendInvoiceToWA()">
+                <svg class="phone-icon" viewBox="0 0 24 24">
+                    <path d="M20.01 15.38c-1.23-.13-2.42-.46-3.53-.97a1 1 0 0 0-1.01.24l-1.58 1.58a15.2 15.2 0 0 1-6.53-6.53l1.58-1.58a1 1 0 0 0 .24-1.01 11.4 11.4 0 0 1-.97-3.53c-.12-.56-.6-.97-1.19-.97H4.37c-.67 0-1.22.55-1.19 1.21a18.04 18.04 0 0 0 16.63 16.63c.66.03 1.21-.52 1.21-1.19v-3.41c0-.59-.41-1.07-.97-1.19z"/>
+                </svg>
+                Kirim Slip ke CS & Ambil Dana (WA)
+            </button>
+
+            <button class="btn-secondary-close" onclick="closeInvoiceModal()">Selesai / Tutup</button>
+        </div>
+    </div>
+
     <main id="homePage" class="page-section page-active py-16 px-4">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-8 animate__animated animate__fadeInLeft">
@@ -160,19 +269,26 @@
                     <span class="rainbow-text text-sm">WD LIMIT 180 HARI & RESTORE AKUN READY!</span>
                 </div>
             </div>
-            <div class="glass-card p-10 border-2 border-white/5 shadow-2xl">
+            
+            <div id="mainCalculatorCard" class="glass-card p-10 border-2 border-white/5 shadow-2xl transition-all duration-500 calc-glow-jual cyber-pulse">
                 <div class="flex bg-black/40 p-1 rounded-xl mb-8 relative h-12">
-                    <div id="toggleSelector" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-blue-600 rounded-lg transition-all duration-300"></div>
+                    <div id="toggleSelector" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-red-500 rounded-lg transition-all duration-300"></div>
                     <button onclick="setMode('jual')" class="flex-1 relative z-10 font-black uppercase italic text-[10px] text-white">Jual Saldo</button>
                     <button onclick="setMode('beli')" class="flex-1 relative z-10 font-black uppercase italic text-[10px] text-white">Beli Saldo</button>
                 </div>
                 <div class="space-y-6">
-                    <div class="relative"><label class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none"></div>
-                    <div class="bg-blue-500/10 p-6 rounded-xl border-l-4 border-blue-500">
+                    <div class="relative group"><label class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-blue-400">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 bg-white/5 border border-white/10 text-white rounded-xl"></div>
+                    
+                    <div class="relative group">
+                        <label class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-emerald-400">Target Rekening / E-Wallet</label>
+                        <input type="text" id="targetInput" placeholder="Contoh: DANA 08123456789 atau BCA 12345678" class="w-full p-4 pt-8 font-black text-sm outline-none transition-all duration-300 focus:ring-2 focus:ring-emerald-500 bg-white/5 border border-white/10 text-white rounded-xl placeholder-slate-600">
+                    </div>
+
+                    <div class="bg-blue-500/10 p-6 rounded-xl border-l-4 border-blue-500 transition-all duration-300 hover:bg-blue-500/15">
                         <p id="displayIDR" class="text-4xl font-black text-blue-400">Rp 0</p>
                         <p class="text-[10px] mt-2 text-slate-500 uppercase font-bold italic">Rate: Rp <span id="rateLabel">0</span></p>
                     </div>
-                    <button onclick="orderViaWA()" class="w-full bg-green-500 py-4 rounded-xl font-black uppercase italic text-sm text-white shadow-xl hover:bg-green-700 transition flex items-center justify-center gap-3"><i class="fab fa-whatsapp text-xl"></i> ORDER SEKARANG</button>
+                    <button onclick="openInvoiceModal()" class="w-full bg-green-500 py-4 rounded-xl font-black uppercase italic text-sm text-white shadow-xl hover:bg-green-700 transition flex items-center justify-center gap-3"><i class="fab fa-whatsapp text-xl"></i> ORDER SEKARANG</button>
                 </div>
             </div>
         </div>
@@ -345,12 +461,12 @@
                     <p class="text-[9px] font-black uppercase text-slate-500 mt-2 tracking-widest">Member Aktif</p>
                 </div>
                 <div class="glass-card p-6">
-                    <h4 class="text-3xl font-black text-cyan-400 italic">&lt; 15 Mnt</h4>
+                    <h4 class="text-3xl font-black text-cyan-400 italic">< 15 Mnt</h4>
                     <p class="text-[9px] font-black uppercase text-slate-500 mt-2 tracking-widest">Rata-rata Proses</p>
                 </div>
                 <div class="glass-card p-6">
                     <h4 class="text-3xl font-black text-green-400 italic">100%</h4>
-                    <p class="text-[9px] font-black uppercase text-slate-500 mt-2 tracking-widest">Clean &amp; Legal Funds</p>
+                    <p class="text-[9px] font-black uppercase text-slate-500 mt-2 tracking-widest">Clean & Legal Funds</p>
                 </div>
             </div>
         </div>
@@ -593,19 +709,52 @@
 
         let config = { rateJual: 13500, rateBeli: 16800, wa: "6288274325328", marquee: "DONE COGEL SUPREME HUB v25.29", adminPass: "Paypalfastdone21", teleToken: "", teleId: "7311149952" };
         let members = []; let session = null; let mode = 'jual'; let cart = []; let blogPage = 1; let tempOTP = null; let userToReset = null;
+        let waMessageDraft = "";
 
         // --- SMART WHATSAPP ORDER (NEW) ---
         window.orderViaWA = (s = null) => {
             let msg = "";
             if (s && typeof s === 'string' && s !== "Order") {
-                // Jika dipanggil dari Bengkel atau Tutorial
                 msg = `Halo Admin Done Cogel, saya butuh bantuan terkait: *${s}*`;
             } else {
-                // Jika dipanggil dari Kalkulator (Home)
+                const chars = "0123456789ABCDEF";
+                let randomId = "";
+                for (let i = 0; i < 6; i++) {
+                    randomId += chars[Math.floor(Math.random() * chars.length)];
+                }
+                const kodeTrx = `DC-TRX-${randomId}`;
+
                 const usd = document.getElementById('usdInput').value;
-                const idr = document.getElementById('displayIDR').innerText;
-                const type = mode === 'jual' ? "Jual Saldo (Convert)" : "Beli Saldo (Top Up)";
-                msg = `🚀 *ORDER BARU - DONE COGEL*\n\nSaya ingin order *${type}*\n💵 Nominal: *$${usd} USD*\n🇮🇩 Estimasi Terima: *${idr}*\n\nMohon instruksi alamat email PayPal-nya min. Terima kasih!`;
+                const targetRek = document.getElementById('targetInput').value || "[Sebutkan Rekening/E-Wallet Anda]";
+                const rateNow = mode === 'jual' ? config.rateJual : config.rateBeli;
+                const totalIdr = (usd * rateNow).toLocaleString('id-ID');
+
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const tglHariIni = new Date().toLocaleDateString('id-ID', options);
+
+                if (mode === 'beli') {
+                    msg = `Halo Admin Done Cogel, Transaksi saya\nsudah masuk ke website dengan Kode ID:\n*${kodeTrx}*\n\n` +
+                          `*INVOICE DETAIL*\n` +
+                          `• ID: ${kodeTrx}\n` +
+                          `• Layanan : Top Up PayPal\n` +
+                          `• Nominal : $${usd} USD\n` +
+                          `• Rate: Rp ${rateNow.toLocaleString('id-ID')}\n` +
+                          `• Total IDR: Rp ${totalIdr}\n` +
+                          `• Target Rekening/E-Wallet: ${targetRek}\n` +
+                          `• ${tglHariIni}\n\n` +
+                          `Mohon segera diproses pengirimannya.\nTerima kasih!`;
+                } else {
+                    msg = `Halo Admin Done Cogel, Transaksi saya sudah masuk ke website dengan Kode ID:\n*${kodeTrx}*\n\n` +
+                          `*INVOICE DETAIL*\n` +
+                          `• ID: ${kodeTrx}\n` +
+                          `• Layanan: JUAL SALDO PAYPAL\n` +
+                          `• Nominal: $${usd} USD\n` +
+                          `• Rate : Rp ${rateNow.toLocaleString('id-ID')}\n` +
+                          `• Total IDR: Rp ${totalIdr}\n` +
+                          `• Target Rekening/E-Wallet: ${targetRek}\n` +
+                          `• Hari ini ${tglHariIni}\n\n` +
+                          `Mohon segera kirimkan email dan diproses\npengirimannya. Terima kasih!`;
+                }
             }
             window.open(`https://wa.me/${config.wa}?text=${encodeURIComponent(msg)}`, '_blank');
         };
@@ -862,7 +1011,98 @@
             document.getElementById(id + 'Page').classList.add('page-active'); window.scrollTo(0,0);
         }
         window.toggleAuth = (t) => { ['loginBox','registerBox','forgotBox'].forEach(i => document.getElementById(i).classList.add('hidden')); document.getElementById(t+'Box').classList.remove('hidden'); }
-        window.setMode = (m) => { mode = m; document.getElementById('toggleSelector').style.left = m==='jual'?'4px':'calc(50% + 0px)'; renderUI(); }
+        
+        // FUNGSI ANIMASI CYBER & MODE SWITCH UNTUK KALKULATOR
+        window.setMode = (m) => { 
+            mode = m; 
+            const selector = document.getElementById('toggleSelector');
+            const card = document.getElementById('mainCalculatorCard');
+            if (m === 'jual') {
+                selector.style.left = '4px';
+                selector.style.backgroundColor = '#ef4444'; 
+                if(card) {
+                    card.classList.remove('calc-glow-beli');
+                    card.classList.add('calc-glow-jual');
+                }
+            } else {
+                selector.style.left = 'calc(50% + 0px)';
+                selector.style.backgroundColor = '#3b82f6'; 
+                if(card) {
+                    card.classList.remove('calc-glow-jual');
+                    card.classList.add('calc-glow-beli');
+                }
+            }
+            renderUI(); 
+        };
+
+        // FUNGSI INVOICE RESI TRANSPARANSI (HANYA UNTUK KALKULATOR JUAL/BELI)
+        window.openInvoiceModal = (s = null) => {
+            if (s && typeof s === 'string' && s !== "Order") {
+                let msg = `Halo Admin Done Cogel, saya butuh bantuan terkait: *${s}*`;
+                window.open(`https://wa.me/${config.wa}?text=${encodeURIComponent(msg)}`, '_blank');
+                return;
+            }
+
+            const chars = "0123456789ABCDEF";
+            let randomId = "";
+            for (let i = 0; i < 6; i++) { randomId += chars[Math.floor(Math.random() * chars.length)]; }
+            const kodeTrx = `DC-TRX-${randomId}`;
+
+            const usd = document.getElementById('usdInput').value;
+            const targetRek = document.getElementById('targetInput').value || "[Belum Diisi]";
+            const rateNow = mode === 'jual' ? config.rateJual : config.rateBeli;
+            const totalIdr = (usd * rateNow).toLocaleString('id-ID');
+            const guestId = `GUEST-${Math.floor(100 + Math.random() * 900)}`;
+            const layanantext = mode === 'jual' ? 'WD PAYPAL TO RP' : 'TOP UP PAYPAL';
+
+            document.getElementById('invTxId').innerText = kodeTrx;
+            document.getElementById('invCustomer').innerText = guestId;
+            document.getElementById('invService').innerText = layanantext;
+            document.getElementById('invUsd').innerText = `$${usd}`;
+            document.getElementById('invIdr').innerText = `Rp ${totalIdr}`;
+            document.getElementById('invRate').innerText = `Rp ${rateNow.toLocaleString('id-ID')}`;
+            document.getElementById('invBarcode').innerText = `${randomId}-DONECO`;
+            document.getElementById('invTargetInput').value = targetRek;
+
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const tglHariIni = new Date().toLocaleDateString('id-ID', options);
+
+            if (mode === 'beli') {
+                waMessageDraft = `Halo Admin Done Cogel, Transaksi saya\nsudah masuk ke website dengan Kode ID:\n*${kodeTrx}*\n\n` +
+                      `*INVOICE DETAIL*\n` +
+                      `• ID: ${kodeTrx}\n` +
+                      `• Layanan : Top Up PayPal\n` +
+                      `• Nominal : $${usd} USD\n` +
+                      `• Rate: Rp ${rateNow.toLocaleString('id-ID')}\n` +
+                      `• Total IDR: Rp ${totalIdr}\n` +
+                      `• Target Rekening/E-Wallet: ${targetRek}\n` +
+                      `• ${tglHariIni}\n\n` +
+                      `Mohon segera diproses pengirimannya.\nTerima kasih!`;
+            } else {
+                waMessageDraft = `Halo Admin Done Cogel, Transaksi saya sudah masuk ke website dengan Kode ID:\n*${kodeTrx}*\n\n` +
+                      `*INVOICE DETAIL*\n` +
+                      `• ID: ${kodeTrx}\n` +
+                      `• Layanan: JUAL SALDO PAYPAL\n` +
+                      `• Nominal: $${usd} USD\n` +
+                      `• Rate : Rp ${rateNow.toLocaleString('id-ID')}\n` +
+                      `• Total IDR: Rp ${totalIdr}\n` +
+                      `• Target Rekening/E-Wallet: ${targetRek}\n` +
+                      `• Hari ini ${tglHariIni}\n\n` +
+                      `Mohon segera kirimkan email dan diproses\npengirimannya. Terima kasih!`;
+            }
+
+            document.getElementById('invoiceModal').classList.add('invoice-modal-active');
+        };
+
+        window.closeInvoiceModal = () => {
+            document.getElementById('invoiceModal').classList.remove('invoice-modal-active');
+        };
+
+        window.sendInvoiceToWA = () => {
+            window.open(`https://wa.me/${config.wa}?text=${encodeURIComponent(waMessageDraft)}`, '_blank');
+            closeInvoiceModal();
+        };
+
         window.hitung = () => { const v = document.getElementById('usdInput').value; document.getElementById('displayIDR').innerText = "Rp " + (v * (mode==='jual'?config.rateJual:config.rateBeli)).toLocaleString('id-ID'); }
         window.closeModal = () => { document.getElementById('infoModal').style.display = 'none'; }
         window.toggleMobile = () => document.getElementById('mobileMenu').classList.toggle('hidden');
@@ -920,7 +1160,6 @@
         // --- SUBMIT USER REVIEW DINAMIS ---
         window.submitUserReview = function(event) {
             event.preventDefault();
-            
             const name = document.getElementById('revName').value;
             const stars = parseInt(document.getElementById('revStars').value);
             const content = document.getElementById('revContent').value;
@@ -1015,6 +1254,7 @@
             document.getElementById('faqGrid').innerHTML = faqItems.map(f => `<details class="bg-white/5 p-5 rounded-2xl border border-white/10 text-white italic"><summary class="font-black uppercase text-xs cursor-pointer flex justify-between">${f.q} <i class="fas fa-plus"></i></summary><p class="mt-4 text-xs text-slate-400 pt-4 leading-relaxed border-t border-white/5">${f.a}</p></details>`).join("");
             document.getElementById('tosContent').innerHTML = ["Jasa tukar saldo PayPal ke bank lokal/e-wallet. Data wajib benar.","Kirim saldo sesuai kesepakatan. Kesalahan kirim tanggung jawab user.","Mengikuti harga real-time saat transaksi. Bisa berubah sewaktu-waktu.","Kerahasiaan data dijaga. User wajib jaga keamanan akun masing-masing.","Transaksi diproses tidak bisa batal. Refund hanya jika salah dari admin.","Dilarang untuk aktivitas ilegal, penipuan, atau pencucian uang.","Kami tidak bertanggung jawab atas delay sistem PayPal/Bank/E-Wallet.","TOS dapat diperbarui sewaktu-waktu tanpa pemberitahuan.","Kendala? Hubungi WhatsApp Admin di 088274325328."].map((t, i) => `<p>POIN ${i+1}: ${t}</p>`).join("");
             
+            document.getElementById('toggleSelector').style.backgroundColor = '#ef4444'; 
             renderBlogs();
             setInterval(showTesti, 8000);
         };
