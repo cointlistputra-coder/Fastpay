@@ -3,24 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jasa Convert PayPal rate tinggi cair 5 menit ke DANA/Bank. Spesialis Jasa WD PayPal Limit Permanen 180 Hari & pemulihan akun tertangguh di Indonesia. Aman & Terpercaya sejak 2018.">
-    <title>Done Cogel | Jasa Convert PayPal & WD PayPal Limit Permanen 180 Hari</title>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FinancialService",
-  "name": "Done Cogel",
-  "alternateName": "Jasa Convert PayPal & WD Limit Permanen",
-  "description": "Layanan penukaran saldo PayPal ke Rupiah (Convert) dan penarikan dana akun PayPal yang terkena pembatasan permanen 180 hari.",
-  "url": "https://donecogel.com",
-  "logo": "logo.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+6288274325328",
-    "contactType": "customer service"
-  }
-}
-    </script>
+    <meta name="description" content="Solusi Jasa Bayar, Tukar Paypal, Top Up Paypal, Convert Saldo PayPal ke Rupiah, dan Perbaikan Akun PayPal Limit Permanen, Limit 180 hari, Limit sementara Tercepat di Indonesia. Aman dan Terpercaya.">
+    <title>Transfer Cepat Paypal- Tukar Paypal Kerupiah, Convert Paypal, Jasa Convert Paypal, Jasa Bayar Paypal Limit Permanen, Paypal Limit Sementara & WD Limit Permanen, Limit Sementara PayPal Terpercaya</title>
     <link rel="icon" href="logo.png?v=2" type="image/png">
     
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
@@ -292,6 +276,18 @@
                     <button onclick="setMode('jual')" class="flex-1 relative z-10 font-black uppercase italic text-[10px] text-white">Jual Saldo</button>
                     <button onclick="setMode('beli')" class="flex-1 relative z-10 font-black uppercase italic text-[10px] text-white">Beli Saldo</button>
                 </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div id="tierUnder" class="bg-white/5 p-3 rounded-xl border border-white/10 text-center transition-all duration-300">
+                        <p class="text-[9px] text-slate-400 font-bold uppercase italic">Rate < $100</p>
+                        <p class="text-lg font-black text-white">Rp <span id="labelRateUnder">0</span></p>
+                    </div>
+                    <div id="tierOver" class="bg-white/5 p-3 rounded-xl border border-white/10 text-center transition-all duration-300">
+                        <p class="text-[9px] text-slate-400 font-bold uppercase italic">Rate >= $100</p>
+                        <p class="text-lg font-black text-white">Rp <span id="labelRateOver">0</span></p>
+                    </div>
+                </div>
+
                 <div class="space-y-6">
                     <div class="relative group"><label class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-blue-400">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 bg-white/5 border border-white/10 text-white rounded-xl"></div>
                     
@@ -408,7 +404,7 @@
                         <h4 class="text-2xl font-bold text-white uppercase italic">Filosofi di Balik Masa Tunggu 6 Bulan (180 Hari)</h4>
                         <p>Mengapa harus 180 hari? Angka ini tidak dipilih secara acak. Dalam industri kartu kredit dan pembayaran digital, 180 hari (sekitar 6 bulan) adalah batas waktu maksimal di mana seorang pembeli atau pemegang kartu dapat mengajukan klaim pengembalian dana (chargeback) melalui bank mereka. PayPal menahan dana Anda selama periode ini untuk memastikan bahwa jika ada sengketa dari transaksi masa lalu, dana tersedia untuk menutupi kerugian tersebut. Setelah masa 180 hari berlalu tanpa ada sengketa yang tertunda, dana tersebut secara hukum menjadi hak milik Anda sepenuhnya dan harus dilepaskan oleh PayPal.</p>
                         
-                        <h4 class="text-2xl font-bold text-white uppercase italic">Panduan Teknis: Apa yang Harus Dilakukan Jika Terkena Limit Permanen?</h4>
+                        <h4 class="text-2xl font-bold text-white uppercase italic">Panduan Teknis: Apa yang Harus Karena Jika Terkena Limit Permanen?</h4>
                         <p>Langkah pertama: **Berhenti melakukan aktivitas masuk (login) yang berlebihan**. Sistem keamanan PayPal dapat mendeteksi kegugupan pengguna. Langkah kedua: **Amankan bukti transaksi**. Simpan semua invoice, bukti pengiriman barang, atau log pekerjaan yang telah Anda lakukan. Langkah ketiga: **Jangan membuat akun baru segera**. Membuat akun baru (stealth account) dengan IP atau perangkat yang sama hanya akan menyebabkan akun baru tersebut ikut terlimit dalam hitungan jam. Di Done Cogel, kami menyediakan jasa pendampingan (Bengkel PayPal) untuk membantu Anda menyiapkan dokumen banding atau membantu proses penarikan dana (WD) setelah masa 180 hari berakhir melalui jalur komunikasi resmi dengan tim support PayPal Singapura.</p>
                         
                         <h4 class="text-2xl font-bold text-white uppercase italic">Mengatasi Masalah Penarikan Dana yang 'Nyangkut'</h4>
@@ -682,8 +678,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-y-auto max-h-[75vh] pr-2">
                 <div class="glass-card p-6 space-y-3">
                     <h3 class="text-blue-500 font-black text-[10px] uppercase underline italic">1-10 Financial Control</h3>
-                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Rate Jual</label><input type="number" id="admRateJual" class="w-full p-2"></div>
-                    <div><label class="text-[8px] opacity-50 font-bold uppercase">Rate Beli</label><input type="number" id="admRateBeli" class="w-full p-2"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase text-red-400">Rate Jual (< $100)</label><input type="number" id="admRateJualUnder" class="w-full p-2 border-red-500/50 border"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase text-red-400">Rate Jual (>= $100)</label><input type="number" id="admRateJualOver" class="w-full p-2 border-red-500/50 border"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase text-blue-400">Rate Beli (< $100)</label><input type="number" id="admRateBeliUnder" class="w-full p-2 border-blue-500/50 border"></div>
+                    <div><label class="text-[8px] opacity-50 font-bold uppercase text-blue-400">Rate Beli (>= $100)</label><input type="number" id="admRateBeliOver" class="w-full p-2 border-blue-500/50 border"></div>
                     <div><label class="text-[8px] opacity-50 font-bold uppercase">Min Convert ($)</label><input type="number" id="admMin" class="w-full p-2"></div>
                     <div><label class="text-[8px] opacity-50 font-bold uppercase">Jasa Market (IDR)</label><input type="number" id="admFee1" class="w-full p-2"></div>
                     <div><label class="text-[8px] opacity-50 font-bold uppercase">Jasa Sub (IDR)</label><input type="number" id="admFee2" class="w-full p-2"></div>
@@ -723,9 +721,18 @@
         const db = firebase.database();
         emailjs.init("al2VnMl1XBRAd_SwM");
 
-        let config = { rateJual: 13500, rateBeli: 16800, wa: "6288274325328", marquee: "DONE COGEL SUPREME HUB v25.29", adminPass: "Paypalfastdone21", teleToken: "", teleId: "7311149952" };
+        let config = { rateJualUnder100: 13000, rateJualOver100: 13500, rateBeliUnder100: 16500, rateBeliOver100: 16800, wa: "6288274325328", marquee: "DONE COGEL SUPREME HUB v25.29", adminPass: "Paypalfastdone21", teleToken: "", teleId: "7311149952" };
         let members = []; let session = null; let mode = 'jual'; let cart = []; let blogPage = 1; let tempOTP = null; let userToReset = null;
         let waMessageDraft = "";
+
+        // Fungsi Hitung Rate Dinamis
+        window.getDynamicRate = (usdAmount) => {
+            if(mode === 'jual') {
+                return usdAmount < 100 ? config.rateJualUnder100 : config.rateJualOver100;
+            } else {
+                return usdAmount < 100 ? config.rateBeliUnder100 : config.rateBeliOver100;
+            }
+        };
 
         // --- SMART WHATSAPP ORDER (NEW) ---
         window.orderViaWA = (s = null) => {
@@ -742,7 +749,7 @@
 
                 const usd = document.getElementById('usdInput').value;
                 const targetRek = document.getElementById('targetInput').value || "[Sebutkan Rekening/E-Wallet Anda]";
-                const rateNow = mode === 'jual' ? config.rateJual : config.rateBeli;
+                const rateNow = getDynamicRate(parseFloat(usd) || 0);
                 const totalIdr = (usd * rateNow).toLocaleString('id-ID');
 
                 const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -775,7 +782,7 @@
             window.open(`https://wa.me/${config.wa}?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
-        // --- AUTH LOGIC (FIXED ADMIN) ---
+        // --- AUTH LOGIC ---
         window.handleLogin = (e) => {
             e.preventDefault(); const u = document.getElementById('logUser').value, p = document.getElementById('logPass').value;
             if(u === "donecogelchanger" && p === "Paypalfastdone21") { session = {user: "OWNER DONE COGEL", isAdmin: true}; alert("Welcome Boss!"); renderSession(); return; }
@@ -797,7 +804,7 @@
             db.ref('master_v25_supreme/members').push(data).then(() => { alert("Sukses Daftar!"); toggleAuth('login'); });
         }
 
-        // --- FLOATING TESTIMONI (20 ITEMS) ---
+        // --- FLOATING TESTIMONI ---
         const recentTrx = [
             {u: "Andi", n: "$150", b: "BCA"}, {u: "Budi", n: "$50", b: "DANA"}, {u: "Siska", n: "$210", b: "Mandiri"}, {u: "Rizky", n: "$35", b: "OVO"}, {u: "Dewi", n: "$500", b: "BRI"}, {u: "Husnul", n: "$125", b: "GoPay"}, {u: "Maya", n: "$80", b: "BNI"}, {u: "Eko", n: "$140", b: "BCA"}, {u: "Lina", n: "$65", b: "SeaBank"}, {u: "Dedi", n: "$300", b: "Mandiri"}, {u: "Yuni", n: "$20", b: "BCA"}, {u: "Bagas", n: "$110", b: "BRI"}, {u: "Santi", n: "$45", b: "GoPay"}, {u: "Rudi", n: "$250", b: "BCA"}, {u: "Nina", n: "$95", b: "DANA"}, {u: "Agus", n: "$75", b: "OVO"}, {u: "Citra", n: "$180", b: "Mandiri"}, {u: "Doni", n: "$400", b: "BNI"}, {u: "Fajar", n: "$12", b: "DANA"}, {u: "Gita", n: "$220", b: "BRI"}
         ];
@@ -809,7 +816,7 @@
             setTimeout(() => { div.classList.replace('animate__fadeInUp','animate__fadeOutDown'); setTimeout(() => div.remove(), 1000); }, 6000);
         }
 
-        // --- DATA MOCKS (HELP CENTER - 500 WORDS CONTENT) ---
+        // --- DATA MOCKS (HELP CENTER) ---
         const helpItems = [
             { 
                 t: "Cara Convert PayPal", 
@@ -872,7 +879,7 @@
             { q: "Apa maksud dari Limit 180 Hari?", a: "Limit 180 hari adalah keputusan final PayPal untuk menutup sebuah akun secara permanen karena dianggap melanggar kebijakan serius. Dana di dalam akun tersebut akan ditahan (hold) selama 6 bulan (180 hari) untuk memastikan tidak ada lagi klaim refund dari pengirim. Setelah masa tersebut berakhir, dana baru bisa ditarik. Kami menyediakan jasa khusus untuk membantu proses penarikan dana ini hingga sukses masuk ke Anda." }
         ];
 
-        // --- BLOG DATA (20 POSTS) ---
+        // --- BLOG DATA ---
         const blogsData = [
             {
                 id: 0, t: "Panduan Menghindari Limit PayPal 2025",
@@ -967,32 +974,32 @@
             {
                 id: 15, t: "Mengenal Kode SWIFT Bank Nasional",
                 d: "Daftar lengkap kode bank Indonesia untuk keperluan transfer luar negeri.",
-                full: "Kesalahan memasukkan Kode SWIFT dapat mengakibatkan dana Anda 'nyangkut' di bank perantara global. Contoh kode populer: BCA (CENAIDJA), Mandiri (BMRIIDJA), BNI (BNIINJA). Selalu cek ulang data bank sebelum menekan tombol konfirmasi penarikan di dashboard PayPal Anda.",
-                img: "https://images.unsplash.com/photo-1526303323884-f7486dd7ba81?q=80&w=800"
+                full: "Untuk transfer bank internasional seperti penarikan dari PayPal, Anda memerlukan Kode SWIFT. Setiap bank di Indonesia memiliki kode unik 8-11 karakter. Contohnya BCA (CENAIDJA), Mandiri (BMRIIDJA), dan BNI (BNINIDJA). Pastikan memasukkan kode yang benar agar dana penarikan Anda tidak nyangkut atau dikembalikan dengan potongan biaya administrasi yang besar.",
+                img: "https://images.unsplash.com/photo-1616077168079-7e09a6a71b4e?q=80&w=800"
             },
             {
-                id: 16, t: "Optimalisasi Penarikan Saldo Ke E-Wallet",
-                d: "Tukar saldo PayPal ke DANA, OVO, atau GoPay dalam hitungan menit.",
-                full: "Menunggu 2-4 hari kerja bank konvensional tentu sangat lama. Layanan convert Done Cogel mendukung pengiriman instan ke seluruh dompet digital populer di Indonesia. Proses ini jauh lebih praktis dan fleksibel bagi Anda yang membutuhkan dana mendesak.",
-                img: "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=800"
+                id: 16, t: "Cara Mengamankan Akun PayPal dari Hacker",
+                d: "Tips keamanan siber dasar untuk melindungi aset digital Anda.",
+                full: "Selain mengaktifkan 2FA, selalu periksa URL browser sebelum login (pastikan alamat resmi paypal.com). Jangan pernah mengklik tautan dari email mencurigakan (phishing) yang berpura-pura meminta Anda memperbarui password. Tim keamanan Done Cogel selalu mengedukasi member untuk menjaga kerahasiaan data pribadi.",
+                img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800"
             },
             {
-                id: 17, t: "Aturan Baru PayPal Mengenai Pajak 2025",
-                d: "Bagaimana kebijakan kepatuhan pajak internasional memengaruhi Anda.",
-                full: "Sebagai pengguna di Indonesia, penting untuk memantau kebijakan pajak atas transaksi digital internasional. PayPal sering meminta konfirmasi data NPWP atau data identitas tambahan untuk memastikan akun Anda mematuhi regulasi keuangan global yang berlaku tahun ini.",
-                img: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=800"
+                id: 17, t: "Pentingnya Menjaga Reputasi & Trust Score Akun",
+                d: "Bagaimana algoritma bot PayPal menilai tingkat kepercayaan akun Anda.",
+                full: "Setiap akun PayPal memiliki skor internal 'Trust'. Semakin lama umur akun dan semakin sering digunakan untuk transaksi legal tanpa ada dispute, maka skornya akan semakin naik. Akun dengan Trust Score yang tinggi jarang sekali terkena limitasi, meskipun tiba-tiba menerima jumlah dana yang besar.",
+                img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800"
             },
             {
-                id: 18, t: "Inovasi Pembayaran PayPal Dengan Crypto",
-                d: "Mengenal fitur baru beli dan simpan aset kripto langsung dari PayPal.",
-                full: "Kini di beberapa wilayah, PayPal sudah mengintegrasikan fitur baru jual beli Bitcoin dan Ethereum. Meskipun fitur ini belum sepenuhnya merata di semua akun Indonesia, ini menunjukkan visi PayPal dalam mengadopsi teknologi blockchain untuk masa depan pembayaran digital.",
-                img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=800"
+                id: 18, t: "Perbedaan Akun Personal, Premier, dan Business",
+                d: "Pilih jenis akun PayPal yang paling sesuai dengan kebutuhan transaksi Anda.",
+                full: "Akun Personal sangat cocok untuk sekadar belanja online biasa. Namun, akun Premier atau Business sangat disarankan jika Anda adalah freelancer yang menerima pembayaran dari klien luar negeri secara rutin. Melakukan upgrade jenis akun tidak dipungut biaya dan memberikan akses fitur tambahan seperti pembuatan invoice formal.",
+                img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800"
             },
             {
-                id: 19, t: "Done Cogel: Partner PayPal Terbaik Sejak 2018",
-                d: "Sejarah dan visi kami dalam membangun ekosistem jasa bayar yang aman.",
-                full: "Dimulai dari komunitas kecil, kini Done Cogel telah melayani ribuan member aktif setiap bulannya. Kami berkomitmen memberikan edukasi gratis dan layanan terbaik demi menjaga keamanan finansial digital masyarakat Indonesia di tengah maraknya penipuan online.",
-                img: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=800"
+                id: 19, t: "Masa Depan Freelancer di Indonesia 2026",
+                d: "Peluang kerja remote, tantangan, dan integrasi pembayaran global.",
+                full: "Dengan semakin maraknya platform freelance seperti Fiverr dan Upwork, mendapatkan pemasukan dalam bentuk USD menjadi sangat menjanjikan. Memahami tata kelola ekosistem PayPal serta memiliki partner Jasa Convert yang terpercaya seperti Done Cogel adalah investasi krusial untuk memastikan cash flow bisnis digital Anda tetap lancar tanpa hambatan pencairan.",
+                img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800"
             }
         ];
 
@@ -1051,7 +1058,7 @@
             renderUI(); 
         };
 
-        // FUNGSI INVOICE RESI TRANSPARANSI (HANYA UNTUK KALKULATOR JUAL/BELI)
+        // FUNGSI INVOICE RESI TRANSPARANSI
         window.openInvoiceModal = (s = null) => {
             if (s && typeof s === 'string' && s !== "Order") {
                 let msg = `Halo Admin Done Cogel, saya butuh bantuan terkait: *${s}*`;
@@ -1066,7 +1073,7 @@
 
             const usd = document.getElementById('usdInput').value;
             const targetRek = document.getElementById('targetInput').value || "[Belum Diisi]";
-            const rateNow = mode === 'jual' ? config.rateJual : config.rateBeli;
+            const rateNow = getDynamicRate(parseFloat(usd) || 0);
             const totalIdr = (usd * rateNow).toLocaleString('id-ID');
             const guestId = `GUEST-${Math.floor(100 + Math.random() * 900)}`;
             const layanantext = mode === 'jual' ? 'WD PAYPAL TO RP' : 'TOP UP PAYPAL';
@@ -1119,7 +1126,30 @@
             closeInvoiceModal();
         };
 
-        window.hitung = () => { const v = document.getElementById('usdInput').value; document.getElementById('displayIDR').innerText = "Rp " + (v * (mode==='jual'?config.rateJual:config.rateBeli)).toLocaleString('id-ID'); }
+        window.hitung = () => { 
+            const v = parseFloat(document.getElementById('usdInput').value) || 0; 
+            const currentRate = getDynamicRate(v);
+            document.getElementById('displayIDR').innerText = "Rp " + (v * currentRate).toLocaleString('id-ID');
+            document.getElementById('rateLabel').innerText = currentRate.toLocaleString('id-ID');
+            
+            // Animasi Sorot Tier (Highlight Pembagi)
+            const tUnder = document.getElementById('tierUnder');
+            const tOver = document.getElementById('tierOver');
+            if(tUnder && tOver) {
+                if (v < 100) {
+                    tUnder.classList.add('border-accent', 'bg-accent/20');
+                    tUnder.classList.remove('border-white/10', 'bg-white/5');
+                    tOver.classList.remove('border-accent', 'bg-accent/20');
+                    tOver.classList.add('border-white/10', 'bg-white/5');
+                } else {
+                    tOver.classList.add('border-accent', 'bg-accent/20');
+                    tOver.classList.remove('border-white/10', 'bg-white/5');
+                    tUnder.classList.remove('border-accent', 'bg-accent/20');
+                    tUnder.classList.add('border-white/10', 'bg-white/5');
+                }
+            }
+        };
+
         window.closeModal = () => { document.getElementById('infoModal').style.display = 'none'; }
         window.toggleMobile = () => document.getElementById('mobileMenu').classList.toggle('hidden');
 
@@ -1213,7 +1243,8 @@
 
         // --- RENDERERS ---
         function renderUI() {
-            document.getElementById('rateLabel').innerText = (mode==='jual'?config.rateJual:config.rateBeli).toLocaleString();
+            document.getElementById('labelRateUnder').innerText = (mode === 'jual' ? config.rateJualUnder100 : config.rateBeliUnder100).toLocaleString('id-ID');
+            document.getElementById('labelRateOver').innerText = (mode === 'jual' ? config.rateJualOver100 : config.rateBeliOver100).toLocaleString('id-ID');
             hitung();
         }
 
@@ -1229,7 +1260,7 @@
                     </div>
                 </div>
             `).join("");
-            let phtml = ""; for(let i=1; i<=6; i++) phtml += `<button onclick="blogPage=${i};renderBlogs()" class="w-8 h-8 rounded-full font-black text-[10px] ${blogPage===i?'bg-blue-600 text-white':'bg-white/5 text-slate-500'}">${i}</button>`;
+            let phtml = ""; for(let i=1; i<=5; i++) phtml += `<button onclick="blogPage=${i};renderBlogs()" class="w-8 h-8 rounded-full font-black text-[10px] ${blogPage===i?'bg-blue-600 text-white':'bg-white/5 text-slate-500'}">${i}</button>`;
             document.getElementById('blogPagination').innerHTML = phtml;
         }
 
@@ -1247,7 +1278,16 @@
         }
 
         window.saveAdminSync = () => {
-            const up = { rateJual: parseInt(document.getElementById('admRateJual').value), rateBeli: parseInt(document.getElementById('admRateBeli').value), wa: document.getElementById('admWA').value, marquee: document.getElementById('admMarquee').value, teleToken: document.getElementById('admTeleToken').value, teleId: document.getElementById('admTeleId').value };
+            const up = { 
+                rateJualUnder100: parseInt(document.getElementById('admRateJualUnder').value),
+                rateJualOver100: parseInt(document.getElementById('admRateJualOver').value),
+                rateBeliUnder100: parseInt(document.getElementById('admRateBeliUnder').value),
+                rateBeliOver100: parseInt(document.getElementById('admRateBeliOver').value),
+                wa: document.getElementById('admWA').value, 
+                marquee: document.getElementById('admMarquee').value, 
+                teleToken: document.getElementById('admTeleToken').value, 
+                teleId: document.getElementById('admTeleId').value 
+            };
             db.ref('master_v25_supreme/settings').update(up).then(() => alert("Console Updated!"));
         }
 
@@ -1257,9 +1297,13 @@
                 const d = s.val(); if(!d) return;
                 config = {...config, ...d.settings};
                 members = d.members ? Object.entries(d.members).map(([id,v])=>({id,...v})) : [];
-                document.getElementById('admRateJual').value = config.rateJual;
-                document.getElementById('admRateBeli').value = config.rateBeli;
-                document.getElementById('admWA').value = config.wa;
+                
+                // Assign new rates inputs
+                document.getElementById('admRateJualUnder').value = config.rateJualUnder100 || 13000;
+                document.getElementById('admRateJualOver').value = config.rateJualOver100 || config.rateJual || 13500;
+                document.getElementById('admRateBeliUnder').value = config.rateBeliUnder100 || 16500;
+                document.getElementById('admRateBeliOver').value = config.rateBeliOver100 || config.rateBeli || 16800;
+                document.getElementById('admWA').value = config.wa || "6288274325328";
                 renderUI();
             });
 
