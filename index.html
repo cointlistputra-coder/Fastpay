@@ -1325,45 +1325,53 @@ Langkah preventif utama adalah mengaktifkan **Two-Factor Authentication (2FA)** 
             setInterval(showTesti, 8000);
         };
 
-        window.logout = () => location.reload();
-    document.addEventListener("DOMContentLoaded", function() {
-        const path = window.location.pathname;
-        // Mengambil nama halaman, jika kosong (halaman utama) ganti dengan 'index.html'
-        const page = path.split("/").pop() || 'index.html';
-
-        const pageMapping = {
-            'index.html': 'home',
-            'jasa-bayar': 'jbayar',
-            'jasa-bayar.html': 'jbayar',
-            'bengkel': 'bengkel',
-            'bengkel.html': 'bengkel',
-            'edukasi': 'edukasi',
-            'edukasi.html': 'edukasi',
-            'blog': 'blog',
-            'blog.html': 'blog',
-            'tutorial': 'tutorial',
-            'tutorial.html': 'tutorial',
-            'about': 'about',
-            'about.html': 'about',
-            'reviews': 'reviews',
-            'reviews.html': 'reviews',
-            'maps': 'maps',
-            'maps.html': 'maps',
-            'faq': 'faq',
-            'faq.html': 'faq',
-            'lapor': 'lapor',
-            'lapor.html': 'lapor'
-        };
-
-        // Memastikan halaman terdaftar di dalam sistem mapping
-        if (pageMapping[page]) {
-            setTimeout(function() {
-                if (typeof window.showPage === 'function') {
-                    window.showPage(pageMapping[page]);
-                }
-            }, 150);
+        <script>
+        // 🔥 KODE AJAIB: Menghapus tulisan .html dari link bar atas secara paksa
+        if (window.location.pathname.endsWith('.html')) {
+            let cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+            window.history.replaceState(null, '', cleanUrl + window.location.search + window.location.hash);
         }
-    });
+
+        window.logout = () => location.reload();
+        document.addEventListener("DOMContentLoaded", function() {
+            const path = window.location.pathname;
+            // Mengambil nama halaman, jika kosong/halaman utama otomatis jadi 'index.html'
+            let page = path.split("/").pop() || 'index.html';
+
+            const pageMapping = {
+                '': 'home',
+                'index.html': 'home',
+                'index': 'home',
+                'jasa-bayar': 'jbayar',
+                'jasa-bayar.html': 'jbayar',
+                'bengkel': 'bengkel',
+                'bengkel.html': 'bengkel',
+                'edukasi': 'edukasi',
+                'edukasi.html': 'edukasi',
+                'blog': 'blog',
+                'blog.html': 'blog',
+                'tutorial': 'tutorial',
+                'tutorial.html': 'tutorial',
+                'about': 'about',
+                'about.html': 'about',
+                'reviews': 'reviews',
+                'reviews.html': 'reviews',
+                'maps': 'maps',
+                'maps.html': 'maps',
+                'faq': 'faq',
+                'faq.html': 'faq',
+                'lapor': 'lapor',
+                'lapor.html': 'lapor'
+            };
+
+            if (pageMapping[page]) {
+                setTimeout(function() {
+                    if (typeof window.showPage === 'function') {
+                        window.showPage(pageMapping[page]);
+                    }
+                }, 150);
+            }
+        });
     </script>
 </body>
 </html>
