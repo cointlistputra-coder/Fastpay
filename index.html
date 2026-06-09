@@ -151,27 +151,46 @@
 
     <nav class="bg-black/40 backdrop-blur-md border-b border-white/10 h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
-            <a onclick="showPage('home')" class="flex items-center gap-2 cursor-pointer">
+            <a href="index.html" class="flex items-center gap-2 cursor-pointer">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg blur opacity-40 group-hover:opacity-100 transition duration-1000"></div>
                     <img src="logo.png" alt="Logo" class="relative h-12 w-12 rounded-xl border border-white/10 shadow-inner object-cover">
                 </div>
                 <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
             </a>
+            
             <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
-                <a onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
-                <a onclick="showPage('jbayar')" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
-                <a onclick="showPage('bengkel')" class="hover:text-red-400 cursor-pointer">Bengkel</a>
-                <a onclick="showPage('edukasi')" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
-                <a onclick="showPage('blog')" class="hover:text-blue-400 cursor-pointer">Blog</a>
-                <a onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
-                <a onclick="showPage('about')" class="hover:text-purple-400 cursor-pointer">Tentang</a>
-                <a onclick="showPage('reviews')" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
-    <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
-                <a onclick="showPage('maps')" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
-                <a onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
-                <a onclick="showPage('lapor')" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
+                <a href="index.html" class="hover:text-blue-400 cursor-pointer">Home</a>
+                <a href="jasa-bayar.html" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
+                <a href="bengkel.html" class="hover:text-red-400 cursor-pointer">Bengkel</a>
+                <a href="edukasi.html" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
+                <a href="blog.html" class="hover:text-blue-400 cursor-pointer">Blog</a>
+                <a href="tutorial.html" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
+                <a href="about.html" class="hover:text-purple-400 cursor-pointer">Tentang</a>
+                <a href="reviews.html" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
+                <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
+                <a href="maps.html" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
+                <a href="faq.html" class="hover:text-amber-400 cursor-pointer">FAQ</a>
+                <a href="lapor.html" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
             </div>
+            <button onclick="toggleMobile()" class="lg:hidden text-white text-2xl"><i class="fas fa-bars-staggered"></i></button>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 p-6 space-y-4 border-b border-blue-500 text-[10px] font-black uppercase italic">
+        <a href="index.html" class="block text-white">Home</a>
+        <a href="jasa-bayar.html" class="block text-green-400">Jasa Bayar</a>
+        <a href="bengkel.html" class="block text-red-400">Bengkel Specialist</a>
+        <a href="edukasi.html" class="block text-cyan-400">Master Guide (SEO)</a>
+        <a href="blog.html" class="block text-white">Blog Edukasi</a>
+        <a href="tutorial.html" class="block text-white">Tutorial Visual</a>
+        <a href="about.html" class="block text-purple-400">Tentang Kami</a>
+        <a href="reviews.html" class="block text-pink-400">Ulasan Pelanggan</a>
+        <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
+        <a href="maps.html" class="block text-emerald-400">Lokasi Kantor</a>
+        <a href="faq.html" class="block text-amber-500">FAQ & TOS</a>
+        <a href="lapor.html" class="block text-orange-400">Laporan Keluhan</a>
+    </div>
             <button onclick="toggleMobile()" class="lg:hidden text-white text-2xl"><i class="fas fa-bars-staggered"></i></button>
         </div>
     </nav>
@@ -1342,6 +1361,33 @@ Langkah preventif utama adalah mengaktifkan **Two-Factor Authentication (2FA)** 
         };
 
         window.logout = () => location.reload();
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+
+        const pageMapping = {
+            'index.html': 'home',
+            'jasa-bayar.html': 'jbayar',
+            'bengkel.html': 'bengkel',
+            'edukasi.html': 'edukasi',
+            'blog.html': 'blog',
+            'tutorial.html': 'tutorial',
+            'about.html': 'about',
+            'reviews.html': 'reviews',
+            'maps.html': 'maps',
+            'faq.html': 'faq',
+            'lapor.html': 'lapor'
+        };
+
+        if (page && pageMapping[page]) {
+            setTimeout(function() {
+                if (typeof window.showPage === 'function') {
+                    window.showPage(pageMapping[page]);
+                }
+            }, 150);
+        }
+    });
     </script>
 </body>
 </html>
