@@ -121,6 +121,9 @@
 </head>
 <body>
 
+    <div class="ai-bg"></div>
+    <div id="notifContainer"></div>
+
     <div class="wa-floating-btn" onclick="orderViaWA('Halo Admin, Saya butuh bantuan segera!')">
         <i class="fab fa-whatsapp"></i>
     </div>
@@ -148,44 +151,57 @@
 
     <nav class="bg-black/40 backdrop-blur-md border-b border-white/10 h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 cursor-pointer">
+            <a onclick="showPage('home')" class="flex items-center gap-2 cursor-pointer">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg blur opacity-40 group-hover:opacity-100 transition duration-1000"></div>
                     <img src="logo.png" alt="Logo" class="relative h-12 w-12 rounded-xl border border-white/10 shadow-inner object-cover">
                 </div>
                 <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
             </a>
-            
             <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
-                <a href="/" class="hover:text-blue-400 cursor-pointer">Home</a>
-                <a href="jasa-bayar" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
-                <a href="bengkel" class="hover:text-red-400 cursor-pointer">Bengkel</a>
-                <a href="edukasi" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
-                <a href="blog" class="hover:text-blue-400 cursor-pointer">Blog</a>
-                <a href="tutorial" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
-                <a href="about" class="hover:text-purple-400 cursor-pointer">Tentang</a>
-                <a href="reviews" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
-                <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
-                <a href="maps" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
-                <a href="faq" class="hover:text-amber-400 cursor-pointer">FAQ</a>
-                <a href="lapor" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
+                <a onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
+                <a onclick="showPage('jbayar')" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
+                <a onclick="showPage('bengkel')" class="hover:text-red-400 cursor-pointer">Bengkel</a>
+                <a onclick="showPage('edukasi')" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
+                <a onclick="showPage('blog')" class="hover:text-blue-400 cursor-pointer">Blog</a>
+                <a onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
+                <a onclick="showPage('about')" class="hover:text-purple-400 cursor-pointer">Tentang</a>
+                <a onclick="showPage('reviews')" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
+    <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
+                <a onclick="showPage('maps')" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
+                <a onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
+                <a onclick="showPage('lapor')" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
             </div>
             <button onclick="toggleMobile()" class="lg:hidden text-white text-2xl"><i class="fas fa-bars-staggered"></i></button>
         </div>
     </nav>
-<div id="mobileMenu" class="hidden lg:hidden bg-slate-900 p-6 space-y-4 border-b border-blue-500 text-[10px] font-black uppercase italic">
-        <a href="/" class="block text-white">Home</a>
-        <a href="jasa-bayar" class="block text-green-400">Jasa Bayar</a>
-        <a href="bengkel" class="block text-red-400">Bengkel Specialist</a>
-        <a href="edukasi" class="block text-cyan-400">Master Guide (SEO)</a>
-        <a href="blog" class="block text-white">Blog Edukasi</a>
-        <a href="tutorial" class="block text-white">Tutorial Visual</a>
-        <a href="about" class="block text-purple-400">Tentang Kami</a>
-        <a href="reviews" class="block text-pink-400">Ulasan Pelanggan</a>
-        <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
-        <a href="maps" class="block text-emerald-400">Lokasi Kantor</a>
-        <a href="faq" class="block text-amber-500">FAQ & TOS</a>
-        <a href="lapor" class="block text-orange-400">Laporan Keluhan</a>
+
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 p-6 space-y-4 border-b border-blue-500 text-[10px] font-black uppercase italic">
+        <a onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
+        <a onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
+        <a onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
+        <a onclick="showPage('edukasi'); toggleMobile()" class="block text-cyan-400">Master Guide (SEO)</a>
+        <a onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
+        <a onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
+        <a onclick="showPage('about'); toggleMobile()" class="block text-purple-400">Tentang Kami</a>
+        <a onclick="showPage('reviews'); toggleMobile()" class="block text-pink-400">Ulasan Pelanggan</a>
+    <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
+        <a onclick="showPage('maps'); toggleMobile()" class="block text-emerald-400">Lokasi Kantor</a>
+        <a onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
+        <a onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
+    </div>
+
+    <div id="infoModal" onclick="closeModal()">
+        <div class="glass-card max-w-3xl w-full p-8 animate__animated animate__zoomIn overflow-y-auto max-h-[90vh]" onclick="event.stopPropagation()">
+            <div id="modalIcon" class="text-5xl text-blue-500 mb-4"></div>
+            <h2 id="modalTitle" class="text-3xl font-black uppercase italic text-blue-400 mb-6 border-b border-white/10 pb-4"></h2>
+            <img src="" id="modalImg" class="w-full rounded-2xl mb-6 hidden border border-white/10">
+            <div id="modalBody" class="text-slate-300 leading-relaxed italic text-lg space-y-4"></div>
+            <div class="mt-10 flex gap-4">
+                <button onclick="closeModal()" class="bg-white/10 px-8 py-3 rounded-full font-bold uppercase text-xs">Tutup</button>
+                <button onclick="orderViaWA()" class="bg-blue-600 px-8 py-3 rounded-full font-bold uppercase text-xs">Chat Admin</button>
+            </div>
+        </div>
     </div>
 
     <div id="invoiceModal">
@@ -193,77 +209,68 @@
             <div class="success-icon-wrapper">
                 <span class="success-icon">✓</span>
             </div>
-            
-            <h2 class="success-title">TRANSAKSI BERHASIL</h2>
-            <p class="success-subtitle">Terima kasih telah menggunakan layanan DoneCogel</p>
+            <div class="status-badge">Transaksi Tercatat Sukses</div>
 
-            <div class="invoice-details space-y-3 my-6 text-left border-t border-b border-dashed border-white/20 py-4">
-                <div class="flex justify-between text-xs text-slate-400">
-                    <span>ID Transaksi:</span>
-                    <span id="invId" class="font-mono text-white">#000000</span>
+            <h2 class="invoice-title">Invoice Resi Transparansi</h2>
+
+            <div class="invoice-card">
+                <div class="invoice-header-row">
+                    <span class="id-label">ID Transaksi</span>
+                    <span class="id-value" id="invTxId">DC-TRX-000000</span>
                 </div>
-                <div class="flex justify-between text-xs text-slate-400">
-                    <span>Layanan:</span>
-                    <span id="invService" class="text-white font-bold">PayPal Convert</span>
+
+                <div class="invoice-grid">
+                    <div class="grid-item">
+                        <span class="item-label">Pelanggan</span>
+                        <span class="item-value" id="invCustomer">GUEST-000</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Metode/Layanan</span>
+                        <span class="item-value" id="invService">WD PAYPAL TO RP</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Nominal USD</span>
+                        <span class="item-value highlight-red" id="invUsd">$0</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Penerimaan IDR</span>
+                        <span class="item-value highlight-green" id="invIdr">Rp 0</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Kurs Rate Kontrak</span>
+                        <span class="item-value" id="invRate">Rp 0</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Status</span>
+                        <div class="status-dot-wrapper">
+                            <span class="status-dot"></span> SUKSES
+                        </div>
+                    </div>
                 </div>
-                <div class="flex justify-between text-xs text-slate-400">
-                    <span>Jumlah Kirim:</span>
-                    <span id="invAmount" class="text-blue-400 font-bold">$0.00</span>
-                </div>
-                <div class="flex justify-between text-xs text-slate-400">
-                    <span>Total Diterima:</span>
-                    <span id="invReceive" class="text-green-400 font-bold">Rp 0</span>
-                </div>
-                
-                <div class="barcode-container mt-4 pt-2 flex flex-col items-center">
-                    <div class="barcode-lines h-8 bg-white/20 w-full mb-1"></div>
-                    <div class="barcode-text text-[10px] font-mono text-slate-400" id="invBarcode">000000-DONECO</div>
+
+                <div class="barcode-container">
+                    <div class="barcode-lines"></div>
+                    <div class="barcode-text" id="invBarcode">000000-DONECO</div>
                 </div>
             </div>
 
-            <div class="target-section mb-6 text-left">
-                <label class="target-label text-xs text-slate-400 block mb-1">Target Rekening / E-Wallet Anda</label>
-                <input type="text" id="invTargetInput" class="target-input w-full bg-white/5 border border-white/10 p-3 rounded-lg text-white text-xs" readonly>
+            <div class="target-section">
+                <label class="target-label">Target Rekening / E-Wallet Anda</label>
+                <input type="text" id="invTargetInput" class="target-input" readonly>
             </div>
 
-            <div class="space-y-3">
-                <button class="btn-primary-wa w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs transition" onclick="sendInvoiceToWA()">
-                    <i class="fab fa-whatsapp text-lg"></i>
-                    Kirim Slip ke CS & Ambil Dana (WA)
-                </button>
+            <button class="btn-primary-wa" onclick="sendInvoiceToWA()">
+                <svg class="phone-icon" viewBox="0 0 24 24">
+                    <path d="M20.01 15.38c-1.23-.13-2.42-.46-3.53-.97a1 1 0 0 0-1.01.24l-1.58 1.58a15.2 15.2 0 0 1-6.53-6.53l1.58-1.58a1 1 0 0 0 .24-1.01 11.4 11.4 0 0 1-.97-3.53c-.12-.56-.6-.97-1.19-.97H4.37c-.67 0-1.22.55-1.19 1.21a18.04 18.04 0 0 0 16.63 16.63c.66.03 1.21-.52 1.21-1.19v-3.41c0-.59-.41-1.07-.97-1.19z"/>
+                </svg>
+                Kirim Slip ke CS & Ambil Dana (WA)
+            </button>
 
-                <button class="btn-secondary-close w-full bg-white/10 hover:bg-white/20 text-slate-300 font-bold py-3 px-4 rounded-xl text-xs transition" onclick="closeInvoiceModal()">
-                    Selesai / Tutup
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="infoModal">
-        <div class="glass-card p-6 md:p-8 max-w-3xl w-full max-h-[85vh] overflow-y-auto relative animate__animated animate__zoomIn border-t-4 border-blue-500">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-2xl transition"><i class="fas fa-times-circle"></i></button>
-            
-            <div class="flex items-center gap-4 mb-6 pb-4 border-b border-white/10">
-                <div id="modalIcon" class="text-3xl md:text-4xl text-blue-500"></div>
-                <h2 id="modalTitle" class="text-xl md:text-2xl font-black uppercase italic text-white leading-tight"></h2>
-            </div>
-            
-            <img id="modalImg" src="" alt="Thumbnail" class="w-full h-48 md:h-72 object-cover rounded-xl mb-6 hidden border border-white/10 shadow-lg">
-            
-            <div id="modalBody" class="text-xs md:text-sm text-slate-300 italic leading-relaxed space-y-4"></div>
-            
-            <button onclick="closeModal()" class="mt-8 w-full bg-white/5 border border-white/10 py-4 rounded-xl font-black uppercase italic text-xs text-slate-400 hover:bg-red-500 hover:text-white transition">Tutup Jendela Ini</button>
+            <button class="btn-secondary-close" onclick="closeInvoiceModal()">Selesai / Tutup</button>
         </div>
     </div>
 
     <main id="homePage" class="page-section page-active py-16 px-4">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-8 animate__animated animate__fadeInLeft">
-                <h1 class="text-6xl md:text-8xl font-black italic text-white leading-none">
-                    Jasa <span class="text-blue-500">Convert, Tukar Paypal & WD Limit</span> PayPal.
-                </h1>
-    
-    <main id="homePage" class="page-section page-active py-16 px-4">    <main id="homePage" class="page-section page-active py-16 px-4">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-8 animate__animated animate__fadeInLeft">
                 <h1 class="text-6xl md:text-8xl font-black italic text-white leading-none">
@@ -1333,44 +1340,8 @@ Langkah preventif utama adalah mengaktifkan **Two-Factor Authentication (2FA)** 
             renderBlogs();
             setInterval(showTesti, 8000);
         };
-        
-        // SCRIPT AJAIB: Otomatis menghapus .html di bar alamat URL browser
-        if (window.location.pathname.endsWith('.html')) {
-            let cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
-            window.history.replaceState(null, '', cleanUrl + window.location.search + window.location.hash);
-        }
 
         window.logout = () => location.reload();
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const path = window.location.pathname;
-            // Mengambil nama halaman di akhir URL (misal: 'bengkel' atau 'bengkel.html')
-            let page = path.split("/").pop() || 'index.html';
-
-            // Peta halaman pendukung URL Bersih (Tanpa .html maupun Dengan .html)
-            const pageMapping = {
-                '': 'home', 'index.html': 'home', 'index': 'home',
-                'jasa-bayar': 'jbayar', 'jasa-bayar.html': 'jbayar',
-                'bengkel': 'bengkel', 'bengkel.html': 'bengkel',
-                'edukasi': 'edukasi', 'edukasi.html': 'edukasi',
-                'blog': 'blog', 'blog.html': 'blog',
-                'tutorial': 'tutorial', 'tutorial.html': 'tutorial',
-                'about': 'about', 'about.html': 'about',
-                'reviews': 'reviews', 'reviews.html': 'reviews',
-                'maps': 'maps', 'maps.html': 'maps',
-                'faq': 'faq', 'faq.html': 'faq',
-                'lapor': 'lapor', 'lapor.html': 'lapor'
-            };
-
-            // Jalankan fungsi pemindah halaman otomatis jika jalurnya cocok
-            if (pageMapping[page]) {
-                setTimeout(function() {
-                    if (typeof window.showPage === 'function') {
-                        window.showPage(pageMapping[page]);
-                    }
-                }, 150);
-            }
-        });
     </script>
 </body>
 </html>
