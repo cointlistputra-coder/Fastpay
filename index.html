@@ -583,7 +583,28 @@
                                 <p class="text-sm border-t border-red-500/30 pt-3"><strong>Solusi:</strong> Masuk ke <strong>Resolution Center</strong>. Selesaikan tugas unggah KTP resolusi tinggi, tagihan utilitas (bukti alamat), atau nota barang. Jika disetujui, akun pulih. Jika pelanggaran sangat berat, akan dibatasi permanen (180-days limit).</p>
                             </div>
 
-                            <div class="p-6 bg-yellow-500/10 border 
+                            <div class="p-6 bg-yellow-500/10 border-yellow-500/20 rounded-2xl">
+                                <h5 class="font-bold text-yellow-400 uppercase text-lg mb-2">Problem 2: Dana Tertahan (21-Day Hold)</h5>
+                                <p class="text-sm mb-3">Dana dari pelanggan sudah masuk tetapi berstatus "Pending" atau "On Hold" di saldo Anda. Ini adalah prosedur pengamanan standar PayPal untuk akun penjual baru atau jika ada transaksi dengan nominal yang tidak wajar.</p>
+                                <p class="text-sm border-t border-yellow-500/30 pt-3"><strong>Solusi:</strong> Segera unggah nomor resi pengiriman (tracking number) yang valid pada detail transaksi terkait. Jika produk berupa layanan/digital, ubah status pesanan menjadi "Processed". Dana biasanya akan cair dalam 1-3 hari setelah barang terkonfirmasi sampai, atau Anda bisa meminta pembeli mengklik tombol "Confirm Receipt" (Konfirmasi Penerimaan).</p>
+                            </div>
+
+                            <div class="p-6 bg-orange-500/10 border border-orange-500/20 rounded-2xl">
+                                <h5 class="font-bold text-orange-400 uppercase text-lg mb-2">Problem 3: Penarikan Bank Gagal (Withdrawal Reversed)</h5>
+                                <p class="text-sm mb-3">Anda mencoba menarik saldo (withdraw) ke bank lokal, namun setelah menunggu 2-4 hari, status berubah menjadi "Reversed" atau ditolak, dan dana kembali ke akun PayPal dengan potongan biaya (return fee) sekitar Rp 50.000.</p>
+                                <p class="text-sm border-t border-orange-500/30 pt-3"><strong>Solusi:</strong> Masalah ini 99% terjadi karena perbedaan nama. Pastikan Nama Lengkap di profil PayPal sama PERSIS (huruf per huruf) dengan yang tertera di buku tabungan/rekening bank Anda. Jika salah, hapus bank tersebut di menu <strong>Wallet</strong>, tambahkan (Link a Bank) ulang dengan ejaan yang benar, lalu lakukan penarikan kembali.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div> <!-- End of edukasiContent -->
+        </div> <!-- End of max-w-5xl -->
+    </main>
+    <!-- =================================================================
+         END MASTER GUIDE (SEO)
+         ================================================================= -->
  
      
     <main id="blogPage" class="page-section py-20 px-4">
@@ -1472,6 +1493,30 @@
         };
 
         window.logout = () => location.reload();
-    </script>
+    <script>
+    function filterEdukasi(kategori) {
+        // 1. Filter Konten Artikel
+        const items = document.querySelectorAll('.edu-item');
+        items.forEach(item => {
+            if (kategori === 'all' || item.getAttribute('data-cat') === kategori) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // 2. Ubah Warna Tombol yang Aktif (Opsional tapi bagus untuk User Experience)
+        const buttons = document.querySelectorAll('button[onclick^="filterEdukasi"]');
+        buttons.forEach(btn => {
+            // Reset semua tombol kembali ke warna default (abu-abu/transparan)
+            btn.className = "bg-white/10 px-6 py-2 rounded-full text-[10px] font-black uppercase italic hover:bg-blue-500 transition";
+            
+            // Beri warna biru terang pada tombol yang sedang diklik
+            if(btn.getAttribute('onclick').includes(kategori)) {
+                btn.className = "bg-blue-600 px-6 py-2 rounded-full text-[10px] font-black uppercase italic shadow-lg shadow-blue-500/20";
+            }
+        });
+    }
+</script>
 </body>
 </html>
