@@ -1334,17 +1334,20 @@ Langkah preventif utama adalah mengaktifkan **Two-Factor Authentication (2FA)** 
             setInterval(showTesti, 8000);
         };
         
-        // Menghapus .html dari link bar atas secara paksa
+        // SCRIPT AJAIB: Otomatis menghapus .html di bar alamat URL browser
         if (window.location.pathname.endsWith('.html')) {
             let cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
             window.history.replaceState(null, '', cleanUrl + window.location.search + window.location.hash);
         }
 
         window.logout = () => location.reload();
+
         document.addEventListener("DOMContentLoaded", function() {
             const path = window.location.pathname;
+            // Mengambil nama halaman di akhir URL (misal: 'bengkel' atau 'bengkel.html')
             let page = path.split("/").pop() || 'index.html';
 
+            // Peta halaman pendukung URL Bersih (Tanpa .html maupun Dengan .html)
             const pageMapping = {
                 '': 'home', 'index.html': 'home', 'index': 'home',
                 'jasa-bayar': 'jbayar', 'jasa-bayar.html': 'jbayar',
@@ -1359,6 +1362,7 @@ Langkah preventif utama adalah mengaktifkan **Two-Factor Authentication (2FA)** 
                 'lapor': 'lapor', 'lapor.html': 'lapor'
             };
 
+            // Jalankan fungsi pemindah halaman otomatis jika jalurnya cocok
             if (pageMapping[page]) {
                 setTimeout(function() {
                     if (typeof window.showPage === 'function') {
@@ -1367,7 +1371,6 @@ Langkah preventif utama adalah mengaktifkan **Two-Factor Authentication (2FA)** 
                 }, 150);
             }
         });
-       </script>
+    </script>
 </body>
 </html>
-    
