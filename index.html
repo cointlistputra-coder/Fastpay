@@ -182,6 +182,8 @@
 <a href="#" onclick="showPage('lapor'); return false;" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
             </div>
             <button aria-label="Buka Menu" onclick="toggleMobile()" class="lg:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
@@ -314,10 +316,10 @@
                 </div>
 
                 <div class="space-y-6">
-                    <div class="relative group"><label for="targetInput" class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-blue-400">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 bg-white/5 border border-white/10 text-white rounded-xl"></div>
+                    <div class="relative group"><label for="usdInput" class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-blue-400">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 bg-white/5 border border-white/10 text-white rounded-xl"></div>
                     
                     <div class="relative group">
-                        <label for="usdInput" class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-emerald-400">Target Rekening / E-Wallet</label>
+                        <label for="targetInput" class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-emerald-400">Target Rekening / E-Wallet</label>
                         <input type="text" id="targetInput" placeholder="Contoh: DANA 08123456789 atau BCA 12345678" class="w-full p-4 pt-8 font-black text-sm outline-none transition-all duration-300 focus:ring-2 focus:ring-emerald-500 bg-white/5 border border-white/10 text-white rounded-xl placeholder-slate-600">
                     </div>
 
@@ -984,7 +986,30 @@
             const data = { name: document.getElementById('regName').value, user: document.getElementById('regUser').value, email: document.getElementById('regEmail').value, pass: document.getElementById('regPass').value, security: document.getElementById('regSecurity').value };
             db.ref('master_v25_supreme/members').push(data).then(() => { alert("Sukses Daftar!"); toggleAuth('login'); });
         }
-
+        
+        // --- FORGOT PASSWORD LOGIC ---
+        window.forgotStep1 = () => { 
+            const u = document.getElementById('forUser').value;
+            if(!u) return alert("Isi Username!");
+            alert("OTP simulasi dikirim ke Email Anda!"); 
+            document.getElementById('forgotStep1').classList.add('hidden'); 
+            document.getElementById('forgotStep2').classList.remove('hidden'); 
+        }
+        window.forgotStep2 = () => { 
+            const otp = document.getElementById('forOTP').value;
+            if(!otp) return alert("Masukkan OTP!");
+            alert("OTP Valid!"); 
+            document.getElementById('forgotStep2').classList.add('hidden'); 
+            document.getElementById('forgotStep3').classList.remove('hidden'); 
+        }
+        window.forgotStep3 = () => { 
+            const sec = document.getElementById('forSecurity').value;
+            const newPass = document.getElementById('forNewPass').value;
+            if(!sec || !newPass) return alert("Lengkapi data!");
+            alert("Password Berhasil Diubah! Silakan login."); 
+            toggleAuth('login'); 
+        }
+        
         // --- FLOATING TESTIMONI ---
         const recentTrx = [
             {u: "Andi", n: "$150", b: "BCA"}, {u: "Budi", n: "$50", b: "DANA"}, {u: "Siska", n: "$210", b: "Mandiri"}, {u: "Rizky", n: "$35", b: "OVO"}, {u: "Dewi", n: "$500", b: "BRI"}, {u: "Husnul", n: "$125", b: "GoPay"}, {u: "Maya", n: "$80", b: "BNI"}, {u: "Eko", n: "$140", b: "BCA"}, {u: "Lina", n: "$65", b: "SeaBank"}, {u: "Dedi", n: "$300", b: "Mandiri"}, {u: "Yuni", n: "$20", b: "BCA"}, {u: "Bagas", n: "$110", b: "BRI"}, {u: "Santi", n: "$45", b: "GoPay"}, {u: "Rudi", n: "$250", b: "BCA"}, {u: "Nina", n: "$95", b: "DANA"}, {u: "Agus", n: "$75", b: "OVO"}, {u: "Citra", n: "$180", b: "Mandiri"}, {u: "Doni", n: "$400", b: "BNI"}, {u: "Fajar", n: "$12", b: "DANA"}, {u: "Gita", n: "$220", b: "BRI"}
@@ -1194,10 +1219,10 @@
         ];
 
         const bengkelItems = [
-            {t: "WD Limit 180 Hari", d: "Cairkan saldo di akun ban permanen ke bank lokal tanpa ribet.", i: "fa-lock-open", c: "red"},
-            {t: "Restore Akun Temp", d: "Pulihkan akun dari pembatasan dokumen identitas & alamat.", i: "fa-user-shield", c: "orange"},
-            {t: "Hapus Carding Clean", d: "Bersihkan histori transaksi mencurigakan agar akun kembali sehat.", i: "fa-broom", c: "blue"},
-            {t: "Panduan Appeal", d: "Strategi banding (appeal) ke tim support PayPal Singapura/US.", i: "fa-gavel", c: "purple"}
+            {t: "WD Limit 180 Hari", d: "Cairkan saldo di akun ban permanen ke bank lokal tanpa ribet.", i: "fa-lock-open", bg: "bg-red-500/5", border: "border-red-500/20", text: "text-red-500", btn: "bg-red-600"},
+            {t: "Restore Akun Temp", d: "Pulihkan akun dari pembatasan dokumen identitas & alamat.", i: "fa-user-shield", bg: "bg-orange-500/5", border: "border-orange-500/20", text: "text-orange-500", btn: "bg-orange-600"},
+            {t: "Hapus Carding Clean", d: "Bersihkan histori transaksi mencurigakan agar akun kembali sehat.", i: "fa-broom", bg: "bg-blue-500/5", border: "border-blue-500/20", text: "text-blue-500", btn: "bg-blue-600"},
+            {t: "Panduan Appeal", d: "Strategi banding (appeal) ke tim support PayPal Singapura/US.", i: "fa-gavel", bg: "bg-purple-500/5", border: "border-purple-500/20", text: "text-purple-500", btn: "bg-purple-600"}
         ];
 
         const tutorials = [
@@ -1475,7 +1500,7 @@
         // --- INITIALIZE ---
         window.onload = () => {
             db.ref('master_v25_supreme').on('value', (s) => {
-                const d = s.val(); if(!d) return;
+                const d = s.val(); if(!d) { renderUI(); return; }
                 config = {...config, ...d.settings};
                 members = d.members ? Object.entries(d.members).map(([id,v])=>({id,...v})) : [];
                 
@@ -1490,7 +1515,7 @@
 
             document.getElementById('helpGrid').innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
             document.getElementById('jbayarGrid').innerHTML = jbayarItems.map(j => `<div class="glass-card p-10 group text-justify italic"><i class="fas ${j.i} text-5xl text-blue-500 mb-6 group-hover:scale-110 transition"></i><h3 class="text-2xl font-black uppercase italic mb-4 text-white">${j.t}</h3><p class="text-xs text-slate-400 mb-8 leading-relaxed">${j.d}</p><button onclick="addToCart('${j.t}', 35000)" class="bg-blue-600 w-full py-4 rounded-xl font-black uppercase text-[10px] text-white">Tambah Keranjang</button></div>`).join("");
-            document.getElementById('bengkelGrid').innerHTML = bengkelItems.map(b => `<div class="glass-card p-12 border-${b.c}-500/20 bg-${b.c}-500/5 italic"><i class="fas ${b.i} text-5xl text-${b.c}-500 mb-6"></i><h3 class="text-3xl font-black uppercase italic mb-4 text-white">${b.t}</h3><p class="text-slate-400 mb-8 leading-relaxed text-sm">${b.d}</p><button onclick="orderViaWA('${b.t}')" class="bg-${b.c}-600 w-full py-5 rounded-2xl font-black uppercase italic text-xs text-white">Konsultasi Specialist</button></div>`).join("");
+            document.getElementById('bengkelGrid').innerHTML = bengkelItems.map(b => `<div class="glass-card p-12 ${b.border} ${b.bg} italic"><i class="fas ${b.i} text-5xl ${b.text} mb-6"></i><h3 class="text-3xl font-black uppercase italic mb-4 text-white">${b.t}</h3><p class="text-slate-400 mb-8 leading-relaxed text-sm">${b.d}</p><button onclick="orderViaWA('${b.t}')" class="${b.btn} w-full py-5 rounded-2xl font-black uppercase italic text-xs text-white">Konsultasi Specialist</button></div>`).join("");
             document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
             document.getElementById('faqGrid').innerHTML = faqItems.map(f => `<details class="bg-white/5 p-5 rounded-2xl border border-white/10 text-white italic"><summary class="font-black uppercase text-xs cursor-pointer flex justify-between">${f.q} <i class="fas fa-plus"></i></summary><p class="mt-4 text-xs text-slate-400 pt-4 leading-relaxed border-t border-white/5">${f.a}</p></details>`).join("");
             document.getElementById('tosContent').innerHTML = ["Jasa tukar saldo PayPal ke bank lokal/e-wallet. Data wajib benar.","Kirim saldo sesuai kesepakatan. Kesalahan kirim tanggung jawab user.","Mengikuti harga real-time saat transaksi. Bisa berubah sewaktu-waktu.","Kerahasiaan data dijaga. User wajib jaga keamanan akun masing-masing.","Transaksi diproses tidak bisa batal. Refund hanya jika salah dari admin.","Dilarang untuk aktivitas ilegal, penipuan, atau pencucian uang.","Kami tidak bertanggung jawab atas delay sistem PayPal/Bank/E-Wallet.","TOS dapat diperbarui sewaktu-waktu tanpa pemberitahuan.","Kendala? Hubungi WhatsApp Admin di 088274325328."].map((t, i) => `<p>POIN ${i+1}: ${t}</p>`).join("");
