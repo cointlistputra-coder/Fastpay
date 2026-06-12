@@ -1430,7 +1430,7 @@
             const start = (blogPage - 1) * 4;
             document.getElementById('blogGrid').innerHTML = blogsData.slice(start, start + 4).map(b => `
                 <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
-                    <img src="${b.img}" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="${b.img}" loading="lazy" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
                     <div class="flex-1">
                         <h4 class="text-lg font-black uppercase italic text-white mb-2 leading-tight">${b.t}</h4>
                         <p class="text-[10px] text-slate-500 mb-4 italic leading-relaxed line-clamp-2">${b.d}</p>
