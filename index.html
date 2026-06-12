@@ -1,27 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <!-- 1. JALUR TOL FONT & PERFORMA -->
+    <!-- 1. JALUR TOL FONT & ICON (Preconnect) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convert PayPal rate tinggi cair 5 menit ke DANA/Bank. Terpercaya sejak 2018.">
-    <title>Jasa Convert PayPal & Wd Limit Permanen</title>
+    <meta name="description" content="Convert PayPal rate tinggi cair 5 menit ke DANA/Bank. Terima WD PayPal Limit Permanen 180 Hari. Aman & terpercaya sejak 2018.">
+    <title>Jasa Convert PayPal & Wd Limit Permanen 180 Hari</title>
+    <link rel="canonical" href="https://transfercepat.com/" />
     
-    <!-- 2. LIBRARY UTAMA (FIREBASE WAJIB DI SINI AGAR TOMBOL JALAN) -->
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Done Cogel",
+      "alternateName": "Jasa Convert PayPal & WD Limit Permanen",
+      "description": "Layanan penukaran saldo PayPal ke Rupiah (Convert) dan penarikan dana akun PayPal yang terkena pembatasan permanen 180 hari.",
+      "url": "https://transfercepat.com",
+      "logo": "logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+6288274325328",
+        "contactType": "customer service"
+      }
+    }
+    </script>
+    <link rel="icon" href="logo.png?v=2" type="image/png">
     
-    <!-- 3. DESAIN (TAILWIND & CSS) -->
+    <!-- 2. TAILWIND (Diload lebih awal) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 3. CSS dan Font (Menyusul setelah Tailwind) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- 4. EMAIL JS (Ditunda dengan "defer" agar web tampil duluan) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
 
     <style>
         :root { --primary: #3b82f6; --accent: #00f2ff; --dark: #020617; }
@@ -30,6 +48,9 @@
         .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border-radius: 25px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
         .glass-card:hover { border: 1px solid var(--accent); transform: translateY(-3px); }
         
+        .page-section { display: none; opacity: 0; }
+        .page-active { display: block !important; animation: fadeInUp 0.5s forwards; }
+
         /* Floating Testi */
         .notif-float { position: fixed; bottom: 20px; left: 20px; z-index: 2000; background: white; color: #020617; padding: 12px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 12px; border-left: 5px solid #22c55e; pointer-events: none; }
 
@@ -120,7 +141,7 @@
         <div class="flex items-center gap-4 flex-1 max-w-lg">
             <div class="relative w-full">
                 <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-white/50"></i>
-                <input type="text" id="globalSearch" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/80 focus:ring-2 focus:ring-white/30 text-white">
+                <input type="text" id="globalSearch" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/40 focus:ring-2 focus:ring-white/30">
             </div>
             <button onclick="showPage('cart')" class="bg-white/10 px-4 py-2 rounded-full text-white text-xs font-black flex items-center shrink-0">
                 <i class="fas fa-shopping-basket mr-2"></i> CART <span id="cartCountTop" class="cart-badge">0</span>
@@ -327,11 +348,11 @@
                         <span class="text-[10px] font-black uppercase italic text-slate-400">Minggu / Libur</span>
                         <span class="text-sm font-black text-white italic">10:00 - 20:00 <span class="text-blue-500">WIB</span></span>
                     </div>
-                    <p class="text-[9px] text-slate-400 italic">* Transaksi diluar jam kerja akan diproses secara otomatis saat jam operasional dimulai kembali.</p>
+                    <p class="text-[9px] text-slate-600 italic">* Transaksi diluar jam kerja akan diproses secara otomatis saat jam operasional dimulai kembali.</p>
                 </div>
             </div>
             <div class="glass-card p-10 bg-gradient-to-br from-cyan-900/20 to-transparent border-l-4 border-accent">
-                <h2 class="text-2xl font-black uppercase italic text-white mb-2 leading-none">Payment <br><span class="text-accent">Ecosystem</span></h2>
+                <h3 class="text-2xl font-black uppercase italic text-white mb-2 leading-none">Payment <br><span class="text-accent">Ecosystem</span></h3>
                 <p class="text-[9px] text-slate-500 mb-8 uppercase font-bold tracking-widest">All Indonesian Bank & E-Wallet</p>
                 <div class="grid grid-cols-4 gap-4">
                     <div class="pay-method-card"><i class="fas fa-university text-blue-400"></i><span class="text-[8px] font-black italic">BCA</span></div>
@@ -362,7 +383,7 @@
         <div id="bengkelGrid" class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto"></div>
     </main>
     
-    <section class="mt-20 p-8 glass-card border-white/5 bg-white/5 text-[10px] text-slate-300 italic leading-relaxed">
+    <section class="mt-20 p-8 glass-card border-white/5 bg-white/5 text-[10px] text-slate-500 italic leading-relaxed">
         <p><strong>Transfer Cepat</strong> adalah platform profesional yang menyediakan <strong>Jasa Convert PayPal Rate Tinggi</strong> ke berbagai metode penarikan seperti BCA, Mandiri, BNI, BRI, serta E-Wallet DANA, OVO, dan GoPay. Kami juga spesialis dalam membantu <strong>Jasa WD PayPal Limit 180 Hari</strong> (Permanent Limitation) dan pemulihan akun yang terkena pembatasan sementara. Dengan layanan <strong>Jasa Bayar PayPal</strong> kami, Anda bisa melakukan checkout di situs internasional seperti eBay, Amazon, Etsy, atau membayar invoice luar negeri dengan aman dan instan.</p>
     </section>
 <!-- =================================================================
@@ -1409,7 +1430,7 @@
             const start = (blogPage - 1) * 4;
             document.getElementById('blogGrid').innerHTML = blogsData.slice(start, start + 4).map(b => `
                 <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
-                    <img src="${b.img}" loading="lazy" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="${b.img}" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
                     <div class="flex-1">
                         <h4 class="text-lg font-black uppercase italic text-white mb-2 leading-tight">${b.t}</h4>
                         <p class="text-[10px] text-slate-500 mb-4 italic leading-relaxed line-clamp-2">${b.d}</p>
