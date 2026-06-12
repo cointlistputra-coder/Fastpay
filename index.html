@@ -1456,8 +1456,7 @@
             document.getElementById('modalIcon').innerHTML = `<i class="fas ${h.i}"></i>`;
             document.getElementById('modalImg').classList.add('hidden'); document.getElementById('infoModal').style.display = 'flex';
         }
-
-                window.saveAdminSync = () => {
+        window.saveAdminSync = () => {
             const up = { 
                 rateJualUnder100: parseInt(document.getElementById('admRateJualUnder').value),
                 rateJualOver100: parseInt(document.getElementById('admRateJualOver').value),
@@ -1475,14 +1474,24 @@
             });
         }
 
-        // --- INITIALIZE (HANYA PAKAI SATU REFF UTUH INI) ---
+        // --- SISTEM NAVIGASI MOBILE (TOMBOL MENU HP) ---
+        window.toggleMobile = () => {
+            const mobMenu = document.getElementById('mobileMenu');
+            if (mobMenu.classList.contains('hidden')) {
+                mobMenu.classList.remove('hidden');
+            } else {
+                mobMenu.classList.add('hidden');
+            }
+        }
+
+        // --- INITIALIZE (Hanya pakai satu rujukan startup utama) ---
         window.onload = () => {
             db.ref('master_v25_supreme').on('value', (s) => {
                 const d = s.val(); if(!d) return;
                 config = {...config, ...d.settings};
                 members = d.members ? Object.entries(d.members).map(([id,v])=>({id,...v})) : [];
                 
-                // Assign new rates inputs
+                // Sinkronisasi data ke input kontrol admin
                 document.getElementById('admRateJualUnder').value = config.rateJualUnder100 || 13000;
                 document.getElementById('admRateJualOver').value = config.rateJualOver100 || config.rateJual || 13500;
                 document.getElementById('admRateBeliUnder').value = config.rateBeliUnder100 || 16500;
@@ -1491,6 +1500,7 @@
                 renderUI();
             });
 
+            // Membangun grid interface bawaan
             document.getElementById('helpGrid').innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
             document.getElementById('jbayarGrid').innerHTML = jbayarItems.map(j => `<div class="glass-card p-10 group text-justify italic"><i class="fas ${j.i} text-5xl text-blue-500 mb-6 group-hover:scale-110 transition"></i><h3 class="text-2xl font-black uppercase italic mb-4 text-white">${j.t}</h3><p class="text-xs text-slate-400 mb-8 leading-relaxed">${j.d}</p><button onclick="addToCart('${j.t}', 35000)" class="bg-blue-600 w-full py-4 rounded-xl font-black uppercase text-[10px] text-white">Tambah Keranjang</button></div>`).join("");
             document.getElementById('bengkelGrid').innerHTML = bengkelItems.map(b => `<div class="glass-card p-12 border-${b.c}-500/20 bg-${b.c}-500/5 italic"><i class="fas ${b.i} text-5xl text-${b.c}-500 mb-6"></i><h3 class="text-3xl font-black uppercase italic mb-4 text-white">${b.t}</h3><p class="text-slate-400 mb-8 leading-relaxed text-sm">${b.d}</p><button onclick="orderViaWA('${b.t}')" class="bg-${b.c}-600 w-full py-5 rounded-2xl font-black uppercase italic text-xs text-white">Konsultasi Specialist</button></div>`).join("");
@@ -1501,8 +1511,8 @@
             document.getElementById('toggleSelector').style.backgroundColor = '#ef4444'; 
             renderBlogs();
             setInterval(showTesti, 8000);
-            
-            // Mengarahkan halaman utama langsung terbuka saat awal load
+
+            // Mengarahkan ke halaman home secara default saat awal dibuka
             window.showPage('home');
         };
 
