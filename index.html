@@ -31,7 +31,7 @@
     <!-- Preload Logo Utama untuk mempercepat LCP (Largest Contentful Paint) -->
         <link rel="preload" href="logo.png" as="image">
 
-        <script src="https://cdn.tailwindcss.com" onload="document.body.style.opacity='1'" onerror="document.body.style.opacity='1'" defer></script>
+        <script src="https://cdn.tailwindcss.com" onload="document.body.style.visibility='visible'; document.body.style.opacity='1'" onerror="document.body.style.visibility='visible'; document.body.style.opacity='1'" defer></script>
         
         <!-- Pemuatan CSS secara Asinkron (Non-Render-Blocking) agar loading melesat cepat -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -1544,7 +1544,10 @@
 
         // --- INITIALIZE ---
         window.onload = () => {
-            renderUI(); // Panggil ini pertama kali agar website & menu langsung hidup
+            document.body.style.visibility = 'visible';
+            document.body.style.opacity = '1';
+
+             renderUI(); // Panggil ini pertama kali agar website & menu langsung hidup
             
             // Tunda koneksi database selama 6 detik untuk melewati batas waktu perekaman audit Google PageSpeed
             setTimeout(() => {
