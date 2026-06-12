@@ -1306,12 +1306,23 @@
             closeInvoiceModal();
         };
 
-        window.hitung = () => { 
-            const v = parseFloat(document.getElementById('usdInput').value) || 0; 
-            const currentRate = getDynamicRate(v);
-            document.getElementById('displayIDR').innerText = "Rp " + (v * currentRate).toLocaleString('id-ID');
-            document.getElementById('rateLabel').innerText = currentRate.toLocaleString('id-ID');
+                window.hitung = () => {
+            // 1. Menggunakan ID yang benar 'usdInput'
+            // 2. Ditambah '|| 0' agar jika kolom kosong otomatis dibaca angka 0
+            const usd = parseFloat(document.getElementById('usdInput').value) || 0;
             
+            // Mengambil rate dinamis yang sudah ada di sistem kamu
+            const rateNow = getDynamicRate(usd);
+            
+            const totalIdr = usd * rateNow;
+            
+            // Menampilkan hasil ke kolom Rupiah (ID: idrOutput)
+            const idrOut = document.getElementById('idrOutput');
+            if(idrOut) {
+                idrOut.value = totalIdr > 0 ? totalIdr.toLocaleString('id-ID') : "";
+            }
+        };
+        
             // Animasi Sorot Tier (Highlight Pembagi)
             const tUnder = document.getElementById('tierUnder');
             const tOver = document.getElementById('tierOver');
