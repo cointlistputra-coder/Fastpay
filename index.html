@@ -1457,7 +1457,7 @@
             document.getElementById('modalImg').classList.add('hidden'); document.getElementById('infoModal').style.display = 'flex';
         }
 
-        window.saveAdminSync = () => {
+                window.saveAdminSync = () => {
             const up = { 
                 rateJualUnder100: parseInt(document.getElementById('admRateJualUnder').value),
                 rateJualOver100: parseInt(document.getElementById('admRateJualOver').value),
@@ -1468,10 +1468,14 @@
                 teleToken: document.getElementById('admTeleToken').value, 
                 teleId: document.getElementById('admTeleId').value 
             };
-            db.ref('master_v25_supreme/settings').update(up).then(() => alert("Console Updated!"));
+            db.ref('master_v25_supreme/settings').update(up).then(() => {
+                alert("Console Updated!");
+            }).catch(err => {
+                alert("Gagal update database: " + err.message);
+            });
         }
 
-        // --- INITIALIZE ---
+        // --- INITIALIZE (HANYA PAKAI SATU REFF UTUH INI) ---
         window.onload = () => {
             db.ref('master_v25_supreme').on('value', (s) => {
                 const d = s.val(); if(!d) return;
@@ -1497,9 +1501,13 @@
             document.getElementById('toggleSelector').style.backgroundColor = '#ef4444'; 
             renderBlogs();
             setInterval(showTesti, 8000);
+            
+            // Mengarahkan halaman utama langsung terbuka saat awal load
+            window.showPage('home');
         };
 
         window.logout = () => location.reload();
     </script>
 </body>
 </html>
+                        
