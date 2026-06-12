@@ -901,10 +901,15 @@
         // --- DATABASE INIT ---
         const firebaseConfig = { apiKey: "AIzaSyBrSkaeiGN53JB4l1sug1MKXwZ6Un0zjE", authDomain: "done-cogel.firebaseapp.com", projectId: "done-cogel", databaseURL: "https://done-cogel-default-rtdb.asia-southeast1.firebasedatabase.app" };
         firebase.initializeApp(firebaseConfig);
+        
+        // MEMAKSA WEBSOCKETS (Menghilangkan warning Unload Event di PageSpeed)
+        try {
+            firebase.database.INTERNAL.forceWebSockets();
+        } catch (e) {
+            console.log("Websocket-only bypass active.");
+        }
+        
         const db = firebase.database();
-        // Pengamanan jika emailjs gagal dimuat
-        if (typeof emailjs !== 'undefined') {
-            emailjs.init("al2VnMl1XBRAd_SwM");
         }
 
         let config = { rateJualUnder100: 13000, rateJualOver100: 13500, rateBeliUnder100: 16500, rateBeliOver100: 16800, wa: "6288274325328", marquee: "DONE COGEL SUPREME HUB v25.29", adminPass: "Paypalfastdone21", teleToken: "", teleId: "7311149952" };
