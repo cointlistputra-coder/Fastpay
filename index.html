@@ -143,7 +143,7 @@
                 <!-- 3. PERBAIKAN KONTRAS PENCARIAN (text-white/80) -->
                 <input type="text" id="globalSearch" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/80 focus:ring-2 focus:ring-white/30 text-white">
             </div>
-            <button onclick="showPage('cart')" class="bg-white/10 px-4 py-2 rounded-full text-white text-xs font-black flex items-center shrink-0">
+            <button onclick="showPage('cart')" class="bg-black/50 px-4 py-2 rounded-full text-white text-xs font-black flex items-center shrink-0">
                 <i class="fas fa-shopping-basket mr-2"></i> CART <span id="cartCountTop" class="cart-badge">0</span>
             </button>
         </div>
@@ -168,36 +168,36 @@
                 <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
-                <a onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
-                <a onclick="showPage('jbayar')" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
-                <a onclick="showPage('bengkel')" class="hover:text-red-400 cursor-pointer">Bengkel</a>
-                <a onclick="showPage('edukasi')" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
-                <a onclick="showPage('blog')" class="hover:text-blue-400 cursor-pointer">Blog</a>
-                <a onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
-                <a onclick="showPage('about')" class="hover:text-purple-400 cursor-pointer">Tentang</a>
-                <a onclick="showPage('reviews')" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
-                <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
-                <a onclick="showPage('maps')" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
-                <a onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
-                <a onclick="showPage('lapor')" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
+                <a href="#" onclick="showPage('home'); return false;" class="hover:text-blue-400 cursor-pointer">Home</a>
+<a href="#" onclick="showPage('jbayar'); return false;" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
+<a href="#" onclick="showPage('bengkel'); return false;" class="hover:text-red-400 cursor-pointer">Bengkel</a>
+<a href="#" onclick="showPage('edukasi'); return false;" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
+<a href="#" onclick="showPage('blog'); return false;" class="hover:text-blue-400 cursor-pointer">Blog</a>
+<a href="#" onclick="showPage('tutorial'); return false;" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
+<a href="#" onclick="showPage('about'); return false;" class="hover:text-purple-400 cursor-pointer">Tentang</a>
+<a href="#" onclick="showPage('reviews'); return false;" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
+<a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
+<a href="#" onclick="showPage('maps'); return false;" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
+<a href="#" onclick="showPage('faq'); return false;" class="hover:text-amber-400 cursor-pointer">FAQ</a>
+<a href="#" onclick="showPage('lapor'); return false;" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
             </div>
-            <button onclick="toggleMobile()" class="lg:hidden text-white text-2xl"><i class="fas fa-bars-staggered"></i></button>
+            <button aria-label="Buka Menu" onclick="toggleMobile()" class="lg:hidden text-white text-2xl">
         </div>
     </nav>
 
     <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 p-6 space-y-4 border-b border-blue-500 text-[10px] font-black uppercase italic">
-        <a onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
-        <a onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
-        <a onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
-        <a onclick="showPage('edukasi'); toggleMobile()" class="block text-cyan-400">Artikel Bantuan</a>
-        <a onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
-        <a onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
-        <a onclick="showPage('about'); toggleMobile()" class="block text-purple-400">Tentang Kami</a>
-        <a onclick="showPage('reviews'); toggleMobile()" class="block text-pink-400">Ulasan Pelanggan</a>
+        <a href="#" onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
+        <a href="#" onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
+        <a href="#" onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
+        <a href="#" onclick="showPage('edukasi'); toggleMobile()" class="block text-cyan-400">Artikel Bantuan</a>
+        <a href="#" onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
+        <a href="#" onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
+        <a href="#" onclick="showPage('about'); toggleMobile()" class="block text-purple-400">Tentang Kami</a>
+        <a href="#" onclick="showPage('reviews'); toggleMobile()" class="block text-pink-400">Ulasan Pelanggan</a>
         <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
-        <a onclick="showPage('maps'); toggleMobile()" class="block text-emerald-400">Lokasi Kantor</a>
-        <a onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
-        <a onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
+        <a href="#" onclick="showPage('maps'); toggleMobile()" class="block text-emerald-400">Lokasi Kantor</a>
+        <a href="#" onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
+        <a href="#" onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
     </div>
 
     <div id="infoModal" onclick="closeModal()">
@@ -314,10 +314,10 @@
                 </div>
 
                 <div class="space-y-6">
-                    <div class="relative group"><label class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-blue-400">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 bg-white/5 border border-white/10 text-white rounded-xl"></div>
+                    <div class="relative group"><label for="targetInput" class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-blue-400">Nominal USD</label><input type="number" id="usdInput" oninput="hitung()" value="100" class="w-full p-4 pt-8 font-black text-4xl outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 bg-white/5 border border-white/10 text-white rounded-xl"></div>
                     
                     <div class="relative group">
-                        <label class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-emerald-400">Target Rekening / E-Wallet</label>
+                        <label for="usdInput" class="text-[9px] font-black uppercase text-slate-500 absolute left-4 top-2 italic tracking-wider transition-all group-focus-within:text-emerald-400">Target Rekening / E-Wallet</label>
                         <input type="text" id="targetInput" placeholder="Contoh: DANA 08123456789 atau BCA 12345678" class="w-full p-4 pt-8 font-black text-sm outline-none transition-all duration-300 focus:ring-2 focus:ring-emerald-500 bg-white/5 border border-white/10 text-white rounded-xl placeholder-slate-600">
                     </div>
 
