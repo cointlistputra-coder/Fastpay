@@ -1595,31 +1595,8 @@
             document.getElementById('toggleSelector').style.backgroundColor = '#ef4444'; 
             renderBlogs();
             setInterval(showTesti, 8000);
-        };
         
         window.logout = () => location.reload();
-                <!-- Script Berat (Firebase & EmailJS) di paling bawah agar tidak memblokir loading -->
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js" async></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js" async></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" async></script>
-
-    <script>
-        // Logika Website & Database Init (Disatukan dalam satu blok script)
-        const firebaseConfig = { apiKey: "AIzaSyBrSkaeiGN53JB4l1sug1MKXwZ6Un0zjE", authDomain: "done-cogel.firebaseapp.com", projectId: "done-cogel", databaseURL: "https://done-cogel-default-rtdb.asia-southeast1.firebasedatabase.app" };
-        let db;
-        
-        window.onload = () => {
-            // Inisialisasi Firebase aman
-            if (typeof firebase !== 'undefined') {
-                firebase.initializeApp(firebaseConfig);
-                db = firebase.database();
-            }
-            renderUI();
-            renderBlogs();
-            setInterval(showTesti, 8000);
-        };
-        
-        // ... (masukkan sisa fungsi JS Anda: orderViaWA, hitung, showPage, dll) ...
     </script>
 </body>
 </html>
