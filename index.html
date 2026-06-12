@@ -26,7 +26,7 @@
     
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -133,7 +133,7 @@
         <div class="flex items-center gap-4 flex-1 max-w-lg">
             <div class="relative w-full">
                 <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-white/50"></i>
-                <input type="text" id="globalSearch" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/40 focus:ring-2 focus:ring-white/30">
+                <input type="text" id="globalSearch" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/80 focus:ring-2 focus:ring-white/30 text-white">
             </div>
             <button onclick="showPage('cart')" class="bg-white/10 px-4 py-2 rounded-full text-white text-xs font-black flex items-center shrink-0">
                 <i class="fas fa-shopping-basket mr-2"></i> CART <span id="cartCountTop" class="cart-badge">0</span>
@@ -157,7 +157,7 @@
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg blur opacity-40 group-hover:opacity-100 transition duration-1000"></div>
                     <img src="logo.png" alt="Logo" class="relative h-12 w-12 rounded-xl border border-white/10 shadow-inner object-cover">
                 </div>
-                <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
+                <h2 class="text-2xl font-black uppercase italic text-white leading-none">Operational <br><span class="text-blue-500">Status</span></h2>
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
                 <a onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
@@ -344,7 +344,7 @@
                 </div>
             </div>
             <div class="glass-card p-10 bg-gradient-to-br from-cyan-900/20 to-transparent border-l-4 border-accent">
-                <h3 class="text-2xl font-black uppercase italic text-white mb-2 leading-none">Payment <br><span class="text-accent">Ecosystem</span></h3>
+                <h2 class="text-2xl font-black uppercase italic text-white mb-2 leading-none">Payment <br><span class="text-accent">Ecosystem</span></h2>
                 <p class="text-[9px] text-slate-500 mb-8 uppercase font-bold tracking-widest">All Indonesian Bank & E-Wallet</p>
                 <div class="grid grid-cols-4 gap-4">
                     <div class="pay-method-card"><i class="fas fa-university text-blue-400"></i><span class="text-[8px] font-black italic">BCA</span></div>
@@ -359,11 +359,11 @@
             </div>
         </section>
         
-        <section class="mt-24 max-w-7xl mx-auto">
+        
+        <section class="mt-20 p-8 glass-card border-white/5 bg-white/5 text-[10px] text-slate-300 italic leading-relaxed">
             <h2 class="text-3xl font-black uppercase italic text-center mb-12 text-white">Supreme <span class="text-blue-600">Help Center</span></h2>
-            <div id="helpGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
+            <div id="helpGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"><div onclick="explainHelp(0)" class="glass-card p-4 text-center cursor-pointer group"><i class="fas fa-exchange-alt text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">Cara Convert PayPal</p></div><div onclick="explainHelp(1)" class="glass-card p-4 text-center cursor-pointer group"><i class="fas fa-clock text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">Limit Sementara</p></div><div onclick="explainHelp(2)" class="glass-card p-4 text-center cursor-pointer group"><i class="fas fa-lock text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">Limit Permanen</p></div><div onclick="explainHelp(3)" class="glass-card p-4 text-center cursor-pointer group"><i class="fas fa-shield-alt text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">Cara Atasi Limit</p></div><div onclick="explainHelp(4)" class="glass-card p-4 text-center cursor-pointer group"><i class="fas fa-lock-open text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">WD Limit Permanen</p></div></div>
         </section>
-    </main>
 
     <main id="jbayarPage" class="page-section py-20 px-4">
         <div class="max-w-7xl mx-auto text-center mb-16"><h2 class="text-5xl font-black uppercase italic text-white italic">Global <span class="text-green-500">Payment</span></h2><p class="text-slate-400 mt-4 italic">Belanja dari situs manapun di dunia tanpa kartu kredit pribadi.</p></div>
@@ -1422,7 +1422,7 @@
             const start = (blogPage - 1) * 4;
             document.getElementById('blogGrid').innerHTML = blogsData.slice(start, start + 4).map(b => `
                 <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
-                    <img src="${b.img}" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="${b.img}" loading="lazy" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
                     <div class="flex-1">
                         <h4 class="text-lg font-black uppercase italic text-white mb-2 leading-tight">${b.t}</h4>
                         <p class="text-[10px] text-slate-500 mb-4 italic leading-relaxed line-clamp-2">${b.d}</p>
@@ -1480,7 +1480,7 @@
             document.getElementById('helpGrid').innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
             document.getElementById('jbayarGrid').innerHTML = jbayarItems.map(j => `<div class="glass-card p-10 group text-justify italic"><i class="fas ${j.i} text-5xl text-blue-500 mb-6 group-hover:scale-110 transition"></i><h3 class="text-2xl font-black uppercase italic mb-4 text-white">${j.t}</h3><p class="text-xs text-slate-400 mb-8 leading-relaxed">${j.d}</p><button onclick="addToCart('${j.t}', 35000)" class="bg-blue-600 w-full py-4 rounded-xl font-black uppercase text-[10px] text-white">Tambah Keranjang</button></div>`).join("");
             document.getElementById('bengkelGrid').innerHTML = bengkelItems.map(b => `<div class="glass-card p-12 border-${b.c}-500/20 bg-${b.c}-500/5 italic"><i class="fas ${b.i} text-5xl text-${b.c}-500 mb-6"></i><h3 class="text-3xl font-black uppercase italic mb-4 text-white">${b.t}</h3><p class="text-slate-400 mb-8 leading-relaxed text-sm">${b.d}</p><button onclick="orderViaWA('${b.t}')" class="bg-${b.c}-600 w-full py-5 rounded-2xl font-black uppercase italic text-xs text-white">Konsultasi Specialist</button></div>`).join("");
-            document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
+            document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
             document.getElementById('faqGrid').innerHTML = faqItems.map(f => `<details class="bg-white/5 p-5 rounded-2xl border border-white/10 text-white italic"><summary class="font-black uppercase text-xs cursor-pointer flex justify-between">${f.q} <i class="fas fa-plus"></i></summary><p class="mt-4 text-xs text-slate-400 pt-4 leading-relaxed border-t border-white/5">${f.a}</p></details>`).join("");
             document.getElementById('tosContent').innerHTML = ["Jasa tukar saldo PayPal ke bank lokal/e-wallet. Data wajib benar.","Kirim saldo sesuai kesepakatan. Kesalahan kirim tanggung jawab user.","Mengikuti harga real-time saat transaksi. Bisa berubah sewaktu-waktu.","Kerahasiaan data dijaga. User wajib jaga keamanan akun masing-masing.","Transaksi diproses tidak bisa batal. Refund hanya jika salah dari admin.","Dilarang untuk aktivitas ilegal, penipuan, atau pencucian uang.","Kami tidak bertanggung jawab atas delay sistem PayPal/Bank/E-Wallet.","TOS dapat diperbarui sewaktu-waktu tanpa pemberitahuan.","Kendala? Hubungi WhatsApp Admin di 088274325328."].map((t, i) => `<p>POIN ${i+1}: ${t}</p>`).join("");
             
