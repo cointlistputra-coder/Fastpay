@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -33,12 +34,12 @@
     <!-- 2. TAILWIND (Diload lebih awal) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- 3. CSS dan Font (Menyusul setelah Tailwind) -->
+    <!-- 3. CSS dan Font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!-- 4. EMAIL JS (Ditunda dengan "defer" agar web tampil duluan) -->
+    <!-- 4. EMAIL JS (Ditunda dengan "defer") -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
 
     <style>
@@ -48,9 +49,6 @@
         .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border-radius: 25px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
         .glass-card:hover { border: 1px solid var(--accent); transform: translateY(-3px); }
         
-        .page-section { display: none; opacity: 0; }
-        .page-active { display: block !important; animation: fadeInUp 0.5s forwards; }
-
         /* Floating Testi */
         .notif-float { position: fixed; bottom: 20px; left: 20px; z-index: 2000; background: white; color: #020617; padding: 12px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 12px; border-left: 5px solid #22c55e; pointer-events: none; }
 
