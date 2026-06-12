@@ -1,8 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Halaman Utama -->
   <url>
     <loc>https://transfercepat.com/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>1.0</priority>
   </url>
+
+  <!-- Jasa Bayar -->
+  <url>
+    <loc>https://transfercepat.com/jasa-bayar.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Bengkel -->
+  <url>
+    <loc>https://transfercepat.com/bengkel.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Edukasi -->
+  <url>
+    <loc>https://transfercepat.com/edukasi.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://transfercepat.com/blog.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tutorial -->
+  <url>
+    <loc>https://transfercepat.com/tutorial.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://transfercepat.com/about.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Reviews -->
+  <url>
+    <loc>https://transfercepat.com/reviews.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Maps -->
+  <url>
+    <loc>https://transfercepat.com/maps.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://transfercepat.com/faq.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Lapor -->
+  <url>
+    <loc>https://transfercepat.com/lapor.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
