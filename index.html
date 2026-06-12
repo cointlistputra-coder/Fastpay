@@ -1169,7 +1169,17 @@
                 id: 19, t: "Masa Depan Freelancer di Indonesia 2026",
                 d: "Peluang kerja remote, tantangan, dan integrasi pembayaran global.",
                 full: "Dengan semakin maraknya platform freelance seperti Fiverr dan Upwork, mendapatkan pemasukan dalam bentuk USD menjadi sangat menjanjikan. Memahami tata kelola ekosistem PayPal serta memiliki partner Jasa Convert yang terpercaya seperti Done Cogel adalah investasi krusial untuk memastikan cash flow bisnis digital Anda tetap lancar tanpa hambatan pencairan.",
-                img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800"
+                 img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e"
+                }
+            ];
+
+            // Menampilkan halaman SPA saat menu diklik
+            function showPage(pId) {
+                document.querySelectorAll('.spa-page').forEach(p => p.classList.add('hidden'));
+                const target = document.getElementById(pId);
+                if(target) target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.getElementById('mobileMenu').classList.add('translate-x-full');
             }
         ];
 
