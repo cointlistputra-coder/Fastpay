@@ -1595,7 +1595,7 @@
                 } catch (err) {
                     console.log("Firebase Bypass Aktif.");
                 }
-            }, 6000); // 6000 milidetik = 6 detik penundaan
+            }, 2000);
 
             // --- JANGAN HAPUS BAGIAN INI (TAMPILAN WEB) ---
             document.getElementById('helpGrid').innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
