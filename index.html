@@ -19,7 +19,7 @@
   "alternateName": "Jasa Convert PayPal & WD Limit Permanen",
   "description": "Layanan penukaran saldo PayPal ke Rupiah (Convert) dan penarikan dana akun PayPal yang terkena pembatasan permanen 180 hari.",
   "url": "https://transfercepat.com",
-  "logo": "logo.png",
+  "logo": "logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+6288274325328",
@@ -27,9 +27,9 @@
   }
 }
     </script>
-    <link rel="icon" href="logo.png?v=2" type="image/png">
+    <link rel="icon" href="logo.webp?v=2" type="image/webp">
     <!-- Preload Logo Utama untuk mempercepat LCP (Largest Contentful Paint) -->
-        <link rel="preload" href="logo.png" as="image">
+        <link rel="preload" href="logo.webp" as="image" type="image/webp">
 
         <script src="https://cdn.tailwindcss.com" onload="document.body.style.visibility='visible'; document.body.style.opacity='1'" onerror="document.body.style.visibility='visible'; document.body.style.opacity='1'" defer></script>
         
@@ -166,8 +166,8 @@
             <a href="#home" onclick="showPage('home'); return false;" class="flex items-center gap-2 cursor-pointer">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg blur opacity-40 group-hover:opacity-100 transition duration-1000"></div>
-                    <img src="logo.png" width="48" height="48" alt="Logo" class="relative h-12 w-12 rounded-xl border border-white/10 shadow-inner object-cover">
-                </div>
+                    <img src="logo.webp" width="48" height="48" alt="Logo" fetchpriority="high" decoding="sync" class="relative h-12 w-12 rounded-xl border border-white/10 shadow-inner object-cover">
+                    <div>
                 <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
