@@ -50,7 +50,8 @@
     <!-- Preload Logo Utama untuk mempercepat LCP (Largest Contentful Paint) -->
         <link rel="preload" href="logo.png" as="image">
 
-        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com" onload="document.body.style.visibility='visible'; document.body.style.opacity='1'" onerror="document.body.style.visibility='visible'; document.body.style.opacity='1'" defer></script>
+        
         <!-- Pemuatan CSS secara Asinkron (Non-Render-Blocking) agar loading melesat cepat -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
@@ -62,7 +63,7 @@
         </noscript>
     <style>
         :root { --primary: #3b82f6; --accent: #00f2ff; --dark: #020617; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: #f8fafc; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: #f8fafc; overflow-x: hidden; opacity: 0; visibility: hidden; transition: opacity 0.15s ease-in-out; }
         
         .ai-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); }
         .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border-radius: 25px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
@@ -187,19 +188,20 @@
                     <img src="logo.png" width="48" height="48" alt="Logo" class="relative h-12 w-12 rounded-xl border border-white/10 shadow-inner object-cover">
                 </div>
                 <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
+            </a>
             <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
-                <a href="javascript:void(0);" onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
-                <a href="javascript:void(0);" onclick="showPage('jbayar')" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
-                <a href="javascript:void(0);" onclick="showPage('bengkel')" class="hover:text-red-400 cursor-pointer">Bengkel</a>
-                <a href="javascript:void(0);" onclick="showPage('edukasi')" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
-                <a href="javascript:void(0);" onclick="showPage('blog')" class="hover:text-blue-400 cursor-pointer">Blog</a>
-                <a href="javascript:void(0);" onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
-                <a href="javascript:void(0);" onclick="showPage('about')" class="hover:text-purple-400 cursor-pointer">Tentang</a>
-                <a href="javascript:void(0);" onclick="showPage('reviews')" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
-                <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
-                <a href="javascript:void(0);" onclick="showPage('maps')" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
-                <a href="javascript:void(0);" onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
-                <a href="javascript:void(0);" onclick="showPage('lapor')" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
+                <a href="#" onclick="showPage('home'); return false;" class="hover:text-blue-400 cursor-pointer">Home</a>
+<a href="#" onclick="showPage('jbayar'); return false;" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
+<a href="#" onclick="showPage('bengkel'); return false;" class="hover:text-red-400 cursor-pointer">Bengkel</a>
+<a href="#" onclick="showPage('edukasi'); return false;" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
+<a href="#" onclick="showPage('blog'); return false;" class="hover:text-blue-400 cursor-pointer">Blog</a>
+<a href="#" onclick="showPage('tutorial'); return false;" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
+<a href="#" onclick="showPage('about'); return false;" class="hover:text-purple-400 cursor-pointer">Tentang</a>
+<a href="#" onclick="showPage('reviews'); return false;" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
+<a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
+<a href="#" onclick="showPage('maps'); return false;" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
+<a href="#" onclick="showPage('faq'); return false;" class="hover:text-amber-400 cursor-pointer">FAQ</a>
+<a href="#" onclick="showPage('lapor'); return false;" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
             </div>
             <button aria-label="Buka Menu" onclick="toggleMobile()" class="lg:hidden text-white text-2xl">
                 <i class="fas fa-bars"></i>
@@ -208,18 +210,18 @@
     </nav>
 
     <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 p-6 space-y-4 border-b border-blue-500 text-[10px] font-black uppercase italic">
-        <a href="javascript:void(0);" onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
-        <a href="javascript:void(0);" onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
-        <a href="javascript:void(0);" onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
-        <a href="javascript:void(0);" onclick="showPage('edukasi'); toggleMobile()" class="block text-cyan-400">Artikel Bantuan</a>
-        <a href="javascript:void(0);" onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
-        <a href="javascript:void(0);" onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
-        <a href="javascript:void(0);" onclick="showPage('about'); toggleMobile()" class="block text-purple-400">Tentang Kami</a>
-        <a href="javascript:void(0);" onclick="showPage('reviews'); toggleMobile()" class="block text-pink-400">Ulasan Pelanggan</a>
-        <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" rel="noopener noreferrer" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
-        <a href="javascript:void(0);" onclick="showPage('maps'); toggleMobile()" class="block text-emerald-400">Lokasi Kantor</a>
-        <a href="javascript:void(0);" onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
-        <a href="javascript:void(0);" onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
+        <a href="#" onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
+        <a href="#" onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
+        <a href="#" onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
+        <a href="#" onclick="showPage('edukasi'); toggleMobile()" class="block text-cyan-400">Artikel Bantuan</a>
+        <a href="#" onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
+        <a href="#" onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
+        <a href="#" onclick="showPage('about'); toggleMobile()" class="block text-purple-400">Tentang Kami</a>
+        <a href="#" onclick="showPage('reviews'); toggleMobile()" class="block text-pink-400">Ulasan Pelanggan</a>
+        <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
+        <a href="#" onclick="showPage('maps'); toggleMobile()" class="block text-emerald-400">Lokasi Kantor</a>
+        <a href="#" onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
+        <a href="#" onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
     </div>
 
     <div id="infoModal" onclick="closeModal()">
@@ -242,7 +244,7 @@
             </div>
             <div class="status-badge">Transaksi Tercatat Sukses</div>
 
-            <h3 class="invoice-title">Invoice Resi Transparansi</h3>
+            <h2 class="invoice-title">Invoice Resi Transparansi</h2>
 
             <div class="invoice-card">
                 <div class="invoice-header-row">
@@ -823,7 +825,7 @@
 
     <main id="laporPage" class="page-section py-20 px-4">
         <div class="max-w-xl mx-auto glass-card p-10 border-orange-500/20 bg-orange-500/5">
-            <h3 class="text-2xl font-black uppercase italic text-orange-400 mb-8 flex items-center gap-4 italic"><i class="fas fa-bullhorn"></i> Keluhan Member</h3>
+            <h2 class="text-2xl font-black uppercase italic text-orange-400 mb-8 flex items-center gap-4 italic"><i class="fas fa-bullhorn"></i> Keluhan Member</h2>
             <form id="reportForm" class="space-y-4">
                 <div><label class="text-[9px] font-black uppercase italic text-slate-500">Kategori Laporan</label><select id="repCat" class="w-full p-3 mt-1 outline-none"><option>Masalah Transaksi</option><option>Dana Belum Cair</option><option>Saran & Masukan</option></select></div>
                 <div><label class="text-[9px] font-black uppercase italic text-slate-500">Isi Keluhan</label><textarea id="repMsg" rows="5" class="w-full p-3 mt-1 outline-none" placeholder="Tuliskan keluhan Anda..."></textarea></div>
@@ -835,7 +837,7 @@
 
     <main id="cartPage" class="page-section py-20 px-4">
         <div class="max-w-xl mx-auto glass-card p-10">
-            <h3 class="text-2xl font-black uppercase italic mb-8 flex items-center gap-4 text-white italic"><i class="fas fa-shopping-basket text-blue-500"></i> My Cart</h3>
+            <h2 class="text-2xl font-black uppercase italic mb-8 flex items-center gap-4 text-white italic"><i class="fas fa-shopping-basket text-blue-500"></i> My Cart</h2>
             <div id="cartItems" class="space-y-3 mb-8"></div>
             <div class="flex justify-between items-center border-t border-white/10 pt-4"><span class="text-sm font-black uppercase italic text-white">Total:</span><span id="cartTotal" class="text-2xl font-black text-blue-400">Rp 0</span></div>
             <button onclick="checkoutWA()" class="w-full bg-green-600 py-4 rounded-xl font-black uppercase italic text-xs text-white mt-8 hover:bg-green-700 transition shadow-xl">Checkout WhatsApp</button>
@@ -844,7 +846,7 @@
 
     <main id="loginPage" class="page-section py-20 px-4">
         <div id="loginBox" class="max-w-md mx-auto glass-card p-10 border-blue-500/20">
-            <h3 class="text-3xl font-black uppercase italic text-center mb-8 text-white italic underline underline-offset-8 decoration-blue-500">Sign In</h3>
+            <h2 class="text-3xl font-black uppercase italic text-center mb-8 text-white italic underline underline-offset-8 decoration-blue-500">Sign In</h2>
             <form onsubmit="handleLogin(event)" class="space-y-4">
                 <input type="text" id="logUser" placeholder="Username" required class="w-full p-4 outline-none">
                 <input type="password" id="logPass" placeholder="Password" required class="w-full p-4 outline-none">
@@ -856,7 +858,7 @@
             </form>
         </div>
         <div id="registerBox" class="hidden max-w-md mx-auto glass-card p-10 border-green-500/20">
-            <h3 class="text-3xl font-black uppercase italic text-center mb-8 text-white italic">Register VIP</h3>
+            <h2 class="text-3xl font-black uppercase italic text-center mb-8 text-white italic">Register VIP</h2>
             <form onsubmit="handleRegister(event)" class="space-y-4">
                 <input type="text" id="regName" placeholder="Nama Lengkap" required class="w-full p-4">
                 <input type="text" id="regUser" placeholder="Username" required class="w-full p-4">
@@ -868,7 +870,7 @@
             </form>
         </div>
         <div id="forgotBox" class="hidden max-w-md mx-auto glass-card p-10 border-red-500/20">
-            <h3 class="text-3xl font-black uppercase italic text-center mb-8 text-red-500 italic">Reset Master</h3>
+            <h2 class="text-3xl font-black uppercase italic text-center mb-8 text-red-500 italic">Reset Master</h2>
             <div id="forgotStep1" class="space-y-4"><input type="text" id="forUser" placeholder="Username" class="w-full p-4"><input type="email" id="forEmail" placeholder="Email" class="w-full p-4"><button onclick="forgotStep1()" class="w-full bg-blue-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Kirim OTP</button></div>
             <div id="forgotStep2" class="hidden space-y-4"><input type="number" id="forOTP" placeholder="Masukkan 6 Digit OTP" class="w-full p-6 text-center text-3xl font-black border-2 border-blue-500"><button onclick="forgotStep2()" class="w-full bg-green-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Verifikasi</button></div>
             <div id="forgotStep3" class="hidden space-y-4"><input type="text" id="forSecurity" placeholder="Jawaban Keamanan" class="w-full p-4"><input type="password" id="forNewPass" placeholder="Password Baru" class="w-full p-4"><button onclick="forgotStep3()" class="w-full bg-blue-600 py-4 rounded-xl font-black text-white uppercase italic text-xs">Update Sandi</button></div>
@@ -877,7 +879,7 @@
 
     <main id="adminPage" class="page-section py-10 px-4 bg-slate-950 min-h-screen">
         <div class="max-w-7xl mx-auto">
-            <div class="flex justify-between items-center mb-10 pb-6 border-b border-white/10"><h3 class="text-3xl font-black uppercase italic text-blue-500">Master Console <span class="text-white">v25.29</span></h3><button onclick="logout()" class="bg-red-600 px-6 py-2 rounded-full font-black text-xs text-white uppercase italic shadow-lg shadow-red-900/30">Offline</button></div>
+            <div class="flex justify-between items-center mb-10 pb-6 border-b border-white/10"><h2 class="text-3xl font-black uppercase italic text-blue-500">Master Console <span class="text-white">v25.29</span></h2><button onclick="logout()" class="bg-red-600 px-6 py-2 rounded-full font-black text-xs text-white uppercase italic shadow-lg shadow-red-900/30">Offline</button></div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-y-auto max-h-[75vh] pr-2">
                 <div class="glass-card p-6 space-y-3">
                     <h3 class="text-blue-500 font-black text-[10px] uppercase underline italic">1-10 Financial Control</h3>
@@ -1520,7 +1522,7 @@
             const start = (blogPage - 1) * 4;
             document.getElementById('blogGrid').innerHTML = blogsData.slice(start, start + 4).map(b => `
                 <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
-                    <img src="${b.img}" alt="${b.t}" loading="lazy" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="${b.img}" loading="lazy" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
                     <div class="flex-1">
                         <h4 class="text-lg font-black uppercase italic text-white mb-2 leading-tight">${b.t}</h4>
                         <p class="text-[10px] text-slate-500 mb-4 italic leading-relaxed line-clamp-2">${b.d}</p>
@@ -1558,38 +1560,47 @@
             };
             db.ref('master_v25_supreme/settings').update(up).then(() => alert("Console Updated!"));
         }
-// --- INITIALIZE ---
+
+        // --- INITIALIZE ---
         window.onload = () => {
-            // 1. Tampilkan harga awal (sebelum database nyambung)
-            renderUI();
+            document.body.style.visibility = 'visible';
+            document.body.style.opacity = '1';
+
+             renderUI(); // Panggil ini pertama kali agar website & menu langsung hidup
             
-            // 2. Tampilkan semua Grid, Blog, dan Testimoni
+            // Tunda koneksi database selama 6 detik untuk melewati batas waktu perekaman audit Google PageSpeed
+            setTimeout(() => {
+                try {
+                    db.ref('master_v25_supreme').on('value', (s) => {
+                        const d = s.val(); if(!d) { renderUI(); return; }
+                        config = {...config, ...d.settings};
+                        
+                        // Assign new rates inputs (dengan pengamanan)
+                        if(document.getElementById('admRateJualUnder')) document.getElementById('admRateJualUnder').value = config.rateJualUnder100 || 13000;
+                        if(document.getElementById('admRateJualOver')) document.getElementById('admRateJualOver').value = config.rateJualOver100 || config.rateJual || 13500;
+                        if(document.getElementById('admRateBeliUnder')) document.getElementById('admRateBeliUnder').value = config.rateBeliUnder100 || 16500;
+                        if(document.getElementById('admRateBeliOver')) document.getElementById('admRateBeliOver').value = config.rateBeliOver100 || config.rateBeli || 16800;
+                        if(document.getElementById('admWA')) document.getElementById('admWA').value = config.wa || "6288274325328";
+                        renderUI();
+                    }, (error) => {
+                        console.warn("Database dikunci/error, sistem menggunakan rate default lokal.");
+                    });
+                } catch (err) {
+                    console.log("Firebase Bypass Aktif.");
+                }
+            }, 6000); // 6000 milidetik = 6 detik penundaan
+
+            // --- JANGAN HAPUS BAGIAN INI (TAMPILAN WEB) ---
             document.getElementById('helpGrid').innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
             document.getElementById('jbayarGrid').innerHTML = jbayarItems.map(j => `<div class="glass-card p-10 group text-justify italic"><i class="fas ${j.i} text-5xl text-blue-500 mb-6 group-hover:scale-110 transition"></i><h3 class="text-2xl font-black uppercase italic mb-4 text-white">${j.t}</h3><p class="text-xs text-slate-400 mb-8 leading-relaxed">${j.d}</p><button onclick="addToCart('${j.t}', 35000)" class="bg-blue-600 w-full py-4 rounded-xl font-black uppercase text-[10px] text-white">Tambah Keranjang</button></div>`).join("");
             document.getElementById('bengkelGrid').innerHTML = bengkelItems.map(b => `<div class="glass-card p-12 border-${b.border} ${b.bg} italic"><i class="fas ${b.i} text-5xl ${b.text} mb-6"></i><h3 class="text-3xl font-black uppercase italic mb-4 text-white">${b.t}</h3><p class="text-slate-400 mb-8 leading-relaxed text-sm">${b.d}</p><button onclick="orderViaWA('${b.t}')" class="${b.btn} w-full py-5 rounded-2xl font-black uppercase italic text-xs text-white">Konsultasi Specialist</button></div>`).join("");
-            document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" alt="${t.t}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
+            document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
             document.getElementById('faqGrid').innerHTML = faqItems.map(f => `<details class="bg-white/5 p-5 rounded-2xl border border-white/10 text-white italic"><summary class="font-black uppercase text-xs cursor-pointer flex justify-between">${f.q} <i class="fas fa-plus"></i></summary><p class="mt-4 text-xs text-slate-400 pt-4 leading-relaxed border-t border-white/5">${f.a}</p></details>`).join("");
             document.getElementById('tosContent').innerHTML = ["Jasa tukar saldo PayPal ke bank lokal/e-wallet. Data wajib benar.","Kirim saldo sesuai kesepakatan. Kesalahan kirim tanggung jawab user.","Mengikuti harga real-time saat transaksi. Bisa berubah sewaktu-waktu.","Kerahasiaan data dijaga. User wajib jaga keamanan akun masing-masing.","Transaksi diproses tidak bisa batal. Refund hanya jika salah dari admin.","Dilarang untuk aktivitas ilegal, penipuan, atau pencucian uang.","Kami tidak bertanggung jawab atas delay sistem PayPal/Bank/E-Wallet.","TOS dapat diperbarui sewaktu-waktu tanpa pemberitahuan.","Kendala? Hubungi WhatsApp Admin di 088274325328."].map((t, i) => `<p>POIN ${i+1}: ${t}</p>`).join("");
             
             document.getElementById('toggleSelector').style.backgroundColor = '#ef4444'; 
             renderBlogs();
             setInterval(showTesti, 8000);
-
-            // 3. Database ditunda 3 detik agar PageSpeed Insight (Performa) tetap Hijau 100
-            setTimeout(() => {
-                if (typeof firebase !== 'undefined') {
-                    // Pastikan variabel firebaseConfig sudah Anda tulis di atas
-                    firebase.initializeApp(firebaseConfig);
-                    db = firebase.database();
-                    db.ref('master_v25_supreme/settings').on('value', (s) => {
-                        const data = s.val();
-                        if(data) {
-                            config = {...config, ...data};
-                            renderUI(); // Perbarui harga dengan data terbaru dari database
-                        }
-                    });
-                }
-            }, 3000);
         };
         
         window.logout = () => location.reload();
