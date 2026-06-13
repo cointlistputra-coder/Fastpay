@@ -77,8 +77,8 @@
             <div class="relative w-full">
                 <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-white/50"></i>
                 <!-- 3. PERBAIKAN KONTRAS PENCARIAN (text-white/80) -->
-                <input type="text" id="globalSearch" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/80 focus:ring-2 focus:ring-white/30 text-white">
-            </div>
+                <input type="text" id="globalSearch" aria-label="Pencarian" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/80 focus:ring-2 focus:ring-white/30 text-white" />
+            <div
             <button onclick="showPage('cart')" class="bg-black/50 px-4 py-2 rounded-full text-white text-xs font-black flex items-center shrink-0">
                 <i class="fas fa-shopping-basket mr-2"></i> CART <span id="cartCountTop" class="cart-badge">0</span>
             </button>
@@ -96,7 +96,7 @@
 
     <nav class="bg-black/40 backdrop-blur-md border-b border-white/10 h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
-            <a href="#home" onclick="showPage('home'); return false;" class="flex items-center gap-2 cursor-pointer">
+            <a href="#homePage" onclick="showPage('home'); return false;" class="flex items-center gap-2 cursor-pointer">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg blur opacity-40 group-hover:opacity-100 transition duration-1000"></div>
                     <img src="logo.png" width="48" height="48" alt="Logo" class="relative h-12 w-12 rounded-xl border border-white/10 shadow-inner object-cover">
@@ -104,18 +104,18 @@
                 <span class="text-xl font-black uppercase italic text-white">Done<span class="text-blue-500">Cogel</span></span>
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[10px] font-black uppercase tracking-widest italic text-white">
-                <a href="javascript:void(0);" onclick="showPage('home')" class="hover:text-blue-400 cursor-pointer">Home</a>
-                <a href="javascript:void(0);" onclick="showPage('jbayar')" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
-                <a href="javascript:void(0);" onclick="showPage('bengkel')" class="hover:text-red-400 cursor-pointer">Bengkel</a>
-                <a href="javascript:void(0);" onclick="showPage('edukasi')" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
-                <a href="javascript:void(0);" onclick="showPage('blog')" class="hover:text-blue-400 cursor-pointer">Blog</a>
-                <a href="javascript:void(0);" onclick="showPage('tutorial')" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
-                <a href="javascript:void(0);" onclick="showPage('about')" class="hover:text-purple-400 cursor-pointer">Tentang</a>
-                <a href="javascript:void(0);" onclick="showPage('reviews')" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
+                <a href="#homePage" onclick="showPage('home'); return false;" class="hover:text-blue-400 cursor-pointer">Home</a>
+                <a href="#jbayarPage" onclick="showPage('jbayar'); return false;" class="hover:text-green-400 cursor-pointer">Jasa Bayar</a>
+                <a href="#bengkelPage" onclick="showPage('bengkel'); return false;" class="hover:text-red-400 cursor-pointer">Bengkel</a>
+                <a href="#edukasiPage" onclick="showPage('edukasi'); return false;" class="hover:text-cyan-400 cursor-pointer">Master Guide</a>
+                <a href="#blogPage" onclick="showPage('blog'); return false;" class="hover:text-blue-400 cursor-pointer">Blog</a>
+                <a href="#tutorialPage" onclick="showPage('tutorial'); return false;" class="hover:text-blue-400 cursor-pointer">Tutorial AI</a>
+                <a href="#aboutPage" onclick="showPage('about'); return false;" class="hover:text-purple-400 cursor-pointer">Tentang</a>
+                <a href="#reviewsPage" onclick="showPage('reviews'); return false;" class="hover:text-pink-400 cursor-pointer">Ulasan</a>
                 <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-accent cursor-pointer"><i class="fab fa-facebook mr-1"></i> Testi WD Limit</a>
-                <a href="javascript:void(0);" onclick="showPage('maps')" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
-                <a href="javascript:void(0);" onclick="showPage('faq')" class="hover:text-amber-400 cursor-pointer">FAQ</a>
-                <a href="javascript:void(0);" onclick="showPage('lapor')" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
+                <a href="#mapsPage" onclick="showPage('maps'); return false;" class="hover:text-emerald-400 cursor-pointer">Lokasi</a>
+                <a href="#faqPage" onclick="showPage('faq'); return false;" class="hover:text-amber-400 cursor-pointer">FAQ</a>
+                <a href="#laporPage" onclick="showPage('lapor'); return false;" class="text-orange-400 cursor-pointer"><i class="fas fa-headset mr-1"></i> Lapor</a>
             </div>
             <button aria-label="Buka Menu" onclick="toggleMobile()" class="lg:hidden text-white text-2xl">
                 <i class="fas fa-bars"></i>
@@ -124,18 +124,18 @@
     </nav>
 
     <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 p-6 space-y-4 border-b border-blue-500 text-[10px] font-black uppercase italic">
-        <a href="javascript:void(0);" onclick="showPage('home'); toggleMobile()" class="block text-white">Home</a>
-        <a href="javascript:void(0);" onclick="showPage('jbayar'); toggleMobile()" class="block text-green-400">Jasa Bayar</a>
-        <a href="javascript:void(0);" onclick="showPage('bengkel'); toggleMobile()" class="block text-red-400">Bengkel Specialist</a>
-        <a href="javascript:void(0);" onclick="showPage('edukasi'); toggleMobile()" class="block text-cyan-400">Artikel Bantuan</a>
-        <a href="javascript:void(0);" onclick="showPage('blog'); toggleMobile()" class="block text-white">Blog Edukasi</a>
-        <a href="javascript:void(0);" onclick="showPage('tutorial'); toggleMobile()" class="block text-white">Tutorial Visual</a>
-        <a href="javascript:void(0);" onclick="showPage('about'); toggleMobile()" class="block text-purple-400">Tentang Kami</a>
-        <a href="javascript:void(0);" onclick="showPage('reviews'); toggleMobile()" class="block text-pink-400">Ulasan Pelanggan</a>
+        <a href="#homePage" onclick="showPage('home'); toggleMobile(); return false;" class="block text-white">Home</a>
+        <a href="#jbayarPage" onclick="showPage('jbayar'); toggleMobile(); return false;" class="block text-green-400">Jasa Bayar</a>
+        <a href="#bengkelPage" onclick="showPage('bengkel'); toggleMobile(); return false;" class="block text-red-400">Bengkel Specialist</a>
+        <a href="#edukasiPage" onclick="showPage('edukasi'); toggleMobile(); return false;" class="block text-cyan-400">Artikel Bantuan</a>
+        <a href="#blogPage" onclick="showPage('blog'); toggleMobile(); return false;" class="block text-white">Blog Edukasi</a>
+        <a href="#tutorialPage" onclick="showPage('tutorial'); toggleMobile(); return false;" class="block text-white">Tutorial Visual</a>
+        <a href="#aboutPage" onclick="showPage('about'); toggleMobile(); return false;" class="block text-purple-400">Tentang Kami</a>
+        <a href="#reviewsPage" onclick="showPage('reviews'); toggleMobile(); return false;" class="block text-pink-400">Ulasan Pelanggan</a>
         <a href="https://www.facebook.com/share/p/14cdngnfxY1/" target="_blank" rel="noopener noreferrer" class="block text-blue-400"><i class="fab fa-facebook mr-1"></i> Testi WD Paypal Limit</a>
-        <a href="javascript:void(0);" onclick="showPage('maps'); toggleMobile()" class="block text-emerald-400">Lokasi Kantor</a>
-        <a href="javascript:void(0);" onclick="showPage('faq'); toggleMobile()" class="block text-amber-500">FAQ & TOS</a>
-        <a href="javascript:void(0);" onclick="showPage('lapor'); toggleMobile()" class="block text-orange-400">Laporan Keluhan</a>
+        <a href="#mapsPage" onclick="showPage('maps'); toggleMobile(); return false;" class="block text-emerald-400">Lokasi Kantor</a>
+        <a href="#faqPage" onclick="showPage('faq'); toggleMobile(); return false;" class="block text-amber-500">FAQ & TOS</a>
+        <a href="#laporPage" onclick="showPage('lapor'); toggleMobile(); return false;" class="block text-orange-400">Laporan Keluhan</a>
     </div>
 
     <div id="infoModal" onclick="closeModal()">
@@ -1436,7 +1436,7 @@
             const start = (blogPage - 1) * 4;
             document.getElementById('blogGrid').innerHTML = blogsData.slice(start, start + 4).map(b => `
                 <div class="glass-card p-6 flex flex-col md:flex-row gap-6">
-                    <img src="${b.img}" loading="lazy" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="${b.img}" alt="${b.t}" loading="lazy" class="w-full md:w-44 h-36 object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
                     <div class="flex-1">
                         <h4 class="text-lg font-black uppercase italic text-white mb-2 leading-tight">${b.t}</h4>
                         <p class="text-[10px] text-slate-500 mb-4 italic leading-relaxed line-clamp-2">${b.d}</p>
@@ -1508,7 +1508,7 @@
             document.getElementById('helpGrid').innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
             document.getElementById('jbayarGrid').innerHTML = jbayarItems.map(j => `<div class="glass-card p-10 group text-justify italic"><i class="fas ${j.i} text-5xl text-blue-500 mb-6 group-hover:scale-110 transition"></i><h3 class="text-2xl font-black uppercase italic mb-4 text-white">${j.t}</h3><p class="text-xs text-slate-400 mb-8 leading-relaxed">${j.d}</p><button onclick="addToCart('${j.t}', 35000)" class="bg-blue-600 w-full py-4 rounded-xl font-black uppercase text-[10px] text-white">Tambah Keranjang</button></div>`).join("");
             document.getElementById('bengkelGrid').innerHTML = bengkelItems.map(b => `<div class="glass-card p-12 border-${b.border} ${b.bg} italic"><i class="fas ${b.i} text-5xl ${b.text} mb-6"></i><h3 class="text-3xl font-black uppercase italic mb-4 text-white">${b.t}</h3><p class="text-slate-400 mb-8 leading-relaxed text-sm">${b.d}</p><button onclick="orderViaWA('${b.t}')" class="${b.btn} w-full py-5 rounded-2xl font-black uppercase italic text-xs text-white">Konsultasi Specialist</button></div>`).join("");
-            document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
+            document.getElementById('tutorialGrid').innerHTML = tutorials.map(t => `<div class="relative rounded-2xl overflow-hidden aspect-video cursor-pointer group" onclick="orderViaWA('Tanya Tutorial ${t.t}')"><img src="${t.img}" alt="${t.t}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-6 flex flex-col justify-end"><h4 class="text-white font-black italic uppercase text-lg">${t.t}</h4><p class="text-[10px] text-blue-400 font-bold uppercase italic">${t.d}</p></div></div>`).join("");
             document.getElementById('faqGrid').innerHTML = faqItems.map(f => `<details class="bg-white/5 p-5 rounded-2xl border border-white/10 text-white italic"><summary class="font-black uppercase text-xs cursor-pointer flex justify-between">${f.q} <i class="fas fa-plus"></i></summary><p class="mt-4 text-xs text-slate-400 pt-4 leading-relaxed border-t border-white/5">${f.a}</p></details>`).join("");
             document.getElementById('tosContent').innerHTML = ["Jasa tukar saldo PayPal ke bank lokal/e-wallet. Data wajib benar.","Kirim saldo sesuai kesepakatan. Kesalahan kirim tanggung jawab user.","Mengikuti harga real-time saat transaksi. Bisa berubah sewaktu-waktu.","Kerahasiaan data dijaga. User wajib jaga keamanan akun masing-masing.","Transaksi diproses tidak bisa batal. Refund hanya jika salah dari admin.","Dilarang untuk aktivitas ilegal, penipuan, atau pencucian uang.","Kami tidak bertanggung jawab atas delay sistem PayPal/Bank/E-Wallet.","TOS dapat diperbarui sewaktu-waktu tanpa pemberitahuan.","Kendala? Hubungi WhatsApp Admin di 088274325328."].map((t, i) => `<p>POIN ${i+1}: ${t}</p>`).join("");
             
