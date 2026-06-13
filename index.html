@@ -78,7 +78,7 @@
                 <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-white/50"></i>
                 <!-- 3. PERBAIKAN KONTRAS PENCARIAN (text-white/80) -->
                 <input type="text" id="globalSearch" aria-label="Pencarian" onkeyup="searchEngine()" placeholder="Cari layanan, blog, atau bantuan..." class="w-full bg-white/10 border-none py-2 pl-10 pr-4 text-xs rounded-full placeholder:text-white/80 focus:ring-2 focus:ring-white/30 text-white" />
-            <div
+            </div> 
             <button onclick="showPage('cart')" class="bg-black/50 px-4 py-2 rounded-full text-white text-xs font-black flex items-center shrink-0">
                 <i class="fas fa-shopping-basket mr-2"></i> CART <span id="cartCountTop" class="cart-badge">0</span>
             </button>
@@ -1477,9 +1477,7 @@
 
         // --- INITIALIZE ---
         window.onload = () => {
-            document.body.style.visibility = 'visible';
-            document.body.style.opacity = '1';
-
+        
              renderUI(); // Panggil ini pertama kali agar website & menu langsung hidup
             
             // Tunda koneksi database selama 6 detik untuk melewati batas waktu perekaman audit Google PageSpeed
