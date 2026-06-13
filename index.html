@@ -1212,10 +1212,29 @@
             {t: "Zoom Pro", d: "Langkah visual berlangganan tools pro tanpa kartu kredit.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"}
         ];
 
-        // --- UI CORE FUNCTIONS ---
+        // --- UI CORE FUNCTIONS (DENGAN DINAMIS SEO TITLE) ---
         window.showPage = (id) => {
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('page-active'));
-            document.getElementById(id + 'Page').classList.add('page-active'); window.scrollTo(0,0);
+            document.getElementById(id + 'Page').classList.add('page-active'); 
+            window.scrollTo(0,0);
+
+            // Pembaruan Judul Halaman Otomatis untuk Robot Google (SEO)
+            const seoTitles = {
+                home: "Jasa Convert PayPal & Wd Limit Permanen 180 Hari",
+                jbayar: "Global Payment & Jasa Bayar PayPal Internasional",
+                bengkel: "Bengkel Specialist Akun PayPal (Bantuan Limit & Restore)",
+                edukasi: "Master Guide & Pusat Literasi PayPal Indonesia",
+                blog: "Blog Edukasi & Panduan PayPal Terlengkap",
+                tutorial: "Visual AI Guide & Tutorial PayPal",
+                about: "Tentang Done Cogel - Layanan PayPal Terpercaya Sejak 2018",
+                reviews: "Ulasan & Testimoni Pelanggan Done Cogel",
+                maps: "Lokasi Kantor Operasional Done Cogel",
+                faq: "FAQ & Syarat Ketentuan Layanan (TOS)",
+                lapor: "Laporan Keluhan & Pengaduan Member Done Cogel"
+            };
+            if (seoTitles[id]) {
+                document.title = seoTitles[id] + " - Done Cogel";
+            }
         }
         window.toggleAuth = (t) => { ['loginBox','registerBox','forgotBox'].forEach(i => document.getElementById(i).classList.add('hidden')); document.getElementById(t+'Box').classList.remove('hidden'); }
         
@@ -1513,6 +1532,14 @@
             document.getElementById('toggleSelector').style.backgroundColor = '#ef4444'; 
             renderBlogs();
             setInterval(showTesti, 8000);
+            // Deteksi otomatis jika pengunjung masuk lewat link pencarian Google (hash link)
+            const currentHash = window.location.hash;
+            if (currentHash) {
+                const pageId = currentHash.replace("Page", "").replace("#", "");
+                if (document.getElementById(pageId + "Page")) {
+                    showPage(pageId);
+                }
+            }
         };
         
         window.logout = () => location.reload();
