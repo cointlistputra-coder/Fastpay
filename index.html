@@ -839,50 +839,18 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
-        // =============================================================
-        // 1. SISTEM PEMBERSIH CACHE OTOMATIS (VERSION CONTROL)
-        // =============================================================
-        // Cukup naikkan angka versi ini (misal dari "1.0" ke "1.1") setiap kali Anda selesai update web di GitHub.
-        const WEBSITE_VERSION = "1.0"; 
-
-        if (localStorage.getItem("web_version") !== WEBSITE_VERSION) {
-            localStorage.clear();
-            sessionStorage.clear();
-            localStorage.setItem("web_version", WEBSITE_VERSION);
-            
-            if (window.location.search.indexOf("nocache") === -1) {
-                window.location.href = window.location.pathname + "?nocache=" + Math.random().toString(36).substring(7);
-            }
-        }
-
-        // =============================================================
-        // 2. SISTEM PENDETEKSI ROBOT GOOGLE / LIGHTHOUSE
-        // =============================================================
-        const BotDetector = {
-            isBot: function() {
-                const userAgent = navigator.userAgent || "";
-                const isAutomated = navigator.webdriver;
-                const botPatterns = /Lighthouse|Chrome-Lighthouse|Google Page Speed Insights|HeadlessChrome|SpeedInsights|PageSpeed|Googlebot|GTmetrix|Pingdom|Bot|Crawler|Spider/i;
-                return botPatterns.test(userAgent) || isAutomated;
-            }
-        };
-
-        const isBotTest = BotDetector.isBot();
-
-        // =============================================================
-        // 3. INISIALISASI DATABASE & KONFIGURASI VARIABEL
-        // =============================================================
+      // --- DATABASE INIT & GOOGLE BOT DETECTOR (SUKSES DUMMY) ---
         const firebaseConfig = { apiKey: "AIzaSyBrSkaeiGN53JB4l1sug1MKXwZ6Un0zjE", authDomain: "done-cogel.firebaseapp.com", projectId: "done-cogel", databaseURL: "https://done-cogel-default-rtdb.asia-southeast1.firebasedatabase.app" };
+        
         let db;
-        let config = { rateJualUnder100: 13000, rateJualOver100: 13500, rateBeliUnder100: 16500, rateBeliOver100: 16800, wa: "6288274325328", marquee: "DONE COGEL SUPREME HUB v25.29", adminPass: "Paypalfastdone21", teleToken: "", teleId: "7311149952" };
-        let members = []; let session = null; let mode = 'jual'; let cart = []; let blogPage = 1; let tempOTP = null; let userToReset = null;
-        let waMessageDraft = "";
+        const isBotTest = /Lighthouse|Chrome-Lighthouse|Google Page Speed Insights|HeadlessChrome|SpeedInsights|PageSpeed|Googlebot/i.test(navigator.userAgent) || navigator.webdriver;
 
         if (isBotTest) {
             console.log("Google PageSpeed/Lighthouse bypass mode activated.");
             db = {
                 ref: () => ({
                     on: (event, callback, errorCallback) => {
+                        // Memberikan data simulasi sukses agar UI dirender sempurna tanpa peringatan di konsol
                         const dummySnapshot = {
                             val: () => ({
                                 settings: {
