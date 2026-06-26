@@ -1174,10 +1174,21 @@ Kami selalu mengedukasi para pelanggan jasa bayar kami untuk memperhitungkan bia
             {t: "Zoom Pro", d: "Langkah visual berlangganan tools pro tanpa kartu kredit.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"}
         ];
 
-        // --- UI CORE FUNCTIONS (DENGAN DINAMIS SEO TITLE) ---
+        // --- UI CORE FUNCTIONS (DENGAN DINAMIS SEO TITLE & ANTI-BLANK) ---
         window.showPage = (id) => {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('page-active'));
-            document.getElementById(id + 'Page').classList.add('page-active'); 
+            // 1. SISTEM PAKSA SEMBUNYI: Sembunyikan semua halaman dulu
+            document.querySelectorAll('.page-section').forEach(s => {
+                s.classList.remove('page-active');
+                s.style.display = 'none'; // Failsafe untuk HP
+            });
+            
+            // 2. SISTEM PAKSA TAMPIL: Munculkan halaman yang diklik
+            const targetPage = document.getElementById(id + 'Page');
+            if (targetPage) {
+                targetPage.classList.add('page-active');
+                targetPage.style.display = 'block'; // Failsafe untuk HP
+            }
+            
             window.scrollTo(0,0);
 
             // Pembaruan Judul Halaman Otomatis untuk Robot Google (SEO)
@@ -1194,10 +1205,9 @@ Kami selalu mengedukasi para pelanggan jasa bayar kami untuk memperhitungkan bia
                 faq: "FAQ & Syarat Ketentuan Layanan (TOS)",
                 lapor: "Laporan Keluhan & Pengaduan Member Done Cogel"
             };
-            if (seoTitles[id]) {
-                document.title = seoTitles[id] + " - Done Cogel";
-            }
+            if (seoTitles[id]) document.title = seoTitles[id] + " - Done Cogel";
         }
+        
         window.toggleAuth = (t) => { ['loginBox','registerBox','forgotBox'].forEach(i => document.getElementById(i).classList.add('hidden')); document.getElementById(t+'Box').classList.remove('hidden'); }
         
         // FUNGSI ANIMASI CYBER & MODE SWITCH UNTUK KALKULATOR
@@ -1456,15 +1466,14 @@ Kami selalu mengedukasi para pelanggan jasa bayar kami untuk memperhitungkan bia
             db.ref('master_v25_supreme/settings').update(up).then(() => alert("Console Updated!"));
         }
 
-        // --- INITIALIZE (BAGIAN YANG SUDAH DIOPTIMALKAN) ---
+        // --- INITIALIZE (BAGIAN YANG SUDAH DIOPTIMALKAN & ANTI-BLANK) ---
         document.addEventListener('DOMContentLoaded', () => {
             
             // 1. Jalankan fungsi utama secepat mungkin
             renderUI(); 
             renderBlogs();
             
-            // 2. Render semua Grid (Help, Jasa Bayar, Bengkel, Tutorial, FAQ, TOS)
-            // Kita kumpulkan semua di sini agar browser tidak kerja berat berkali-kali
+            // 2. Render semua Grid
             const helpGrid = document.getElementById('helpGrid');
             if(helpGrid) helpGrid.innerHTML = helpItems.map((h, i) => `<div onclick="explainHelp(${i})" class="glass-card p-4 text-center cursor-pointer group"><i class="fas ${h.i} text-xl text-blue-500 mb-2 group-hover:scale-110 transition"></i><p class="text-[8px] font-black uppercase italic text-white">${h.t}</p></div>`).join("");
 
@@ -1483,8 +1492,20 @@ Kami selalu mengedukasi para pelanggan jasa bayar kami untuk memperhitungkan bia
             const tosContent = document.getElementById('tosContent');
             if(tosContent) tosContent.innerHTML = ["Jasa tukar saldo PayPal ke bank lokal/e-wallet. Data wajib benar.","Kirim saldo sesuai kesepakatan. Kesalahan kirim tanggung jawab user.","Mengikuti harga real-time saat transaksi. Bisa berubah sewaktu-waktu.","Kerahasiaan data dijaga. User wajib jaga keamanan akun masing-masing.","Transaksi diproses tidak bisa batal. Refund hanya jika salah dari admin.","Dilarang untuk aktivitas ilegal, penipuan, atau pencucian uang.","Kami tidak bertanggung jawab atas delay sistem PayPal/Bank/E-Wallet.","TOS dapat diperbarui sewaktu-waktu tanpa pemberitahuan.","Kendala? Hubungi WhatsApp Admin di 088274325328."].map((t, i) => `<p>POIN ${i+1}: ${t}</p>`).join("");
 
-            // 3. Hubungkan ke Database (Firebase) dengan jeda 2.5 detik
-            // Agar skor Performa PageSpeed tetap Hijau/Tinggi
+            // 3. Failsafe Hash & Tampilan Awal (MEMASTIKAN HALAMAN TIDAK KOSONG)
+            const currentHash = window.location.hash;
+            if (currentHash) {
+                const pageId = currentHash.replace("Page", "").replace("#", "");
+                if (document.getElementById(pageId + "Page")) {
+                    showPage(pageId); // Tampilkan halaman sesuai menu yang terakhir diklik
+                } else {
+                    showPage('home');
+                }
+            } else {
+                showPage('home'); // Jika baru buka web, paksa tampilkan Home
+            }
+
+            // 4. Hubungkan ke Database (Firebase)
             setTimeout(() => {
                 try {
                     db.ref('master_v25_supreme').on('value', (s) => {
@@ -1492,7 +1513,6 @@ Kami selalu mengedukasi para pelanggan jasa bayar kami untuk memperhitungkan bia
                         if(!d) return;
                         config = {...config, ...d.settings};
                         
-                        // Sync data ke Dashboard Admin jika login
                         const fields = {
                             'admRateJualUnder': config.rateJualUnder100,
                             'admRateJualOver': config.rateJualOver100,
@@ -1506,23 +1526,16 @@ Kami selalu mengedukasi para pelanggan jasa bayar kami untuk memperhitungkan bia
                             if(el) el.value = fields[id];
                         }
 
-                        renderUI(); // Render ulang kalkulator dengan angka asli dari database
+                        renderUI(); 
                     });
                 } catch (err) {
                     console.log("Firebase Offline Mode.");
                 }
             }, 2500);
 
-            // 4. Jalankan Notifikasi Testimoni Palsu/Asli & Cek Link Hash
+            // 5. Jalankan Notifikasi Testimoni
             setInterval(showTesti, 8000);
-            
-            const currentHash = window.location.hash;
-            if (currentHash) {
-                const pageId = currentHash.replace("Page", "").replace("#", "");
-                if (document.getElementById(pageId + "Page")) showPage(pageId);
-            }
         });
-    
         window.logout = () => location.reload();
     </script>
 </body>
